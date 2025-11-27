@@ -41,8 +41,11 @@ const About = () => {
     <>
       <Name />
       <div className="flex items-center min-[1000px]:flex-row flex-col-reverse">
-        <p
+        <motion.p
           variants={fadeIn("", "", 0.1, 1)}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.25 }}
           className="mt-4 text-secondary text-[17px] max-w-3xl leading-[30px]"
         >
           My work lives at the intersection of community design, systems
@@ -67,23 +70,29 @@ const About = () => {
           . <br />
           I'm always open to new opportunities and collaborations! <br />
           <br />
-        </p>
-        <Tilt className="xs:w-[350px] xs:h-[350px] w-full h-full m-auto max-[1000px]:my-14">
-          <div
+        </motion.p>
+        <Tilt
+          tiltMaxAngleX={45}
+          tiltMaxAngleY={45}
+          scale={1}
+          transitionSpeed={450}
+          className="xs:w-[350px] xs:h-[350px] w-full h-full m-auto max-[1000px]:my-14"
+        >
+          <motion.div
             variants={fadeIn("", "", 0.5, 1)}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.25 }}
             className="xs:w-[350px] w-full green-pink-gradient p-[1px] rounded-[20px]"
           >
-            <div
-              options={{ max: 45, scale: 1, speed: 450 }}
-              className="bg-tertiary rounded-[20px] min-h-[250px] flex justify-evenly items-center flex-col overflow-hidden"
-            >
+            <div className="bg-tertiary rounded-[20px] min-h-[250px] flex justify-evenly items-center flex-col overflow-hidden">
               <img
                 src={profile}
                 alt="profile"
                 className="w-full h-full object-contain"
               />
             </div>
-          </div>
+          </motion.div>
         </Tilt>
       </div>
       <motion.div

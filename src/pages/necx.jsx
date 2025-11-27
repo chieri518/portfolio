@@ -1,28 +1,8 @@
 import { useEffect, useRef, useState } from "react";
-import {
-  VerticalTimeline,
-  VerticalTimelineElement,
-} from "react-vertical-timeline-component";
-import { motion } from "framer-motion";
 import { styles } from "../styles";
 import { SectionWrapper } from "../hoc";
-import { fadeIn, textVariant } from "../utils/motion";
-import {
-  necx,
-  elevx,
-  spin1,
-  spin2,
-  spin3,
-  spin4,
-  luma1,
-  luma2,
-  luma3,
-  luma4,
-  luma5,
-  luma6,
-} from "../assets";
-
-const LumaImages = [luma1, luma2, luma3, luma4, luma5, luma6];
+import { spinImages, lumaImages } from "../constants";
+import { necx, elevx } from "../assets";
 
 function LumaGallery() {
   const ref = useRef();
@@ -56,7 +36,7 @@ function LumaGallery() {
           animationPlayState: shouldPlay ? "running" : "paused",
         }}
       >
-        {LumaImages.map((image, index) => (
+        {lumaImages.map((image, index) => (
           <img
             key={index}
             src={image}
@@ -89,7 +69,7 @@ function NECX() {
                 <div className="max-w-6xl mx-auto bg-gray-50 px-6 py-6 md:px-10 md:py-8">
                   <div className="flex flex-col lg:flex-row items-center lg:items-start gap-8">
                     <div className="flex-1">
-                      <p className="text-secondary text-[16px] md:text-[17px] leading-[28px] md:leading-[30px]">
+                      <p className={styles.bodyText}>
                         NEC X is a Silicon Valley-based venture studio backed by
                         NEC Corporation, running a multi-phase accelerator
                         program connecting early-stage startups with corporate
@@ -157,7 +137,7 @@ function NECX() {
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               1. Social Media Marketing
             </h2>
-            <p className="text-secondary text-[16px] md:text-[17px] leading-[28px] md:leading-[30px]">
+            <p className={styles.bodyText}>
               Building Program Visibility
             </p>
           </div>
@@ -260,7 +240,7 @@ function NECX() {
             <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               2. Event Management
             </h3>
-            <p className="text-secondary text-[16px] md:text-[17px] leading-[28px] md:leading-[30px]">
+            <p className={styles.bodyText}>
               Converting Interest into Applications
             </p>
           </div>
@@ -334,34 +314,18 @@ function NECX() {
                   </li>
                 </ul>
                 <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                  <div className="w-full overflow-hidden rounded-2xl border border-gray-100 bg-gray-50">
-                    <img
-                      src={spin1}
-                      alt="Group photo from NEC X flagship event"
-                      className="w-full aspect-[4/3] object-cover"
-                    />
-                  </div>
-                  <div className="w-full overflow-hidden rounded-2xl border border-gray-100 bg-gray-50">
-                    <img
-                      src={spin2}
-                      alt="Conversation with founder at NEC X event"
-                      className="w-full aspect-[4/3] object-cover"
-                    />
-                  </div>
-                  <div className="w-full overflow-hidden rounded-2xl border border-gray-100 bg-gray-50">
-                    <img
-                      src={spin3}
-                      alt="Group photo from NEC X event session"
-                      className="w-full aspect-[4/3] object-cover"
-                    />
-                  </div>
-                  <div className="w-full overflow-hidden rounded-2xl border border-gray-100 bg-gray-50">
-                    <img
-                      src={spin4}
-                      alt="Closing group photo at NEC X event"
-                      className="w-full aspect-[4/3] object-cover"
-                    />
-                  </div>
+                  {spinImages.map(({ src, alt }) => (
+                    <div
+                      key={alt}
+                      className="w-full overflow-hidden rounded-2xl border border-gray-100 bg-gray-50"
+                    >
+                      <img
+                        src={src}
+                        alt={alt}
+                        className="w-full aspect-[4/3] object-cover"
+                      />
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
@@ -375,7 +339,7 @@ function NECX() {
             <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               3. Program Coordination
             </h3>
-            <p className="text-secondary text-[16px] md:text-[17px] leading-[28px] md:leading-[30px]">
+            <p className={styles.bodyText}>
               Supporting Founder Success
             </p>
           </div>

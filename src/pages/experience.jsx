@@ -15,97 +15,98 @@ import { styles } from "../styles";
 import { experiences, educations, awards } from "../constants";
 import { fadeIn, textVariant } from "../utils/motion";
 
-const ExperienceCard = ({ experience }) => {
-  const isNECX = experience.company_name === "NEC X";
-  const isChetz = experience.company_name === "chetz";
-
-  return (
-    <VerticalTimelineElement
-      contentStyle={{ background: "#eafbff", color: "#000000" }}
-      contentArrowStyle={{ borderRight: "7px solid #77ddf9" }}
-      date={experience.date}
-      iconStyle={{ background: "#E6DEDD" }}
-      icon={
-        <div className="flex justify-center items-center w-full h-full">
-          <img
-            src={experience.icon}
-            alt={experience.company_name}
-            className="w-[65%] h-[65%] object-contain"
-          />
-        </div>
-      }
-    >
-      <div>
-        <h3 className="text-black text-[24px] font-bold">{experience.title}</h3>
-        <p
-          className="text-secondary text-[16px] font-semibold"
-          style={{ margin: 0 }}
-        >
-          {experience.company_name}
-        </p>
-      </div>
-      <ul className="mt-5 list-disc c-5 space-y-2">
-        {experience.points.map((point, index) => (
-          <li
-            key={`experience-point-${index}`}
-            className="text-black text-[14px] pl-1 tracking-wider"
-          >
-            {point}
-          </li>
-        ))}
-      </ul>
-
-      {(isNECX || isChetz) && (
-        <div className="mt-3">
-          <Link
-            to={isNECX ? "/necx" : "/chetz"}
-            className="inline-flex items-center gap-1 text-sm font-medium text-primary hover:text-secondary hover:underline transition-colors duration-200"
-          >
-            <span>Read more</span>
-            <span aria-hidden="true">→</span>
-          </Link>
-        </div>
-      )}
-    </VerticalTimelineElement>
-  );
-};
-
-const EducationCard = ({ education }) => (
+const TimelineCard = ({
+  date,
+  icon,
+  iconAlt,
+  iconSize = "65%",
+  title,
+  subtitle,
+  points,
+  footer,
+}) => (
   <VerticalTimelineElement
     contentStyle={{ background: "#eafbff", color: "#000000" }}
     contentArrowStyle={{ borderRight: "7px solid #77ddf9" }}
-    date={education.date}
+    date={date}
     iconStyle={{ background: "#E6DEDD" }}
     icon={
       <div className="flex justify-center items-center w-full h-full">
         <img
-          src={education.icon}
-          alt={education.school}
-          className="w-[60%] h-[60%] object-contain"
+          src={icon}
+          alt={iconAlt}
+          className="object-contain"
+          style={{ width: iconSize, height: iconSize }}
         />
       </div>
     }
   >
     <div>
-      <h3 className="text-black text-[24px] font-bold">{education.degree}</h3>
+      <h3 className="text-black text-[24px] font-bold">{title}</h3>
       <p
         className="text-secondary text-[16px] font-semibold"
         style={{ margin: 0 }}
       >
-        {education.school}
+        {subtitle}
       </p>
     </div>
     <ul className="mt-5 list-disc c-5 space-y-2">
-      {education.points.map((point, index) => (
+      {points.map((point, index) => (
         <li
-          key={`education-point-${index}`}
+          key={`point-${index}`}
           className="text-black text-[14px] pl-1 tracking-wider"
         >
           {point}
         </li>
       ))}
     </ul>
+    {footer}
   </VerticalTimelineElement>
+);
+
+const ExperienceCard = ({ experience }) => {
+  const detailRoute =
+    experience.company_name === "NEC X"
+      ? "/necx"
+      : experience.company_name === "chetz"
+        ? "/chetz"
+        : null;
+
+  return (
+    <TimelineCard
+      date={experience.date}
+      icon={experience.icon}
+      iconAlt={experience.company_name}
+      title={experience.title}
+      subtitle={experience.company_name}
+      points={experience.points}
+      footer={
+        detailRoute && (
+          <div className="mt-3">
+            <Link
+              to={detailRoute}
+              className="inline-flex items-center gap-1 text-sm font-medium text-primary hover:text-secondary hover:underline transition-colors duration-200"
+            >
+              <span>Read more</span>
+              <span aria-hidden="true">→</span>
+            </Link>
+          </div>
+        )
+      }
+    />
+  );
+};
+
+const EducationCard = ({ education }) => (
+  <TimelineCard
+    date={education.date}
+    icon={education.icon}
+    iconAlt={education.school}
+    iconSize="60%"
+    title={education.degree}
+    subtitle={education.school}
+    points={education.points}
+  />
 );
 
 const AwardCard = ({ index, name, description, image }) => {

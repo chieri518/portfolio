@@ -1,9 +1,7 @@
 import { memo, useState, useEffect, useRef } from "react";
 import cn from "classnames";
-import { motion } from "framer-motion";
 import { styles } from "../styles";
 import { SectionWrapper } from "../hoc";
-import { fadeIn, textVariant } from "../utils/motion";
 import { uif, steamhouse, uiftimeline, meetup } from "../constants";
 import {
   uiflogo,
@@ -18,130 +16,14 @@ import {
   steamhouse_mindmap,
 } from "../assets";
 
-function UIFGallery() {
-  const ref = useRef();
-
-  const [shouldPlay, setShouldPlay] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          setShouldPlay(entry.isIntersecting);
-        });
-      },
-      {
-        root: null,
-        rootMargin: `${window.innerHeight}px 0px`,
-      }
-    );
-    observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, []);
-
-  return (
-    <div
-      ref={ref}
-      className="relative flex overflow-x-hidden overflow-y-visible w-auto"
-    >
-      <div
-        className="w-full py-12 lg:py-20 whitespace-nowrap flex flex-row animate-marquee lg:animate-large-marquee"
-        style={{
-          animationPlayState: shouldPlay ? "running" : "paused",
-        }}
-      >
-        <UIFImages />
-      </div>
-    </div>
-  );
-}
-
-function STEAMHouseGallery() {
-  const ref = useRef();
-
-  const [shouldPlay, setShouldPlay] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          setShouldPlay(entry.isIntersecting);
-        });
-      },
-      {
-        root: null,
-        rootMargin: `${window.innerHeight}px 0px`,
-      }
-    );
-    observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, []);
-
-  return (
-    <div
-      ref={ref}
-      className="relative flex overflow-x-hidden overflow-y-visible w-auto"
-    >
-      <div
-        className="w-full py-12 lg:py-20 whitespace-nowrap flex flex-row animate-marquee lg:animate-large-marquee"
-        style={{
-          animationPlayState: shouldPlay ? "running" : "paused",
-        }}
-      >
-        <STEAMHouseImages />
-      </div>
-    </div>
-  );
-}
-
-function MeetupGallery() {
-  const ref = useRef();
-
-  const [shouldPlay, setShouldPlay] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          setShouldPlay(entry.isIntersecting);
-        });
-      },
-      {
-        root: null,
-        rootMargin: `${window.innerHeight}px 0px`,
-      }
-    );
-    observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, []);
-
-  return (
-    <div
-      ref={ref}
-      className="relative flex overflow-x-hidden overflow-y-visible w-auto"
-    >
-      <div
-        className="w-full py-12 lg:py-20 whitespace-nowrap flex flex-row animate-marquee lg:animate-large-marquee"
-        style={{
-          animationPlayState: shouldPlay ? "running" : "paused",
-        }}
-      >
-        <MeetupImages />
-      </div>
-    </div>
-  );
-}
-
-const UIFImages = memo(function UIFImages() {
-  const images = [...uif, ...uif];
+const MarqueeImages = memo(function MarqueeImages({ images }) {
+  const doubled = [...images, ...images];
   return (
     <>
-      {images.map(({ src }, i) => (
+      {doubled.map(({ src }, i) => (
         <div
           key={i}
-          className={cn(
-            `group flex justify-center px-5 min-w-[50%] lg:min-w-[25%] rounded-2xl relative`
-          )}
+          className="group flex justify-center px-5 min-w-[50%] lg:min-w-[25%] rounded-2xl relative"
         >
           <div
             className={cn(
@@ -161,6 +43,43 @@ const UIFImages = memo(function UIFImages() {
     </>
   );
 });
+
+function MarqueeGallery({ images }) {
+  const ref = useRef();
+  const [shouldPlay, setShouldPlay] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          setShouldPlay(entry.isIntersecting);
+        });
+      },
+      {
+        root: null,
+        rootMargin: `${window.innerHeight}px 0px`,
+      }
+    );
+    observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div
+      ref={ref}
+      className="relative flex overflow-x-hidden overflow-y-visible w-auto"
+    >
+      <div
+        className="w-full py-12 lg:py-20 whitespace-nowrap flex flex-row animate-marquee lg:animate-large-marquee"
+        style={{
+          animationPlayState: shouldPlay ? "running" : "paused",
+        }}
+      >
+        <MarqueeImages images={images} />
+      </div>
+    </div>
+  );
+}
 
 const weekImages = [
   uif_week1,
@@ -204,74 +123,9 @@ const UIFCard = ({ experience, index }) => {
   );
 };
 
-const STEAMHouseImages = memo(function STEAMHouseImages() {
-  const images = [...steamhouse, ...steamhouse];
-  return (
-    <>
-      {images.map(({ src }, i) => (
-        <div
-          key={i}
-          className={cn(
-            `group flex justify-center px-5 min-w-[50%] lg:min-w-[25%] rounded-2xl relative`
-          )}
-        >
-          <div
-            className={cn(
-              "h-auto relative rounded-2xl overflow-hidden before:-skew-x-12 group-hover:before:animate-[shimmer_1s_forwards] before:bg-gradient-to-r before:from-transparent before:via-white/10 before:to-transparent transition-all ease-in-out duration-300",
-              i % 2 === 0
-                ? "rotate-2 group-hover:rotate-[-1deg] group-hover:scale-110 group-hover:shadow-lg lg:group-hover:shadow-2xl"
-                : "group-hover:rotate-1 group-hover:scale-110 group-hover:shadow-lg lg:group-hover:shadow-2xl rotate-[-2deg]"
-            )}
-          >
-            <img
-              src={src}
-              className="aspect-[4/3] h-full w-full flex object-cover rounded-2xl bg-gray-10 dark:bg-gray-80"
-            />
-          </div>
-        </div>
-      ))}
-    </>
-  );
-});
-
-const MeetupImages = memo(function MeetupImages() {
-  const images = [...meetup, ...meetup];
-  return (
-    <>
-      {images.map(({ src }, i) => (
-        <div
-          key={i}
-          className={cn(
-            `group flex justify-center px-5 min-w-[50%] lg:min-w-[25%] rounded-2xl relative`
-          )}
-        >
-          <div
-            className={cn(
-              "h-auto relative rounded-2xl overflow-hidden before:-skew-x-12 group-hover:before:animate-[shimmer_1s_forwards] before:bg-gradient-to-r before:from-transparent before:via-white/10 before:to-transparent transition-all ease-in-out duration-300",
-              i % 2 === 0
-                ? "rotate-2 group-hover:rotate-[-1deg] group-hover:scale-110 group-hover:shadow-lg lg:group-hover:shadow-2xl"
-                : "group-hover:rotate-1 group-hover:scale-110 group-hover:shadow-lg lg:group-hover:shadow-2xl rotate-[-2deg]"
-            )}
-          >
-            <img
-              src={src}
-              className="aspect-[4/3] h-full w-full flex object-cover rounded-2xl bg-gray-10 dark:bg-gray-80"
-            />
-          </div>
-        </div>
-      ))}
-    </>
-  );
-});
-
 const UIF = () => {
-  const [activeTab, setActiveTab] = useState("STEAM");
   const [isMindmapOpen, setIsMindmapOpen] = useState(false);
   const [mindmapZoom, setMindmapZoom] = useState(1);
-
-  const handleTabClick = (tab) => {
-    setActiveTab(tab);
-  };
 
   const openMindmap = () => {
     setMindmapZoom(1);
@@ -298,14 +152,14 @@ const UIF = () => {
         @ Hasso Plattner Institute of Design at Stanford University
       </p>
       <div className="max-w-6xl mx-auto">
-        <UIFGallery />
+        <MarqueeGallery images={uif} />
       </div>
 
       {/* About UIF */}
       <div className={`${styles.padding} bg-gray-50 py-12`}>
         <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-center lg:items-start gap-8">
           <div className="flex-1">
-            <p className="text-secondary text-[16px] md:text-[17px] leading-[28px] md:leading-[30px]">
+            <p className={styles.bodyText}>
               The University Innovation Fellows (UIF) is a global program that
               empowers university students to become change agents at their
               schools by fostering innovation, entrepreneurship, creativity, and
@@ -341,7 +195,7 @@ const UIF = () => {
               <h3 className="text-xl md:text-2xl font-semibold mb-2 text-gray-900">
                 The Challenge
               </h3>
-              <p className="text-secondary text-[16px] md:text-[17px] leading-[28px] md:leading-[30px]">
+              <p className={styles.bodyText}>
                 The Innovation Center (a space designed by 2017 UIF cohort)
                 existed as a classroom with movable furniture and a Mac monitor,
                 but was cluttered, had no clear ownership, and saw minimal
@@ -351,12 +205,12 @@ const UIF = () => {
               <h3 className="text-xl md:text-2xl font-semibold mb-2 text-gray-900">
                 The Opportunity
               </h3>
-              <p className="text-secondary text-[16px] md:text-[17px] leading-[28px] md:leading-[30px] mb-2">
+              <p className={`${styles.bodyText} mb-2`}>
                 Our cohort identified that students lacked hands-on skill
                 development opportunities. We chose to focus on the Innovation
                 Center specifically because:
               </p>
-              <ul className="list-disc list-inside space-y-2 text-secondary text-[16px] md:text-[17px] leading-[28px] md:leading-[30px]">
+              <ul className={`list-disc list-inside space-y-2 ${styles.bodyText}`}>
                 <li>The infrastructure already existed.</li>
 
                 <li>
@@ -384,7 +238,7 @@ const UIF = () => {
             <h3 className="text-xl md:text-2xl font-semibold mb-3 text-gray-900">
               Key Design Decisions
             </h3>
-            <ul className="list-disc list-inside space-y-2 text-secondary text-[16px] md:text-[17px] leading-[28px] md:leading-[30px]">
+            <ul className={`list-disc list-inside space-y-2 ${styles.bodyText}`}>
               <li>
                 <strong>Sustainability over novelty:</strong> Focused on
                 long-term infrastructure rather than one-off events.
@@ -486,7 +340,7 @@ const UIF = () => {
       )}
 
       <div className={`${styles.padding} py-12`}>
-        <div className="max-w-6xl mx-auto space-y-10 text-secondary text-[16px] md:text-[17px] leading-[28px] md:leading-[30px]">
+        <div className={`max-w-6xl mx-auto space-y-10 ${styles.bodyText}`}>
           <div>
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
               Outcomes
@@ -534,10 +388,10 @@ const UIF = () => {
               alt="STEAMhouse makerspace"
               className="w-full h-auto object-contain rounded-2xl shadow-md"
             />
-            <STEAMHouseGallery />
+            <MarqueeGallery images={steamhouse} />
           </div>
         </div>
-        <div className="max-w-6xl mx-auto space-y-10 text-secondary text-[16px] md:text-[17px] leading-[28px] md:leading-[30px]">
+        <div className={`max-w-6xl mx-auto space-y-10 ${styles.bodyText}`}>
           <div>
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
               What I Learned
@@ -580,7 +434,7 @@ const UIF = () => {
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
               UIF Silicon Valley Meetup
             </h2>
-            <MeetupGallery />
+            <MarqueeGallery images={meetup} />
           </div>
         </div>
       </div>

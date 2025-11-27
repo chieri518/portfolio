@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
 import { styles } from "../styles";
 import { SectionWrapper } from "../hoc";
-import { textVariant } from "../utils/motion";
 import {
   chetzlogo,
   group1,
@@ -70,23 +68,23 @@ const photoSlides = [
   },
   {
     image: langexch1,
-    alt: "Casual team catch-up",
-    caption: "Casual Team Catch-up",
+    alt: "Language exchange event",
+    caption: "Language Exchange Event",
   },
   {
     image: langexch2,
-    alt: "Casual team catch-up",
-    caption: "Casual Team Catch-up",
+    alt: "Language exchange event participants",
+    caption: "Language Exchange Event",
   },
   {
     image: seminar1,
-    alt: "Casual team catch-up",
-    caption: "Casual Team Catch-up",
+    alt: "chetz seminar session",
+    caption: "Seminar Session",
   },
   {
     image: seminar2,
-    alt: "Casual team catch-up",
-    caption: "Casual Team Catch-up",
+    alt: "chetz seminar discussion",
+    caption: "Seminar Discussion",
   },
 ];
 
@@ -181,13 +179,11 @@ const chetz = () => {
         <div className="flex flex-col md:flex-row text-center items-start gap-8">
           <div className="flex-1 space-y-4">
             <h1 className={styles.sectionHeadText}>chetz</h1>
-            <p className="text-secondary text-[16px] text-center md:text-[18px]">
-              Social Media Marketing, Event and Program Operations.
-            </p>
+
             <div className="max-w-6xl mx-auto bg-gray-50 px-6 py-6 md:px-10 md:py-8">
               <div className="flex flex-col lg:flex-row items-center lg:items-start gap-8">
                 <div className="flex-1">
-                  <p className="text-secondary text-[16px] md:text-[17px] leading-[28px] md:leading-[30px]">
+                  <p className={styles.bodyText}>
                     chetz is a student-led nonprofit organization founded in
                     October 2020 to connect Japanese students with diverse
                     cultures during the COVID-19 pandemic. Rooted in the belief
@@ -216,7 +212,7 @@ const chetz = () => {
             Our Vision
           </h2>
 
-          <p className="text-secondary text-[16px] md:text-[17px] leading-[28px] md:leading-[30px]">
+          <p className={styles.bodyText}>
             To{" "}
             <strong className="text-primary">
               serve as a bridge between Japan and the world
@@ -233,7 +229,7 @@ const chetz = () => {
             Our Story
           </h2>
 
-          <p className="text-secondary text-[16px] md:text-[17px] leading-[28px] md:leading-[30px]">
+          <p className={styles.bodyText}>
             In 2020, the COVID-19 pandemic forced me to return to Japan from my
             high school in Canada, suddenly separating me from school, friends
             and the international environment that had shaped me. I thought
@@ -260,7 +256,7 @@ const chetz = () => {
             Our Impact
           </h2>
 
-          <ul className="list-disc list-inside space-y-2 text-secondary text-[16px] md:text-[17px] leading-[28px] md:leading-[30px]">
+          <ul className={`list-disc list-inside space-y-2 ${styles.bodyText}`}>
             <li>
               Recruited <strong className="text-primary">20+ members</strong>{" "}
               from 6 countries
@@ -394,7 +390,7 @@ const chetz = () => {
                   <p className="font-semibold text-lg mb-3 text-gray-900">
                     The Problem:
                   </p>
-                  <ul className="list-disc list-inside text-secondary text-[16px] md:text-[17px] leading-[28px] md:leading-[30px]">
+                  <ul className={`list-disc list-inside ${styles.bodyText}`}>
                     <li>Team commitment dropped as organization grew</li>
                     <li>
                       Members ghosting meetings, not delivering tasks, being
@@ -406,7 +402,7 @@ const chetz = () => {
                   <p className="font-semibold text-lg mb-3 text-gray-900">
                     The Solution:
                   </p>
-                  <ul className="list-disc list-inside text-secondary text-[16px] md:text-[17px] leading-[28px] md:leading-[30px]">
+                  <ul className={`list-disc list-inside ${styles.bodyText}`}>
                     <li>
                       Conducted 1-on-1 conversations with every member. Asked:
                       What do you <em>want</em> to do?
@@ -418,7 +414,7 @@ const chetz = () => {
                   <p className="font-semibold text-lg mb-3 text-gray-900">
                     Leadership Shift & Results:
                   </p>
-                  <ul className="list-disc list-inside text-secondary text-[16px] md:text-[17px] leading-[28px] md:leading-[30px]">
+                  <ul className={`list-disc list-inside ${styles.bodyText}`}>
                     <li>
                       Leadership shift from trying to teach/control to trusting
                       members and giving them real ownership.
@@ -483,7 +479,7 @@ const chetz = () => {
             </h2>
 
             <div className="text-center mb-8">
-              <p className="text-secondary text-[16px] md:text-[17px] leading-[28px] md:leading-[30px] max-w-4xl mx-auto">
+              <p className={`${styles.bodyText} max-w-4xl mx-auto`}>
                 chetz provides a flexible space where volunteers design
                 activities based on their own skills and experiences, enabling a
                 wide range of volunteer-led events, including:

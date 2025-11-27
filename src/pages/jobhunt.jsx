@@ -19,7 +19,7 @@ const JobHunt = () => {
         >
           Introduction: Resilience in a Shifting Job Market
         </h2>
-        <p className="mb-4 text-secondary text-[16px] md:text-[17px] leading-[28px] md:leading-[30px]">
+        <p className={`mb-4 ${styles.bodyText}`}>
           The tech industry is no stranger to cycles of boom and bust...
         </p>
 
@@ -77,7 +77,7 @@ const JobHunt = () => {
         >
           1. Network with Everyone
         </h3>
-        <p className="mb-4 text-secondary text-[16px] md:text-[17px] leading-[28px] md:leading-[30px]">
+        <p className={`mb-4 ${styles.bodyText}`}>
           Back in the ‘70s, Frances interviewed a Harvard MBA student...
         </p>
 
@@ -87,7 +87,7 @@ const JobHunt = () => {
         >
           2. Stay Adaptable, and Don’t Be Afraid to Take a Detour
         </h3>
-        <p className="mb-4 text-secondary text-[16px] md:text-[17px] leading-[28px] md:leading-[30px]">
+        <p className={`mb-4 ${styles.bodyText}`}>
           One of the reasons the job market is tight right now...
         </p>
 
@@ -97,7 +97,7 @@ const JobHunt = () => {
         >
           3. Keep Learning Lean Into Hot Trends
         </h3>
-        <p className="mb-4 text-secondary text-[16px] md:text-[17px] leading-[28px] md:leading-[30px]">
+        <p className={`mb-4 ${styles.bodyText}`}>
           (You can insert the content here)
         </p>
 
@@ -107,7 +107,7 @@ const JobHunt = () => {
         >
           4. Brand Yourself – Stand Out from Other Job Seekers
         </h3>
-        <p className="mb-4 text-secondary text-[16px] md:text-[17px] leading-[28px] md:leading-[30px]">
+        <p className={`mb-4 ${styles.bodyText}`}>
           (You can insert the content here)
         </p>
 
@@ -117,7 +117,7 @@ const JobHunt = () => {
         >
           Summary: Turning Challenges into Opportunities
         </h3>
-        <p className="mb-4 text-secondary text-[16px] md:text-[17px] leading-[28px] md:leading-[30px]">
+        <p className={`mb-4 ${styles.bodyText}`}>
           (You can insert the content here)
         </p>
 
@@ -127,7 +127,7 @@ const JobHunt = () => {
         >
           Part 2: Job Market Cycles: Learning from History
         </h2>
-        <p className="mb-4 text-secondary text-[16px] md:text-[17px] leading-[28px] md:leading-[30px]">
+        <p className={`mb-4 ${styles.bodyText}`}>
           (You can insert the content here)
         </p>
       </div>
