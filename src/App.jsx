@@ -6,6 +6,7 @@ import {
   UIF,
   Chetz,
   NECX,
+  BMO,
   Navbar,
   NotFound,
   JobHunt,
@@ -47,6 +48,7 @@ const App = () => {
           <Route path="/uif" element={<UIF />} />
           <Route path="/chetz" element={<Chetz />} />
           <Route path="/necx" element={<NECX />} />
+          <Route path="/bmo" element={<BMO />} />
           <Route path="/jobhunt" element={<JobHunt />} />
         </Route>
         <Route path="*" element={<NotFound />} />

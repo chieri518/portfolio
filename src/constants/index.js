@@ -83,6 +83,7 @@ import {
   chetzlogo,
   wsl,
 } from "../assets";
+import { bmoCover } from "./bmo";
 
 export const navLinks = [
   {
@@ -391,6 +392,14 @@ const highlights = [
 ];
 
 const works = [
+  {
+    name: "BMO Robot",
+    description:
+      "A voice-controlled BMO companion (from Adventure Time) that runs entirely on-device on a Raspberry Pi 5. Say \"Hey BMO\" and it wakes up, listens, thinks up a reply in BMO's cheerful personality, speaks it aloud in a custom voice, and reacts with animated facial expressions — all locally, with no cloud, accounts, or internet at runtime. A personal build documented step by step.",
+
+    image: bmoCover,
+    link: "/bmo",
+  },
   {
     name: "Founder of chetz",
     description:
