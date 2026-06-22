@@ -1,5 +1,4 @@
 import cover from "../assets/bmo/cover.svg";
-import photoPlaceholder from "../assets/bmo/photo-placeholder.svg";
 import bmoFaceFigma from "../assets/bmo/bmoface_figma.png";
 import bmoSetup from "../assets/bmo/setup.jpg";
 import reelDay1 from "../assets/bmo/reel-DZD6Qiuvxx7.jpg";
@@ -8,8 +7,7 @@ import reelDay3 from "../assets/bmo/reel-DZaxoA7y41K.jpg";
 import reelDay4 from "../assets/bmo/reel-DZdfR2jS2uS.jpg";
 import reelDay5 from "../assets/bmo/reel-DZtTaWmI9Xn.jpg";
 
-export const bmoCover = cover; // BMO illustration — hero image + Projects card
-export const bmoPhoto = photoPlaceholder; // fallback poster for reels without a cover
+export const bmoCover = cover;
 
 // ── Hero ──────────────────────────────────────────────────────────────
 export const bmoHero = {

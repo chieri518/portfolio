@@ -4,7 +4,6 @@ import { SectionWrapper } from "../hoc";
 import {
   bmoHero,
   bmoCover,
-  bmoPhoto,
   bmoTldr,
   bmoPipeline,
   bmoPhases,
@@ -178,7 +177,7 @@ function ReelCard({ reel, featured = false }) {
         }`}
       >
         <img
-          src={reel.poster || bmoPhoto}
+          src={reel.poster}
           alt={reel.caption || "BMO build reel"}
           className="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-[1.03] transition duration-300"
         />
