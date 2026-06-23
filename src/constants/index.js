@@ -87,6 +87,10 @@ import { bmoCover } from "./bmo";
 
 export const navLinks = [
   {
+    id: "story",
+    title: "My Story",
+  },
+  {
     id: "projects",
     title: "Projects",
   },

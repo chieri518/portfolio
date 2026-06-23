@@ -7,6 +7,7 @@ import {
   Chetz,
   NECX,
   BMO,
+  MyStory,
   Navbar,
   NotFound,
   JobHunt,
@@ -49,6 +50,7 @@ const App = () => {
           <Route path="/chetz" element={<Chetz />} />
           <Route path="/necx" element={<NECX />} />
           <Route path="/bmo" element={<BMO />} />
+          <Route path="/story" element={<MyStory />} />
           <Route path="/jobhunt" element={<JobHunt />} />
         </Route>
         <Route path="*" element={<NotFound />} />
