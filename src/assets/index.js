@@ -48,6 +48,16 @@ import instareel from "./thumbnails/instareel.png";
 import linkedinpost from "./thumbnails/linkedinpost.png";
 import jobhunt from "./thumbnails/jobhunt.png";
 
+// ── reference/ (testimonial headshots) ──
+import noriko from "./reference/noriko.jpeg";
+import dariush from "./reference/dariush.webp";
+import austin from "./reference/austin.jpeg";
+import robert from "./reference/robert.jpeg";
+import fabian from "./reference/fabien.jpeg";
+import nina from "./reference/nina.jpeg";
+import saybah from "./reference/saybah.jpeg";
+import sang from "./reference/sang.jpeg";
+
 // ── uif/ ──
 import uif1 from "./uif/uif_01.png";
 import uif2 from "./uif/uif_02.png";
@@ -163,6 +173,15 @@ export {
   instareel,
   linkedinpost,
   jobhunt,
+  // reference
+  noriko,
+  dariush,
+  austin,
+  robert,
+  fabian,
+  nina,
+  saybah,
+  sang,
   // uif
   uif1,
   uif2,

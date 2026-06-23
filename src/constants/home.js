@@ -5,6 +5,14 @@ import {
   email,
   github,
   linkedin,
+  noriko,
+  dariush,
+  austin,
+  robert,
+  fabian,
+  nina,
+  saybah,
+  sang,
 } from "../assets";
 
 const heroTexts = [
@@ -66,8 +74,7 @@ const references = [
     name: "Noriko Liu",
     designation: "Regional Head of Marketing - Japan, Korea and Micronesia",
     company: "Hilton",
-    image:
-      "https://media.licdn.com/dms/image/v2/C4E03AQGRuqHlvy0NSw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1571407166369?e=1750291200&v=beta&t=MLiaSw6RmQowBPgp00kZLHK2DfZ4JJ7XtWA_0oIcVcg",
+    image: noriko,
   },
   {
     reference:
@@ -75,8 +82,7 @@ const references = [
     name: "Dariush Rafinejad, Ph.D.",
     designation: "CEO",
     company: "Blue Dome Consulting for Sustainability",
-    image:
-      "https://media.licdn.com/dms/image/v2/C5603AQHwBM6Q06QeJg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1566161085065?e=1750291200&v=beta&t=DMtqQVteQ7SMDXom4chqx2kC80CjESyZ2S1pKCnCUx4",
+    image: dariush,
   },
   {
     reference:
@@ -84,8 +90,7 @@ const references = [
     name: "Austin Bumpus",
     designation: "Digital Marketing Manager",
     company: "Menlo College",
-    image:
-      "https://media.licdn.com/dms/image/v2/D4E35AQFj9iiryFEdFw/profile-framedphoto-shrink_400_400/B4EZVxRoatHcAc-/0/1741362202528?e=1750438800&v=beta&t=JU6TB9fxDZiqoCEmuKqRVqQyr5w_zBTZEXMvGYBTwN8",
+    image: austin,
   },
   {
     reference:
@@ -93,8 +98,7 @@ const references = [
     name: "Robert Hayashi",
     designation: "Senior Manager - eCommerce Japan",
     company: "Hilton",
-    image:
-      "https://media.licdn.com/dms/image/v2/C5603AQEvg5w0ez-IGQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1635905199834?e=1750291200&v=beta&t=wfrYVu-VC4FlzKv9ATpz6T0IeMJw2p3ckonaNWRvcII",
+    image: robert,
   },
   {
     reference:
@@ -102,8 +106,7 @@ const references = [
     name: "Fabian Eggers",
     designation: "Professor",
     company: "Menlo College",
-    image:
-      "https://media.licdn.com/dms/image/v2/C5603AQF4BrU_fqMjNQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1662771913064?e=1750291200&v=beta&t=A0vEK0VJKXZ10ECBfO2sPtMpa2bGJJX99hDGyEQ2ZUc",
+    image: fabian,
   },
   {
     reference:
@@ -111,8 +114,7 @@ const references = [
     name: "Nina Roth, MPH",
     designation: "Director of Client Services",
     company: "Ellipsis Health",
-    image:
-      "https://media.licdn.com/dms/image/v2/C4D03AQFqTxSckyV3-w/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1539568387007?e=1750291200&v=beta&t=SmEs_d_Bq1g6Kocf2rSPizFL3Dk18s3w-0zxdg5Cx64",
+    image: nina,
   },
   {
     reference:
@@ -120,8 +122,15 @@ const references = [
     name: "Saybah Biawogi",
     designation: "Director of Marketing and Communications",
     company: "Menlo College",
-    image:
-      "https://media.licdn.com/dms/image/v2/D5603AQH4Dj_gWI8sUA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1692732734910?e=1750291200&v=beta&t=yCQnh3gjQnc10wjK5w9_-qCpZ5HBi656FJsCBUbYmJs",
+    image: saybah,
+  },
+  {
+    reference:
+      "She is driven, coachable, and consistently follows through on every action we set together.",
+    name: "Sang Kim",
+    designation: "Career Coach",
+    company: "Hithere.co",
+    image: sang,
   },
 ];
 

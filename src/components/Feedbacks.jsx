@@ -9,6 +9,15 @@ import { SectionWrapper } from "../hoc";
 import { fadeIn, textVariant } from "../utils/motion";
 import { references } from "../constants/home";
 
+const getInitials = (name) =>
+  name
+    .split(" ")
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((part) => part[0])
+    .join("")
+    .toUpperCase();
+
 const FeedbackCard = ({
   index,
   reference,
@@ -34,11 +43,19 @@ const FeedbackCard = ({
           </p>
         </div>
 
-        <img
-          src={image}
-          alt={`feedback-by-${name}`}
-          className="w-10 h-10 rounded-full object-cover"
-        />
+        <div className="relative w-10 h-10 shrink-0">
+          <div className="absolute inset-0 flex items-center justify-center rounded-full bg-primary text-white text-[13px] font-semibold">
+            {getInitials(name)}
+          </div>
+          <img
+            src={image}
+            alt={`feedback-by-${name}`}
+            className="absolute inset-0 w-10 h-10 rounded-full object-cover"
+            onError={(e) => {
+              e.currentTarget.style.display = "none";
+            }}
+          />
+        </div>
       </div>
     </div>
   </motion.div>
