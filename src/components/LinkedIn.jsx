@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { styles } from "../styles";
 import { SectionWrapper } from "../hoc";
-import { linkedinhighlight } from "../constants";
+import { linkedinhighlight } from "../constants/home";
 import { fadeIn, textVariant } from "../utils/motion";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";

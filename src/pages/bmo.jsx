@@ -130,10 +130,10 @@ function PhaseSection({ phase, index }) {
     <section id={phase.id} className="py-12 md:py-16">
       <div className={`${styles.paddingX} max-w-6xl mx-auto space-y-8`}>
         <div className="text-center max-w-3xl mx-auto">
-          <p className="text-secondary uppercase tracking-[0.2em] text-xs md:text-sm">
+          <p className={styles.sectionSubText}>
             {phase.eyebrow}
           </p>
-          <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mt-2">
+          <h3 className={`${styles.subHeadText} mt-2`}>
             {phase.title}
           </h3>
           <p className={`${styles.bodyText} mt-2`}>{phase.subtitle}</p>
@@ -302,7 +302,7 @@ function BMO() {
     <>
       <section className={`relative w-full ${styles.paddingY}`}>
         <div className={`${styles.paddingX} max-w-6xl mx-auto`}>
-          <p className="text-secondary uppercase tracking-[0.2em] text-xs md:text-sm">
+          <p className={styles.sectionSubText}>
             {bmoHero.eyebrow}
           </p>
           <div className="mt-6 flex flex-col lg:flex-row items-center gap-10">
@@ -368,7 +368,7 @@ function BMO() {
       <section className="bg-gray-50 py-14 md:py-16">
         <div className={`${styles.paddingX} max-w-6xl mx-auto space-y-8`}>
           <div className="text-center max-w-2xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+            <h2 className={styles.subHeadText}>
               How it works
             </h2>
             <p className={`${styles.bodyText} mt-2`}>
@@ -382,7 +382,7 @@ function BMO() {
 
       <section className="pt-8">
         <div className={`${styles.paddingX} max-w-6xl mx-auto text-center`}>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+          <h2 className={styles.subHeadText}>
             Building it, piece by piece
           </h2>
           <p className={`${styles.bodyText} mt-2 max-w-2xl mx-auto`}>
@@ -447,7 +447,7 @@ function BMO() {
       <section className="py-14 md:py-16">
         <div className={`${styles.paddingX} max-w-6xl mx-auto space-y-8`}>
           <div className="text-center max-w-2xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+            <h2 className={styles.subHeadText}>
               The build, in motion
             </h2>
             <p className={`${styles.bodyText} mt-2`}>
@@ -461,7 +461,7 @@ function BMO() {
 
       <section className="py-14 md:py-16 bg-gray-50">
         <div className={`${styles.paddingX} max-w-6xl mx-auto`}>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-10">
+          <h2 className={`${styles.subHeadText} text-center mb-10`}>
             What this taught me
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -470,7 +470,7 @@ function BMO() {
                 key={item.title}
                 className="bg-white rounded-2xl shadow-md border border-gray-100 p-6"
               >
-                <h3 className="text-lg font-semibold text-gray-900 mb-3">
+                <h3 className={`${styles.cardTitle} mb-3`}>
                   {item.title}
                 </h3>
                 <p className="text-secondary text-[15px] leading-[24px]">
@@ -485,7 +485,7 @@ function BMO() {
       <section className="py-14 md:py-16">
         <div className={`${styles.paddingX} max-w-4xl mx-auto space-y-8`}>
           <div className="text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+            <h2 className={styles.subHeadText}>
               What’s next
             </h2>
           </div>

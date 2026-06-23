@@ -18,7 +18,7 @@ import {
   seminar1,
   seminar2,
 } from "../assets";
-import { organizations, events } from "../constants";
+import { organizations, events } from "../constants/chetz";
 
 const photoSlides = [
   {
@@ -150,7 +150,7 @@ const TimelinePhase = ({ phase, title, date, children, highlight = false }) => {
       <div className="flex-1 pb-16">
         {/* Title and Date */}
         <div className="mb-4">
-          <h3 className="text-3xl font-bold text-gray-900 mb-2">{title}</h3>
+          <h3 className={`${styles.subHeadText} mb-2`}>{title}</h3>
           <p className="text-sm font-medium text-gray-500">{date}</p>
         </div>
 
@@ -173,7 +173,7 @@ const chetz = () => {
       <div
         className={`${styles.paddingX} max-w-6xl mx-auto flex flex-col gap-10`}
       >
-        <p className="text-secondary uppercase tracking-[0.2em] text-xs md:text-sm">
+        <p className={styles.sectionSubText}>
           Language exchange · Community
         </p>
         <div className="flex flex-col md:flex-row text-center items-start gap-8">
@@ -208,7 +208,7 @@ const chetz = () => {
 
       <div className={`${styles.padding} py-12`}>
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
+          <h2 className={`${styles.subHeadText} mb-4`}>
             Our Vision
           </h2>
 
@@ -225,7 +225,7 @@ const chetz = () => {
 
       <div className={`${styles.padding} py-12`}>
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
+          <h2 className={`${styles.subHeadText} mb-4`}>
             Our Story
           </h2>
 
@@ -252,7 +252,7 @@ const chetz = () => {
       </div>
       <div className={`${styles.padding} py-12`}>
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
+          <h2 className={`${styles.subHeadText} mb-4`}>
             Our Impact
           </h2>
 
@@ -281,7 +281,7 @@ const chetz = () => {
 
       <div className={`${styles.padding} py-12`}>
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold mb-8 text-gray-900">
+          <h2 className={`${styles.subHeadText} mb-8`}>
             Our Collaborations
           </h2>
 
@@ -314,7 +314,7 @@ const chetz = () => {
         {/* THE JOURNEY - TIMELINE */}
         <section className="journey-section py-20">
           <div className="max-w-6xl mx-auto px-6 py-6 bg-gray-50">
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-900">
+            <h2 className={`${styles.subHeadText} text-center mb-12`}>
               The Journey
             </h2>
 
@@ -474,7 +474,7 @@ const chetz = () => {
 
         <div className={`${styles.padding} py-10`}>
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center text-gray-900">
+            <h2 className={`${styles.subHeadText} mb-4 text-center`}>
               Programs
             </h2>
 
@@ -500,7 +500,7 @@ const chetz = () => {
                     />
                   </div>
                   <div className="p-4">
-                    <h3 className="text-xl font-bold text-gray-800 mb-2">
+                    <h3 className={`${styles.cardTitle} mb-2`}>
                       {item.name}
                     </h3>
                     <p className="text-gray-600 text-sm leading-relaxed">
@@ -512,7 +512,7 @@ const chetz = () => {
             </div>
 
             <div className="mt-12 py-10 ">
-              <h3 className="text-2xl md:text-3xl font-bold mb-4 text-center text-gray-900">
+              <h3 className={`${styles.subHeadText} mb-4 text-center`}>
                 Gallery
               </h3>
               <p className="text-secondary text-[15px] leading-[26px] max-w-3xl mx-auto mb-6 text-center">

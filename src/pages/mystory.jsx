@@ -56,7 +56,7 @@ function Chapter({ chapter, index }) {
       >
         {chapter.chapter} · {chapter.age}
       </p>
-      <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-2">
+      <h2 className={`${styles.subHeadText} mt-2`}>
         {chapter.title}
       </h2>
 

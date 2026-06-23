@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { styles } from "../styles";
 import { SectionWrapper } from "../hoc";
-import { spinImages, lumaImages } from "../constants";
+import { spinImages, lumaImages } from "../constants/necx";
 import { necx, elevx } from "../assets";
 
 function LumaGallery() {
@@ -58,7 +58,7 @@ function NECX() {
         <div
           className={`${styles.paddingX} max-w-6xl mx-auto flex flex-col gap-10`}
         >
-          <p className="text-secondary uppercase tracking-[0.2em] text-xs md:text-sm">
+          <p className={styles.sectionSubText}>
             Venture Studio · Silicon Valley · Japan
           </p>
           <div className="flex flex-col md:flex-row text-center items-start gap-8">
@@ -93,7 +93,7 @@ function NECX() {
               </section>
 
               <div className="pt-10 space-y-4">
-                <h2 className="text-2xl font-semibold text-gray-900 text-center">
+                <h2 className={`${styles.cardTitle} text-center`}>
                   Key Contributions
                 </h2>
                 <div className="max-w-3xl mx-auto border-l-[3px] border-gray-300 pl-8">
@@ -134,7 +134,7 @@ function NECX() {
       <section id="social-media-marketing" className="py-16">
         <div className={`${styles.paddingX} max-w-6xl mx-auto space-y-10`}>
           <div className="text-center max-w-6xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className={`${styles.subHeadText} mb-4`}>
               1. Social Media Marketing
             </h2>
             <p className={styles.bodyText}>
@@ -237,7 +237,7 @@ function NECX() {
       <section id="event-management" className="py-16">
         <div className={`${styles.paddingX} max-w-6xl mx-auto space-y-10`}>
           <div className="text-center max-w-3xl mx-auto">
-            <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h3 className={`${styles.subHeadText} mb-4`}>
               2. Event Management
             </h3>
             <p className={styles.bodyText}>
@@ -336,7 +336,7 @@ function NECX() {
       <section id="program-coordination" className="py-16">
         <div className={`${styles.paddingX} max-w-6xl mx-auto space-y-10`}>
           <div className="text-center max-w-3xl mx-auto">
-            <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h3 className={`${styles.subHeadText} mb-4`}>
               3. Program Coordination
             </h3>
             <p className={styles.bodyText}>
@@ -457,7 +457,7 @@ function NECX() {
 
       <section className="bg-white py-16">
         <div className={`${styles.paddingX} max-w-6xl mx-auto`}>
-          <h3 className="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-10">
+          <h3 className={`${styles.subHeadText} text-center mb-10`}>
             What This Experience Taught Me
           </h3>
 

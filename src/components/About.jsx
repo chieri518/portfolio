@@ -3,13 +3,12 @@ import Tilt from "react-parallax-tilt";
 import { motion } from "framer-motion";
 
 import { styles } from "../styles";
-import { socials } from "../constants";
+import { socials, heroTexts } from "../constants/home";
 import { fadeIn, textVariant } from "../utils/motion";
 import { SectionWrapper } from "../hoc";
 import { profile, resume } from "../assets";
 
 import { TypeAnimation } from "react-type-animation";
-import { heroTexts } from "../constants";
 
 const Name = ({ loading }) => {
   return (

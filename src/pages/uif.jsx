@@ -2,7 +2,7 @@ import { memo, useState, useEffect, useRef } from "react";
 import cn from "classnames";
 import { styles } from "../styles";
 import { SectionWrapper } from "../hoc";
-import { uif, steamhouse, uiftimeline, meetup } from "../constants";
+import { uif, steamhouse, uiftimeline, meetup } from "../constants/uif";
 import {
   uiflogo,
   steamhousewide,
@@ -112,7 +112,7 @@ const UIFCard = ({ experience, index }) => {
         <p className="text-secondary text-[16px] font-semibold mb-1">
           {experience.week}
         </p>
-        <h3 className="text-black text-[20px] font-bold leading-snug">
+        <h3 className={`${styles.cardTitle} leading-snug`}>
           {experience.title}
         </h3>
       </div>
@@ -185,14 +185,14 @@ const UIF = () => {
 
       <div className={`${styles.padding} py-12`}>
         <div className="max-w-6xl mx-auto space-y-6">
-          <h2 className="text-3xl md:text-4xl font-bold">
+          <h2 className={styles.subHeadText}>
             "How might we inspire innovation on campus?"
           </h2>
 
           {/* The Opportunity + Mindmap side by side */}
           <div className="flex flex-col lg:flex-row gap-8 items-start">
             <div className="flex-1">
-              <h3 className="text-xl md:text-2xl font-semibold mb-2 text-gray-900">
+              <h3 className={`${styles.cardTitle} mb-2`}>
                 The Challenge
               </h3>
               <p className={styles.bodyText}>
@@ -202,7 +202,7 @@ const UIF = () => {
                 student engagement.
               </p>
               <br />
-              <h3 className="text-xl md:text-2xl font-semibold mb-2 text-gray-900">
+              <h3 className={`${styles.cardTitle} mb-2`}>
                 The Opportunity
               </h3>
               <p className={`${styles.bodyText} mb-2`}>
@@ -235,7 +235,7 @@ const UIF = () => {
             </div>
           </div>
           <div>
-            <h3 className="text-xl md:text-2xl font-semibold mb-3 text-gray-900">
+            <h3 className={`${styles.cardTitle} mb-3`}>
               Key Design Decisions
             </h3>
             <ul className={`list-disc list-inside space-y-2 ${styles.bodyText}`}>
@@ -260,7 +260,7 @@ const UIF = () => {
       </div>
       <div className={`${styles.padding} py-12 bg-gray-50`}>
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900">
+          <h2 className={`${styles.subHeadText} mb-6`}>
             Six-Week Training Overview
           </h2>
           <div className="mt-4">
@@ -342,7 +342,7 @@ const UIF = () => {
       <div className={`${styles.padding} py-12`}>
         <div className={`max-w-6xl mx-auto space-y-10 ${styles.bodyText}`}>
           <div>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
+            <h2 className={`${styles.subHeadText} mb-4`}>
               Outcomes
             </h2>
 
@@ -393,7 +393,7 @@ const UIF = () => {
         </div>
         <div className={`max-w-6xl mx-auto space-y-10 ${styles.bodyText}`}>
           <div>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
+            <h2 className={`${styles.subHeadText} mb-4`}>
               What I Learned
             </h2>
             <ol className="list-decimal list-inside space-y-3">
@@ -431,7 +431,7 @@ const UIF = () => {
           </div>
 
           <div className="max-w-6xl mx-auto space-y-6">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+            <h2 className={styles.subHeadText}>
               UIF Silicon Valley Meetup
             </h2>
             <MarqueeGallery images={meetup} />

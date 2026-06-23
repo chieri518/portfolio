@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { styles } from "../styles";
 import { SectionWrapper } from "../hoc";
-import { works } from "../constants";
+import { works } from "../constants/projects";
 import { fadeIn, textVariant } from "../utils/motion";
 
 const PostCard = ({ index, name, description, image, link }) => {
@@ -22,7 +22,7 @@ const PostCard = ({ index, name, description, image, link }) => {
 
           <div className="w-full md:w-2/3 mt-4 md:mt-0 md:ml-5 flex flex-col justify-between relative">
             <div>
-              <h3 className="text-black font-bold text-[20px] md:text-[24px]">
+              <h3 className={styles.cardTitle}>
                 {name}
               </h3>
               <p className="mt-2 text-secondary text-[15px]">{description}</p>

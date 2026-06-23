@@ -1,16 +1,16 @@
-import logo from "./logo.png";
+// ── root ──
 import resume from "./Resume.pdf";
-import click from "./click.png";
-import target from "./target.png";
-import plane from "./plane.png";
-import rocket from "./rocket.png";
-import peoplemap from "./peoplemap.png";
-import readmore from "./readmore.png";
-import menu from "./menu.svg";
-import close from "./close.svg";
-import email from "./email.svg";
-import profile from "./profile.png";
 
+// ── icons/ (UI + social) ──
+import logo from "./icons/logo.png";
+import menu from "./icons/menu.svg";
+import close from "./icons/close.svg";
+import email from "./icons/email.svg";
+import github from "./icons/github.png";
+import linkedin from "./icons/linkedin.png";
+import profile from "./icons/profile.png";
+
+// ── tech/ (skill icons) ──
 import css from "./tech/css.png";
 import docker from "./tech/docker.png";
 import figma from "./tech/figma.png";
@@ -23,16 +23,31 @@ import typescript from "./tech/typescript.png";
 import photoshop from "./tech/photoshop.png";
 import premiere from "./tech/premiere.png";
 
+// ── company/ (experience logos) ──
 import google from "./company/google.png";
 import necx from "./company/necx.jpeg";
 import capy from "./company/capy.png";
-import bery from "./company/bery.png";
 import metapyxl from "./company/metapyxl.png";
 import hilton from "./company/hilton.png";
 import owned from "./company/owned.png";
 import ellipsis from "./company/ellipsis.png";
+import cmu from "./company/cmu.png";
 import menlo from "./company/menlo.png";
+import wsl from "./company/wsl.png";
 
+// ── awards/ ──
+import governormedal from "./awards/governormedal.png";
+import honor from "./awards/honor.png";
+import honor2 from "./awards/honor2.png";
+import marketingconf from "./awards/marketingconf.png";
+import BGS from "./awards/BGS.png";
+
+// ── thumbnails/ (project cards) ──
+import youtubevid from "./thumbnails/youtubevid.png";
+import instareel from "./thumbnails/instareel.png";
+import linkedinpost from "./thumbnails/linkedinpost.png";
+
+// ── uif/ ──
 import uif1 from "./uif/uif_01.png";
 import uif2 from "./uif/uif_02.png";
 import uif3 from "./uif/uif_03.png";
@@ -57,28 +72,10 @@ import uif_week4 from "./uif/uif_week4.png";
 import uif_week5 from "./uif/uif_week5.png";
 import uif_week6 from "./uif/uif_week6.png";
 import steamhouse_mindmap from "./uif/steamhouse_mindmap.png";
+import uiflogo from "./uif/uiflogo.png";
+import steamhousewide from "./uif/steamhousewide.png";
 
-import governormedal from "./governormedal.png";
-import honor from "./honor.png";
-import honor2 from "./honor2.png";
-import marketingconf from "./marketingconf.png";
-import BGS from "./BGS.png";
-
-import websitedev from "./websitedev.png";
-import socialmedia from "./socialmedia.png";
-import dataanalysis from "./dataanalysis.png";
-
-import linkedin from "./linkedin.png";
-import github from "./github.png";
-
-import youtubevid from "./youtubevid.png";
-import instareel from "./instareel.png";
-import linkedinpost from "./linkedinpost.png";
-
-import uiflogo from "./uiflogo.png";
-import steamhousewide from "./steamhousewide.png";
-
-import wsl from "./company/wsl.png";
+// ── chetz/ ──
 import chetzlogo from "./chetz/chetzlogo.png";
 import bluebase from "./chetz/bluebase.jpg";
 import dawn from "./chetz/dawn.jpg";
@@ -106,6 +103,7 @@ import meeting1 from "./chetz/meeting1.png";
 import meeting2 from "./chetz/meeting2.png";
 import meeting3 from "./chetz/meeting3.png";
 
+// ── necx/ ──
 import necx_group from "./necx/necx_group.png";
 import elevx from "./necx/elevx.jpeg";
 import spin1 from "./necx/spin1.jpeg";
@@ -120,18 +118,17 @@ import luma5 from "./necx/luma5.jpg";
 import luma6 from "./necx/luma6.jpg";
 
 export {
-  logo,
+  // root
   resume,
-  click,
-  target,
-  plane,
-  rocket,
-  peoplemap,
-  readmore,
+  // icons
+  logo,
   menu,
   close,
   email,
+  github,
+  linkedin,
   profile,
+  // tech
   css,
   docker,
   figma,
@@ -143,15 +140,28 @@ export {
   typescript,
   premiere,
   photoshop,
+  // company
   google,
   necx,
   capy,
-  bery,
   metapyxl,
   hilton,
   owned,
   ellipsis,
+  cmu,
   menlo,
+  wsl,
+  // awards
+  governormedal,
+  honor,
+  honor2,
+  marketingconf,
+  BGS,
+  // thumbnails
+  youtubevid,
+  instareel,
+  linkedinpost,
+  // uif
   uif1,
   uif2,
   uif3,
@@ -176,22 +186,9 @@ export {
   uif_week5,
   uif_week6,
   steamhouse_mindmap,
-  governormedal,
-  honor,
-  honor2,
-  marketingconf,
-  BGS,
-  websitedev,
-  socialmedia,
-  dataanalysis,
-  linkedin,
-  github,
-  youtubevid,
-  instareel,
-  linkedinpost,
   uiflogo,
   steamhousewide,
-  wsl,
+  // chetz
   chetzlogo,
   bluebase,
   dawn,
@@ -218,6 +215,7 @@ export {
   meeting1,
   meeting2,
   meeting3,
+  // necx
   necx_group,
   elevx,
   spin1,

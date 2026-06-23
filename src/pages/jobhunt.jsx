@@ -14,7 +14,7 @@ const JobHunt = () => {
         </p>
 
         <h2
-          className="text-3xl md:text-4xl font-bold mt-8 mb-3 text-gray-900"
+          className={`${styles.subHeadText} mt-8 mb-3`}
           id="introduction"
         >
           Introduction: Resilience in a Shifting Job Market
@@ -23,7 +23,7 @@ const JobHunt = () => {
           The tech industry is no stranger to cycles of boom and bust...
         </p>
 
-        <h2 className="text-2xl font-semibold mt-6 mb-2 text-gray-900">
+        <h2 className={`${styles.cardTitle} mt-6 mb-2`}>
           Table of Contents
         </h2>
         <ul className="list-disc ml-6 mb-4 space-y-1 text-secondary text-[15px] leading-[24px]">
@@ -65,14 +65,14 @@ const JobHunt = () => {
         </ul>
 
         <h2
-          className="text-3xl md:text-4xl font-bold mt-8 mb-3 text-gray-900"
+          className={`${styles.subHeadText} mt-8 mb-3`}
           id="part1"
         >
           Part 1: Lessons from the Job Market
         </h2>
 
         <h3
-          className="text-xl md:text-2xl font-semibold mt-6 mb-1 text-gray-900"
+          className={`${styles.cardTitle} mt-6 mb-1`}
           id="network"
         >
           1. Network with Everyone
@@ -82,7 +82,7 @@ const JobHunt = () => {
         </p>
 
         <h3
-          className="text-xl md:text-2xl font-semibold mt-6 mb-1 text-gray-900"
+          className={`${styles.cardTitle} mt-6 mb-1`}
           id="adaptable"
         >
           2. Stay Adaptable, and Don’t Be Afraid to Take a Detour
@@ -92,7 +92,7 @@ const JobHunt = () => {
         </p>
 
         <h3
-          className="text-xl md:text-2xl font-semibold mt-6 mb-1 text-gray-900"
+          className={`${styles.cardTitle} mt-6 mb-1`}
           id="learning"
         >
           3. Keep Learning Lean Into Hot Trends
@@ -102,7 +102,7 @@ const JobHunt = () => {
         </p>
 
         <h3
-          className="text-xl md:text-2xl font-semibold mt-6 mb-1 text-gray-900"
+          className={`${styles.cardTitle} mt-6 mb-1`}
           id="brand"
         >
           4. Brand Yourself – Stand Out from Other Job Seekers
@@ -112,7 +112,7 @@ const JobHunt = () => {
         </p>
 
         <h3
-          className="text-xl md:text-2xl font-semibold mt-6 mb-1 text-gray-900"
+          className={`${styles.cardTitle} mt-6 mb-1`}
           id="summary"
         >
           Summary: Turning Challenges into Opportunities
@@ -122,7 +122,7 @@ const JobHunt = () => {
         </p>
 
         <h2
-          className="text-3xl md:text-4xl font-bold mt-8 mb-3 text-gray-900"
+          className={`${styles.subHeadText} mt-8 mb-3`}
           id="part2"
         >
           Part 2: Job Market Cycles: Learning from History

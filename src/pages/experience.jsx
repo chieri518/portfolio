@@ -12,7 +12,7 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 
 import { styles } from "../styles";
-import { experiences, educations, awards } from "../constants";
+import { experiences, educations, awards } from "../constants/experience";
 import { fadeIn, textVariant } from "../utils/motion";
 
 const TimelineCard = ({
@@ -42,7 +42,7 @@ const TimelineCard = ({
     }
   >
     <div>
-      <h3 className="text-black text-[24px] font-bold">{title}</h3>
+      <h3 className={styles.cardTitle}>{title}</h3>
       <p
         className="text-secondary text-[16px] font-semibold"
         style={{ margin: 0 }}
@@ -121,7 +121,7 @@ const AwardCard = ({ index, name, description, image }) => {
           />
           <div className="absolute inset-0 flex justify-center items-center inset-0 bg-black bg-opacity-50 transition-all duration-300 opacity-0 hover:opacity-100">
             <div className="text-center text-white opacity-0 hover:opacity-100 transition-opacity duration-300">
-              <h3 className="font-bold text-[24px]">{name}</h3>
+              <h3 className={styles.cardTitle}>{name}</h3>
               <p className="mt-2 text-[14px]">{description}</p>
             </div>
           </div>
