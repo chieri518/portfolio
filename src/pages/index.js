@@ -1,16 +1,16 @@
-import Navbar from "./navbar";
-import Projects from "./projects";
-import Experience from "./experience";
-import UIF from "./uif";
-import Chetz from "./chetz";
-import NECX from "./necx";
-import BMO from "./bmo";
-import MyStory from "./mystory";
-import JobHunt from "./jobhunt";
-import NotFound from "./notfound";
+import Home from "./Home";
+import Projects from "./Projects";
+import Experience from "./Experience";
+import UIF from "./UIF";
+import Chetz from "./Chetz";
+import NECX from "./NECX";
+import BMO from "./BMO";
+import MyStory from "./MyStory";
+import JobHunt from "./JobHunt";
+import NotFound from "./NotFound";
 
 export {
-  Navbar,
+  Home,
   Projects,
   Experience,
   UIF,

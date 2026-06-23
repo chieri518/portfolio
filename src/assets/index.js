@@ -46,6 +46,7 @@ import BGS from "./awards/BGS.png";
 import youtubevid from "./thumbnails/youtubevid.png";
 import instareel from "./thumbnails/instareel.png";
 import linkedinpost from "./thumbnails/linkedinpost.png";
+import jobhunt from "./thumbnails/jobhunt.png";
 
 // ── uif/ ──
 import uif1 from "./uif/uif_01.png";
@@ -161,6 +162,7 @@ export {
   youtubevid,
   instareel,
   linkedinpost,
+  jobhunt,
   // uif
   uif1,
   uif2,

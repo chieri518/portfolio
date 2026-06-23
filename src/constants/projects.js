@@ -5,6 +5,7 @@ import {
   youtubevid,
   instareel,
   linkedinpost,
+  jobhunt,
 } from "../assets";
 import { bmoCover } from "./bmo";
 
@@ -40,6 +41,14 @@ const works = [
 
     image: necx_group,
     link: "/necx",
+  },
+  {
+    name: "Navigating the Tech Job Market in 2025",
+    description:
+      "Co-authored a two-part LinkedIn series with my mentor Frances Mann-Craik (Menlo College '76), pairing her five-decade, five-recession career perspective with my view as a new graduate. I brought the recent-graduate side — networking through event volunteering, leaning on international experience, and navigating a search with visa sponsorship — and distilled it all into practical advice for job seekers when the tech market tightens.",
+
+    image: jobhunt,
+    link: "/jobhunt",
   },
   {
     name: "Student Feature Video",

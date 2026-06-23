@@ -167,7 +167,7 @@ const TimelinePhase = ({ phase, title, date, children, highlight = false }) => {
   );
 };
 
-const chetz = () => {
+const Chetz = () => {
   return (
     <>
       <div
@@ -528,4 +528,4 @@ const chetz = () => {
   );
 };
 
-export default SectionWrapper(chetz);
+export default SectionWrapper(Chetz);

@@ -22,17 +22,17 @@ const experiences = [
     title: "Solutions Consultant",
     company_name: "Google (via Azaaki LLC)",
     icon: google,
-    date: "September 2025 - Present",
+    date: "Sep 2025 - Apr 2026",
     points: [
-      "Analyzing feature data using visualization and AI tools to define problem areas, uncover systemic issues (63% from a single root cause), and deliver actionable insights that shaped next-quarter Product priorities and feature improvements.",
-      "Onboarding APAC and EMEA merchants for Vehicle Ads by leading data quality reviews and hosting office hours.",
+      "Analyzed feature data using visualization and AI tools to define problem areas, uncover systemic issues (63% from a single root cause), and deliver actionable insights that shaped next-quarter Product priorities and feature improvements.",
+      "Onboarded APAC and EMEA merchants for Vehicle Ads by leading data quality reviews and hosting office hours.",
     ],
   },
   {
     title: "Marketing / Community Engagement Specialist",
     company_name: "NEC X",
     icon: necx,
-    date: "Jun 2025 - Present",
+    date: "Jun 2025 - Mar 2026",
     points: [
       " Managed logistics and marketing for 220-attendee event, including registration systems, paid ads, startup outreach, vendor coordination, and presentation materials.",
     ],
