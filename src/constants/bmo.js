@@ -1,13 +1,17 @@
-import cover from "../assets/bmo/cover.svg";
 import bmoFaceFigma from "../assets/bmo/bmoface_figma.png";
 import bmoSetup from "../assets/bmo/setup.jpg";
+import bmoSetup2 from "../assets/bmo/setup2.jpg";
 import reelDay1 from "../assets/bmo/reel-DZD6Qiuvxx7.jpg";
 import reelDay2 from "../assets/bmo/reel-DZJj6KtI95-.jpg";
 import reelDay3 from "../assets/bmo/reel-DZaxoA7y41K.jpg";
 import reelDay4 from "../assets/bmo/reel-DZdfR2jS2uS.jpg";
 import reelDay5 from "../assets/bmo/reel-DZtTaWmI9Xn.jpg";
+import reelDay6 from "../assets/bmo/reel-DaN4cD4IvwQ.jpg";
+import reelDay7 from "../assets/bmo/reel-Dalin39y4NQ.jpg";
+import reelDay8 from "../assets/bmo/reel-Da1B1MvS_Cc.jpg";
 
-export const bmoCover = cover;
+// The card/hero cover image, re-exported so pages can import it by a clear name.
+export { default as bmoCover } from "../assets/bmo/cover.jpg";
 
 // ── Hero ──────────────────────────────────────────────────────────────
 export const bmoHero = {
@@ -15,25 +19,25 @@ export const bmoHero = {
   title: "BMO",
   role: "Solo project — product, hardware, ML, and design",
   tagline:
-    "A voice-controlled BMO companion that thinks, talks, and emotes — entirely on-device.",
+    "A voice-controlled BMO companion that thinks, talks, sees, and emotes — entirely on-device.",
   why: "I wanted to find out whether a genuinely useful voice assistant could run entirely on-device — and whether I could build one end to end, including training a custom voice, with no prior machine-learning experience.",
   blurb:
-    'Say "Hey BMO" and it wakes up, listens to your command, thinks up a reply in BMO’s cheerful personality, speaks it aloud in a custom BMO voice, and reacts with animated facial expressions on its screen. Everything runs locally on a Raspberry Pi 5 — no cloud APIs, no accounts, no internet required at runtime.',
+    'Say "Hey BMO" and it wakes up, listens to your command, thinks up a reply in BMO’s cheerful personality, speaks it aloud in a custom BMO voice, and reacts with animated facial expressions on its screen. It can even see — ask "what do you see?" and it looks through a camera to describe what’s in front of it — and it plays games on its touch screen, an endless runner and a logic puzzle, whenever you ask. Everything runs locally on a Raspberry Pi 5 — no cloud APIs, no accounts, no internet required at runtime.',
 };
 
 // ── TL;DR — the 15-second version for a busy reader ───────────────────
 export const bmoTldr = [
   {
     label: "What",
-    text: 'A voice companion that wakes to "Hey BMO," replies in character, and emotes on a little screen.',
+    text: 'A voice companion that wakes to "Hey BMO," replies in character, looks through a camera to describe what it sees, emotes on a little screen, and plays touch-screen games on request.',
   },
   {
     label: "How",
-    text: "Wake word → speech-to-text → local LLM → custom text-to-speech → animated face, all on a Raspberry Pi 5.",
+    text: "Wake word → speech-to-text → local LLM (or a vision model when you ask it to look) → custom text-to-speech → animated face, all on a Raspberry Pi 5.",
   },
   {
     label: "Status",
-    text: "Working end to end and fully offline; now focused on cutting response time.",
+    text: "Working end to end and fully offline. A metrics-driven speed pass cut a typical vision reply by ~30% — down to the model's honest hardware floor.",
   },
 ];
 
@@ -62,9 +66,22 @@ export const bmoPhases = [
       "A single, portable device that runs the whole interaction loop locally.",
       "No internet, accounts, or cloud calls at runtime — it just turns on and works.",
     ],
-    photo: bmoSetup,
-    photoCaption:
-      "The Raspberry Pi 5 build with speaker, mic, and touch display.",
+    versions: [
+      {
+        label: "Version 1",
+        dates: "Jun 1 – Jul 6, 2026",
+        photo: bmoSetup,
+        caption:
+          "The first build — Raspberry Pi 5, speakers, and the touch display, wired up on the bench.",
+      },
+      {
+        label: "Version 2",
+        dates: "Jul 7, 2026 – present",
+        photo: bmoSetup2,
+        caption:
+          "The current build — everything tucked into a 3D-printed case, plus an active cooler and a camera.",
+      },
+    ],
     decisions: [
       {
         topic: "Microphone",
@@ -166,6 +183,108 @@ export const bmoPhases = [
       },
     ],
   },
+  {
+    id: "sight",
+    eyebrow: "Phase 5",
+    title: "Sight",
+    subtitle: "Letting BMO see and describe the world",
+    problem:
+      "BMO could hear and talk, but it couldn’t perceive anything around it. I wanted to be able to ask “what do you see?” and have it actually look — still fully on-device, with no cloud vision APIs.",
+    decision:
+      "I added a Raspberry Pi Camera and route vision-style commands (like “what do you see,” “look at,” or “describe”) to a small local vision model — moondream, run through Ollama. BMO shows a live camera preview on its screen, captures a frame with Picamera2, and describes what it sees aloud.",
+    result: [
+      'Ask "what do you see?" and BMO looks through its camera and describes the scene in character.',
+      "A simple keyword trigger decides between a normal chat reply and a look-and-describe response — and it all still runs locally.",
+    ],
+    decisions: [
+      {
+        topic: "Vision model",
+        considered: "A cloud vision API vs. a local model",
+        chose: "moondream on Ollama",
+        why: "Small enough to run on the Pi and keeps BMO fully offline, just like the rest of the stack.",
+      },
+      {
+        topic: "When to look",
+        considered: "Always analyzing the camera vs. only on request",
+        chose: "Trigger on vision keywords",
+        why: "Saves compute and stays private — the camera only fires when you ask BMO to look.",
+      },
+    ],
+  },
+  {
+    id: "speed",
+    eyebrow: "Phase 6",
+    title: "Speed",
+    subtitle: "Making it fast enough to feel like a real conversation",
+    problem:
+      "Everything worked, but asking BMO “what do you see?” could take 60–90 seconds end to end — slow enough to break the feeling of talking to it. Before trying to fix that, I wanted to know exactly where the time was going.",
+    decision:
+      "I built per-stage metrics logging so every interaction records how long speech-to-text, the model, and speech synthesis each take, then replayed a fixed set of prompts and images so changes could be measured cleanly. The data showed vision was ~15× slower than chat — and, crucially, that prefilling the prompt is compute-bound (a faster CPU helps) while generating tokens is memory-bandwidth-bound (it doesn’t). That one distinction told me which fixes were even worth trying.",
+    result: [
+      "A typical mid-conversation vision query dropped from ~66–69s to ~46s — about a 30% cut — mostly by keeping both models resident so switching between chat and vision no longer pays a ~12s reload every time.",
+      "I logged the dead ends too (client-side image resizing, thread tuning, flash attention on this CPU) so I wouldn’t retry them — and pinned down the honest remaining floor (~44s), which only a smaller vision model would move.",
+    ],
+    decisions: [
+      {
+        topic: "The biggest everyday win",
+        considered: "Let the runtime reload each model on demand vs. keep both resident",
+        chose: "Keep the chat and vision models in memory together",
+        why: "Every switch between talking and “what do you see?” was silently paying a ~12s model reload; keeping both resident cut that to ~0.1s, for about 3GB of the Pi’s spare RAM.",
+      },
+      {
+        topic: "CPU clock",
+        considered: "Stay at stock 2.4GHz vs. overclock with the new cooler",
+        chose: "Overclock to 2.8GHz",
+        why: "Shaved ~10% off vision prefill with no throttling — installing the active cooler first is what made pushing the clock safe.",
+      },
+      {
+        topic: "Vision verbosity",
+        considered: "Let the vision model describe freely vs. cap the reply",
+        chose: "Cap it to a short answer",
+        why: "The model wrote 300–450-character paragraphs — trimming them to a sentence dropped generation from ~7–9s to ~2s and left far less audio to speak back.",
+      },
+      {
+        topic: "Knowing when to stop",
+        considered: "Keep chasing CPU-level tricks vs. accept the model’s floor",
+        chose: "Accept ~44s as the honest floor",
+        why: "What’s left is the model prefilling ~740 image tokens — no tuning moves it, so the only real lever is a smaller vision model, which I’ve deferred on quality grounds rather than pretend the number can go lower.",
+      },
+    ],
+  },
+  {
+    id: "play",
+    eyebrow: "Phase 7",
+    title: "Play",
+    subtitle: "Turning BMO into something you play with, not just talk to",
+    problem:
+      "BMO could hear, talk, see, and emote — but it was still purely conversational. I wanted it to be something you’d pick up and play with on its touch screen, not just speak to — without breaking the voice loop or the fully-offline rule.",
+    decision:
+      "I built two touch-screen games that BMO launches by voice — say “let’s play” and it asks which one. Finn Runner is an endless runner with a pixel Finn I drew myself: tap to jump, with the jump tuned so he reliably clears the trees. Jake-doku is a Star Battle / “Queens” logic puzzle generated fresh on the Pi, so the boards are effectively infinite. While you play, the voice loop pauses and picks back up when you exit.",
+    result: [
+      'Say "let’s play" and BMO launches a game on its screen — an endless runner or a logic puzzle — then goes back to listening when you exit.',
+      "Jake-doku shipped feeling broken — even the easiest boards were nearly impossible — so I dug into why, found the real flaw, and fixed it: every puzzle BMO generates is now guaranteed solvable by pure logic, with no guessing.",
+    ],
+    decisions: [
+      {
+        topic: "The flaw that wasn’t obvious",
+        considered: "Only guaranteeing each puzzle has one solution vs. guaranteeing it can be reasoned out",
+        chose: "Gate generation on a no-guessing solver",
+        why: "Every board was already unique — but I measured that only ~28% of easy boards (and ~10% of hard ones) could actually be reached by logic; the rest secretly required guessing, which is why even “easy” felt impossible. Accepting a board only if a human-technique solver can crack it took that to 100%.",
+      },
+      {
+        topic: "The cost of “always solvable”",
+        considered: "Instant generation vs. guaranteed-solvable generation",
+        chose: "Guaranteed-solvable, masked by a “Generating…” screen",
+        why: "Only about 1 in 10 hard boards passes the solver, so making one can take a couple of seconds — a brief loading screen keeps that from looking like a freeze instead of dropping the guarantee.",
+      },
+      {
+        topic: "Launching a game",
+        considered: "A physical button or menu vs. a voice command",
+        chose: "Voice trigger that pauses the loop",
+        why: "Keeps the whole experience hands-free and consistent with how you talk to BMO — and listening picks back up the moment you exit.",
+      },
+    ],
+  },
 ];
 
 // ── What I learned (product reflection) ───────────────────────────────
@@ -180,7 +299,7 @@ export const bmoLearnings = [
   },
   {
     title: "Ship the rough version, then measure",
-    body: "Getting to a working end-to-end loop first — even a slow one — gave me something real to evaluate and a clear next priority (latency), instead of polishing in the dark.",
+    body: "Getting to a working end-to-end loop first — even a slow one — gave me something real to measure. Per-stage timing turned “vision feels slow” into exact numbers, which pointed straight at the fix that mattered most (a hidden model-reload tax) and kept me from chasing tuning that couldn’t have helped.",
   },
 ];
 
@@ -199,6 +318,11 @@ export const bmoStack = [
     stage: "Language model",
     engine: "Ollama",
     notes: "llama3.2:1b with a BMO persona prompt",
+  },
+  {
+    stage: "Vision",
+    engine: "Ollama + Picamera2",
+    notes: "moondream:v2 describes camera frames",
   },
   {
     stage: "Text-to-speech",
@@ -243,13 +367,29 @@ export const bmoReels = [
     poster: reelDay5,
     caption: "Day 5 — wiring it all together for BMO's first conversation",
   },
+  {
+    url: "https://www.instagram.com/p/DaN4cD4IvwQ/",
+    poster: reelDay6,
+    caption: "Day 6 — giving BMO a camera and a vision model so it can see",
+  },
+  {
+    url: "https://www.instagram.com/p/Dalin39y4NQ/",
+    poster: reelDay7,
+    caption: "Day 7 — 3D printing a custom case for the Pi and display",
+  },
+  {
+    url: "https://www.instagram.com/reel/Da1B1MvS_Cc/",
+    poster: reelDay8,
+    caption:
+      "Day 8 — adding an active cooler, then using real metrics to cut BMO's response time",
+  },
 ];
 
 // ── Future plans ──────────────────────────────────────────────────────
 export const bmoFutureIdeas = [
   "Design custom BMO faces with more expressions",
-  "Connect to a console for playing games",
-  "Take pictures — and maybe print them",
+  "Add more touch-screen minigames, and pre-generate hard Jake-doku boards so they appear instantly",
+  "Save and print the photos BMO takes",
 ];
 
 // Flip to a real URL when you're ready to make the repo public.

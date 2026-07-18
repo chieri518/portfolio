@@ -45,26 +45,54 @@ function Pipeline() {
 }
 
 function PhaseSection({ phase, index }) {
-  const hasMedia = Boolean(phase.photo);
+  const hasVersions = phase.versions?.length > 0;
+  const hasMedia = Boolean(phase.photo) || hasVersions;
   const mediaLeft = index % 2 === 1;
 
-  const media = hasMedia && (
-    <div className="flex-1 space-y-5">
-      <figure className="space-y-2">
-        <div className="overflow-hidden rounded-2xl border border-gray-100 bg-gray-50 shadow-md">
-          <img
-            src={phase.photo}
-            alt={phase.photoCaption || `${phase.title} build photo`}
-            className="w-full h-auto object-contain"
-          />
-        </div>
-        {phase.photoCaption && (
-          <figcaption className="text-xs md:text-sm text-secondary text-center">
-            {phase.photoCaption}
-          </figcaption>
-        )}
-      </figure>
+  const media = hasVersions ? (
+    <div className="flex-1 space-y-6">
+      {phase.versions.map((v) => (
+        <figure key={v.label} className="space-y-2">
+          <div className="flex items-baseline justify-between gap-2 px-1">
+            <span className="text-xs font-semibold uppercase tracking-wide text-[#3da789]">
+              {v.label}
+            </span>
+            <span className="text-xs text-secondary">{v.dates}</span>
+          </div>
+          <div className="overflow-hidden rounded-2xl border border-gray-100 bg-gray-50 shadow-md">
+            <img
+              src={v.photo}
+              alt={v.caption || `${phase.title} ${v.label}`}
+              className="w-full h-auto object-contain"
+            />
+          </div>
+          {v.caption && (
+            <figcaption className="text-xs md:text-sm text-secondary text-center">
+              {v.caption}
+            </figcaption>
+          )}
+        </figure>
+      ))}
     </div>
+  ) : (
+    hasMedia && (
+      <div className="flex-1 space-y-5">
+        <figure className="space-y-2">
+          <div className="overflow-hidden rounded-2xl border border-gray-100 bg-gray-50 shadow-md">
+            <img
+              src={phase.photo}
+              alt={phase.photoCaption || `${phase.title} build photo`}
+              className="w-full h-auto object-contain"
+            />
+          </div>
+          {phase.photoCaption && (
+            <figcaption className="text-xs md:text-sm text-secondary text-center">
+              {phase.photoCaption}
+            </figcaption>
+          )}
+        </figure>
+      </div>
+    )
   );
 
   const text = (
@@ -377,6 +405,18 @@ function BMO() {
             </p>
           </div>
           <Pipeline />
+          <p className="text-sm md:text-[15px] text-secondary text-center max-w-2xl mx-auto leading-[24px]">
+            <span className="font-semibold text-[#3da789]">Vision branch:</span>{" "}
+            when a command sounds like “what do you see?”, BMO takes a different
+            path — it shows a live camera preview, snaps a frame, and asks a
+            local vision model to describe what’s in front of it.
+          </p>
+          <p className="text-sm md:text-[15px] text-secondary text-center max-w-2xl mx-auto leading-[24px]">
+            <span className="font-semibold text-[#3da789]">Games branch:</span>{" "}
+            say “let’s play” and BMO launches a touch-screen game — an endless
+            runner or an on-device logic puzzle — pausing the voice loop until
+            you exit.
+          </p>
         </div>
       </section>
 

@@ -13,10 +13,18 @@ const works = [
   {
     name: "BMO Robot",
     description:
-      "A voice-controlled BMO companion (from Adventure Time) that runs entirely on-device on a Raspberry Pi 5. Say \"Hey BMO\" and it wakes up, listens, thinks up a reply in BMO's cheerful personality, speaks it aloud in a custom voice, and reacts with animated facial expressions — all locally, with no cloud, accounts, or internet at runtime. A personal build documented step by step.",
+      'A voice-controlled BMO companion (from Adventure Time) that runs entirely on-device on a Raspberry Pi 5. Say "Hey BMO" and it wakes up, listens, thinks up a reply in BMO\'s cheerful personality, speaks it aloud in a custom voice, and reacts with animated facial expressions — it can even look through a camera to describe what it sees, all locally, with no cloud, accounts, or internet at runtime. A personal build documented step by step.',
 
     image: bmoCover,
     link: "/bmo",
+  },
+  {
+    name: "NEC X",
+    description:
+      "Managing program operations and events while leading their marketing strategy across social media, paid ads, and community outreach.",
+
+    image: necx_group,
+    link: "/necx",
   },
   {
     name: "Founder of chetz",
@@ -33,14 +41,6 @@ const works = [
 
     image: uif1,
     link: "/uif",
-  },
-  {
-    name: "NEC X",
-    description:
-      "Managing program operations and events while leading their marketing strategy across social media, paid ads, and community outreach.",
-
-    image: necx_group,
-    link: "/necx",
   },
   {
     name: "Navigating the Tech Job Market in 2025",

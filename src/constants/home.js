@@ -1,6 +1,5 @@
 import {
   group1,
-  uif1,
   necx_group,
   email,
   github,
@@ -14,6 +13,7 @@ import {
   saybah,
   sang,
 } from "../assets";
+import { bmoCover } from "./bmo";
 
 const heroTexts = [
   "Solutions Consultant",
@@ -54,10 +54,10 @@ const highlights = [
     redirect_link: "/chetz",
   },
   {
-    name: "Building a Sustainable Makerspace",
-    description: "University Innovation Fellowship run by Stanford d.school",
-    image: uif1,
-    redirect_link: "/uif",
+    name: "Building a robot that thinks, talks & sees",
+    description: "Solo project — a voice-controlled BMO on a Raspberry Pi",
+    image: bmoCover,
+    redirect_link: "/bmo",
   },
   {
     name: "Empowering early-stage founders",
