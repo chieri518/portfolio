@@ -9,6 +9,7 @@ import reelDay5 from "../assets/bmo/reel-DZtTaWmI9Xn.jpg";
 import reelDay6 from "../assets/bmo/reel-DaN4cD4IvwQ.jpg";
 import reelDay7 from "../assets/bmo/reel-Dalin39y4NQ.jpg";
 import reelDay8 from "../assets/bmo/reel-Da1B1MvS_Cc.jpg";
+import reelDay9 from "../assets/bmo/reel-DbBzdSjylRC.jpg";
 
 // The card/hero cover image, re-exported so pages can import it by a clear name.
 export { default as bmoCover } from "../assets/bmo/cover.jpg";
@@ -227,7 +228,8 @@ export const bmoPhases = [
     decisions: [
       {
         topic: "The biggest everyday win",
-        considered: "Let the runtime reload each model on demand vs. keep both resident",
+        considered:
+          "Let the runtime reload each model on demand vs. keep both resident",
         chose: "Keep the chat and vision models in memory together",
         why: "Every switch between talking and “what do you see?” was silently paying a ~12s model reload; keeping both resident cut that to ~0.1s, for about 3GB of the Pi’s spare RAM.",
       },
@@ -245,7 +247,8 @@ export const bmoPhases = [
       },
       {
         topic: "Knowing when to stop",
-        considered: "Keep chasing CPU-level tricks vs. accept the model’s floor",
+        considered:
+          "Keep chasing CPU-level tricks vs. accept the model’s floor",
         chose: "Accept ~44s as the honest floor",
         why: "What’s left is the model prefilling ~740 image tokens — no tuning moves it, so the only real lever is a smaller vision model, which I’ve deferred on quality grounds rather than pretend the number can go lower.",
       },
@@ -267,7 +270,8 @@ export const bmoPhases = [
     decisions: [
       {
         topic: "The flaw that wasn’t obvious",
-        considered: "Only guaranteeing each puzzle has one solution vs. guaranteeing it can be reasoned out",
+        considered:
+          "Only guaranteeing each puzzle has one solution vs. guaranteeing it can be reasoned out",
         chose: "Gate generation on a no-guessing solver",
         why: "Every board was already unique — but I measured that only ~28% of easy boards (and ~10% of hard ones) could actually be reached by logic; the rest secretly required guessing, which is why even “easy” felt impossible. Accepting a board only if a human-technique solver can crack it took that to 100%.",
       },
@@ -383,6 +387,11 @@ export const bmoReels = [
     caption:
       "Day 8 — adding an active cooler, then using real metrics to cut BMO's response time",
   },
+  {
+    url: "https://www.instagram.com/reel/DbBzdSjylRC/",
+    poster: reelDay9,
+    caption: "Day 9 — developing games: Finn Runner and Jake Doku",
+  },
 ];
 
 // ── Future plans ──────────────────────────────────────────────────────
@@ -392,5 +401,4 @@ export const bmoFutureIdeas = [
   "Save and print the photos BMO takes",
 ];
 
-// Flip to a real URL when you're ready to make the repo public.
 export const bmoRepoUrl = null;

@@ -7,6 +7,7 @@ import NECX from "./NECX";
 import BMO from "./BMO";
 import MyStory from "./MyStory";
 import JobHunt from "./JobHunt";
+import CAD from "./CAD";
 import NotFound from "./NotFound";
 
 export {
@@ -19,5 +20,6 @@ export {
   BMO,
   MyStory,
   JobHunt,
+  CAD,
   NotFound,
 };
