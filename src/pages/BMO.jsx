@@ -420,6 +420,21 @@ function BMO() {
         </div>
       </section>
 
+      <section className="py-14 md:py-16">
+        <div className={`${styles.paddingX} max-w-6xl mx-auto space-y-8`}>
+          <div className="text-center max-w-2xl mx-auto">
+            <h2 className={styles.subHeadText}>
+              The build, in motion
+            </h2>
+            <p className={`${styles.bodyText} mt-2`}>
+              I’m documenting the whole journey as short reels. Tap any clip to
+              play it.
+            </p>
+          </div>
+          <ReelsCarousel />
+        </div>
+      </section>
+
       <section className="pt-8">
         <div className={`${styles.paddingX} max-w-6xl mx-auto text-center`}>
           <h2 className={styles.subHeadText}>
@@ -481,21 +496,6 @@ function BMO() {
               </table>
             </div>
           </details>
-        </div>
-      </section>
-
-      <section className="py-14 md:py-16">
-        <div className={`${styles.paddingX} max-w-6xl mx-auto space-y-8`}>
-          <div className="text-center max-w-2xl mx-auto">
-            <h2 className={styles.subHeadText}>
-              The build, in motion
-            </h2>
-            <p className={`${styles.bodyText} mt-2`}>
-              I’m documenting the whole journey as short reels. Tap any clip to
-              play it.
-            </p>
-          </div>
-          <ReelsCarousel />
         </div>
       </section>
 

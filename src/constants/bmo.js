@@ -11,10 +11,8 @@ import reelDay7 from "../assets/bmo/reel-Dalin39y4NQ.jpg";
 import reelDay8 from "../assets/bmo/reel-Da1B1MvS_Cc.jpg";
 import reelDay9 from "../assets/bmo/reel-DbBzdSjylRC.jpg";
 
-// The card/hero cover image, re-exported so pages can import it by a clear name.
 export { default as bmoCover } from "../assets/bmo/cover.jpg";
 
-// ── Hero ──────────────────────────────────────────────────────────────
 export const bmoHero = {
   eyebrow: "Personal Build · Raspberry Pi · On-device AI",
   title: "BMO",
@@ -26,7 +24,6 @@ export const bmoHero = {
     'Say "Hey BMO" and it wakes up, listens to your command, thinks up a reply in BMO’s cheerful personality, speaks it aloud in a custom BMO voice, and reacts with animated facial expressions on its screen. It can even see — ask "what do you see?" and it looks through a camera to describe what’s in front of it — and it plays games on its touch screen, an endless runner and a logic puzzle, whenever you ask. Everything runs locally on a Raspberry Pi 5 — no cloud APIs, no accounts, no internet required at runtime.',
 };
 
-// ── TL;DR — the 15-second version for a busy reader ───────────────────
 export const bmoTldr = [
   {
     label: "What",
@@ -52,7 +49,6 @@ export const bmoPipeline = [
   { label: "Speaker + Face", sub: "voice + emotion" },
 ];
 
-// ── Build phases (problem → decision → result) ────────────────────────
 export const bmoPhases = [
   {
     id: "hardware",
@@ -291,7 +287,6 @@ export const bmoPhases = [
   },
 ];
 
-// ── What I learned (product reflection) ───────────────────────────────
 export const bmoLearnings = [
   {
     title: "Constraints are a design tool, not a limitation",
@@ -340,11 +335,6 @@ export const bmoStack = [
   },
 ];
 
-// ── Instagram reels (featured latest + carousel of past) ───────────────
-// List CHRONOLOGICALLY (oldest first). Append each new reel to the BOTTOM —
-// the last entry is automatically featured as the "Latest episode", and the
-// rest appear in the past-episodes carousel (most-recent first).
-// `url` is the public reel link; `poster` is the cover image you provide.
 export const bmoReels = [
   {
     url: "https://www.instagram.com/p/DZD6Qiuvxx7/",
@@ -394,7 +384,6 @@ export const bmoReels = [
   },
 ];
 
-// ── Future plans ──────────────────────────────────────────────────────
 export const bmoFutureIdeas = [
   "Design custom BMO faces with more expressions",
   "Add more touch-screen minigames, and pre-generate hard Jake-doku boards so they appear instantly",
