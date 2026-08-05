@@ -10,6 +10,7 @@ import reelDay6 from "../assets/bmo/reel-DaN4cD4IvwQ.jpg";
 import reelDay7 from "../assets/bmo/reel-Dalin39y4NQ.jpg";
 import reelDay8 from "../assets/bmo/reel-Da1B1MvS_Cc.jpg";
 import reelDay9 from "../assets/bmo/reel-DbBzdSjylRC.jpg";
+import reelDay10 from "../assets/bmo/reel-DbL-Tz-vdPk.jpg";
 
 export { default as bmoCover } from "../assets/bmo/cover.jpg";
 
@@ -381,6 +382,11 @@ export const bmoReels = [
     url: "https://www.instagram.com/reel/DbBzdSjylRC/",
     poster: reelDay9,
     caption: "Day 9 — developing games: Finn Runner and Jake Doku",
+  },
+  {
+    url: "https://www.instagram.com/reel/DbL-Tz-vdPk/",
+    poster: reelDay10,
+    caption: "Day 10 — connecting the microswitches and improving Finn Runner",
   },
 ];
 

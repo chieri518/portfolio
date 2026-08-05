@@ -16,6 +16,8 @@ import {
 import { bmoCover } from "./bmo";
 
 const heroTexts = [
+  "Product Manager",
+  500,
   "Solutions Consultant",
   500,
   "Global Citizen",

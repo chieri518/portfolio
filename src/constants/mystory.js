@@ -85,7 +85,7 @@ export const storyChapters = [
     photos: [
       {
         src: england1,
-        caption: "Summer school in England, age 10.",
+        caption: "Wheels up for England — ten years old and on my own.",
       },
       {
         src: england2,
@@ -109,7 +109,7 @@ export const storyChapters = [
       },
       {
         src: malaysia2,
-        caption: "New friends, new world.",
+        caption: "Out exploring Malaysia on a school field trip.",
       },
       {
         src: malaysia3,
@@ -130,7 +130,7 @@ export const storyChapters = [
     photos: [
       {
         src: canada1,
-        caption: "About as far from a Tokyo high-rise as you can get.",
+        caption: "A warm welcome from my host mother.",
       },
       {
         src: canada3,
@@ -176,11 +176,11 @@ export const storyChapters = [
     photos: [
       {
         src: menlo1,
-        caption: "Building things at Menlo, in Silicon Valley.",
+        caption: "New friends from every corner of the world.",
       },
       {
         src: menlo3,
-        caption: "Out in the startup community.",
+        caption: "Out front at Menlo College, where it all came together.",
       },
     ],
     links: [

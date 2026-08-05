@@ -9,6 +9,7 @@ import { SectionWrapper } from "../hoc";
 import { profile, resume } from "../assets";
 
 import { TypeAnimation } from "react-type-animation";
+import { Link } from "react-router-dom";
 
 const Name = ({ loading }) => {
   return (
@@ -47,17 +48,29 @@ const About = () => {
           viewport={{ once: true, amount: 0.25 }}
           className="mt-4 text-secondary text-[17px] max-w-3xl leading-[30px]"
         >
-          My work lives at the intersection of community design, systems
-          optimization, and entrepreneurship, guided by a question that has
-          shaped my life: <br />
+          My work lives at the intersection of product, community, and
+          entrepreneurship, guided by a question that has shaped my life: <br />
           <span style={{ fontStyle: "italic", fontWeight: "bold" }}>
-            How might we design systems that expand possibility instead of
+            How might we build systems that expand possibility instead of
             limiting it?
           </span>
           <br />
-          I bring a strategic, human-centered approach to every project,
-          leveraging insights from living in four countries and working across
-          cultures to design solutions that resonate with diverse audiences. 🌍
+          That question has carried me from founding a global nonprofit during
+          COVID to rebuilding the KPIs and dashboard a startup relied on to make
+          its decisions. I'm a product manager who has lived in four countries
+          and spent 4+ years across startups and organizations like Google and
+          Hilton — a range that trained me to see every problem through multiple
+          lenses and keep asking why the system works the way it does.
+          <br />
+          Now I'm pairing that strategic, cross-cultural background with
+          hands-on technical execution. Curious how I got here?{" "}
+          <Link
+            to="/story"
+            className="animate-text bg-gradient-to-r from-blue-500 to-pink-500 bg-clip-text text-transparent font-black"
+          >
+            Read my story
+          </Link>
+          . 🌍
           <br />
           Feel free to explore my projects and get in touch at{" "}
           <a
