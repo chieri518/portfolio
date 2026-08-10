@@ -8,6 +8,7 @@ import BMO from "./BMO";
 import MyStory from "./MyStory";
 import JobHunt from "./JobHunt";
 import CAD from "./CAD";
+import Alumni from "./Alumni";
 import NotFound from "./NotFound";
 
 export {
@@ -21,5 +22,6 @@ export {
   MyStory,
   JobHunt,
   CAD,
+  Alumni,
   NotFound,
 };

@@ -42,11 +42,12 @@ import honor2 from "./awards/honor2.png";
 import marketingconf from "./awards/marketingconf.png";
 import BGS from "./awards/BGS.png";
 
-// ── thumbnails/ (project cards) ──
-import youtubevid from "./thumbnails/youtubevid.png";
-import instareel from "./thumbnails/instareel.png";
-import linkedinpost from "./thumbnails/linkedinpost.png";
-import jobhunt from "./thumbnails/jobhunt.png";
+// ── alumni/ (alumni office content thumbnails) ──
+import youtubevid from "./alumni/youtubevid.png";
+import instareel from "./alumni/instareel.png";
+import linkedinpost from "./alumni/linkedinpost.png";
+// ── jobhunt/ ──
+import jobhunt from "./jobhunt/jobhunt.png";
 
 // ── reference/ (testimonial headshots) ──
 import noriko from "./reference/noriko.jpeg";
