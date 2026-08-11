@@ -11,10 +11,10 @@ const NavList = ({ variant, active, onSelect }) => {
     ? "list-none hidden sm:flex flex-row gap-10"
     : "list-none flex justify-end items-start flex-col gap-4";
   const itemBase = isDesktop
-    ? "hover:text-white text-[18px] font-medium cursor-pointer"
+    ? "hover:text-primary text-[18px] font-medium cursor-pointer transition-colors"
     : "font-poppins font-medium cursor-pointer text-[16px]";
-  const activeColor = isDesktop ? "text-white" : "text-secondary";
-  const inactiveColor = isDesktop ? "text-secondary" : "text-white";
+  const activeColor = "text-primary";
+  const inactiveColor = "text-secondary";
 
   return (
     <ul className={listClass}>
@@ -38,7 +38,7 @@ const Navbar = () => {
   const [toggle, setToggle] = useState(false);
   return (
     <nav
-      className={`${styles.paddingX} w-full flex items-center py-5 sticky top-0 z-20 bg-primary`}
+      className={`${styles.paddingX} w-full flex items-center py-5 sticky top-0 z-20 bg-ground border-b border-gray-200`}
     >
       <div className="w-full flex justify-between items-center max-w-7xl mx-auto">
         <Link
@@ -50,9 +50,11 @@ const Navbar = () => {
           }}
         >
           <img src={logo} alt="logo" className="w-9 h-9 object-contain" />
-          <p className="text-white text-[18px] font-bold cursor-pointer flex">
+          <p className="text-primary text-[18px] font-bold cursor-pointer flex">
             Chieri Abe &nbsp;
-            <span className="sm:block hidden">| Portfolio</span>
+            <span className="sm:block hidden text-secondary font-semibold">
+              | Portfolio
+            </span>
           </p>
         </Link>
         <NavList variant="desktop" active={active} onSelect={setActive} />
@@ -61,13 +63,13 @@ const Navbar = () => {
           <img
             src={toggle ? close : menu}
             alt="menu"
-            className="w-[28px] h-[28px] object-contain cursor-pointer"
+            className="w-[28px] h-[28px] object-contain cursor-pointer brightness-0 opacity-70"
             onClick={() => setToggle(!toggle)}
           />
           <div
             className={`${
               !toggle ? "hidden" : "flex"
-            } p-6 pink-gradient absolute top-20 right-0 mx-4 my-2 min-w-[140px] z-10 rounded-3xl`}
+            } p-6 bg-white border border-gray-200 shadow-xl absolute top-20 right-0 mx-4 my-2 min-w-[140px] z-10 rounded-3xl`}
           >
             <NavList
               variant="mobile"

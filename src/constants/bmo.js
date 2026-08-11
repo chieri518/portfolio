@@ -59,7 +59,7 @@ export const bmoPhases = [
     problem:
       "I wanted a BMO that actually works anywhere — something I could power on and talk to without setting up an account, signing into a cloud service, or even being online. That meant the entire experience had to fit on one small machine.",
     decision:
-      "I built it around a Raspberry Pi 5 with a USB microphone, a speaker, and the Raspberry Pi Touch Display 2 for BMO’s face. The software auto-prefers USB / reSpeaker mics so it picks the right input on boot without manual configuration.",
+      "I built it around a Raspberry Pi 5 with a speaker whose built-in mic picks up your voice, and the Raspberry Pi Touch Display 2 for BMO’s face. On boot the software auto-detects the audio input — falling back to a USB / reSpeaker mic if one is plugged in — so it finds the right device without manual configuration.",
     result: [
       "A single, portable device that runs the whole interaction loop locally.",
       "No internet, accounts, or cloud calls at runtime — it just turns on and works.",
@@ -137,7 +137,7 @@ export const bmoPhases = [
     problem:
       "A working voice assistant isn’t BMO. The replies had to sound cheerful and playful like the character — not like a generic assistant — and the model still had to be small enough to run locally on the Pi.",
     decision:
-      "I run a small language model (llama3.2:1b) locally through Ollama, steered by a BMO persona prompt that sets the character’s voice, tone, and quirks.",
+      "I run a small language model (llama3.2:1b) locally through Ollama, steered by a BMO persona prompt that sets the character’s voice, tone, and quirks. The prompt also asks the model to answer as structured JSON — an emotion plus the reply text — so every response also decides how BMO should look when it speaks.",
     result: [
       "BMO replies in-character and fully offline.",
       "Swapping the persona prompt changes BMO’s personality without touching the rest of the system.",
@@ -165,7 +165,7 @@ export const bmoPhases = [
     problem:
       "Voice alone still isn’t BMO — the expressive little face is half of what makes the character. It needed to react visibly to what was happening in the conversation.",
     decision:
-      "A fullscreen pygame app maps emotional states to face images via a faces.json config and renders them on the Pi’s touch display, so BMO’s expression changes with the moment.",
+      "Each reply from the language model arrives tagged with an emotion, and a fullscreen pygame app maps that emotion to a face image via a faces.json config, rendering it on the Pi’s touch display — so BMO’s expression changes with whatever it just said.",
     result: [
       "BMO reacts with animated facial expressions per emotional state.",
       "New expressions are added by dropping in an image and mapping it in faces.json — no code changes.",
@@ -396,4 +396,4 @@ export const bmoFutureIdeas = [
   "Save and print the photos BMO takes",
 ];
 
-export const bmoRepoUrl = null;
+export const bmoRepoUrl = "https://github.com/chieri518/bmo_robot";

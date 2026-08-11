@@ -46,7 +46,7 @@ function Alumni() {
   return (
     <>
       <section
-        className={`relative w-full min-h-screen mx-auto bg-white ${styles.paddingY}`}
+        className={`relative w-full min-h-screen mx-auto bg-ground ${styles.paddingY}`}
       >
         <div
           className={`${styles.paddingX} max-w-6xl mx-auto flex flex-col gap-10`}
@@ -119,8 +119,8 @@ function Alumni() {
       </section>
 
       {alumniWork.map((work) => (
-        <section key={work.id} id={work.id} className="py-16">
-          <div className={`${styles.paddingX} max-w-5xl mx-auto space-y-8`}>
+        <section key={work.id} id={work.id} className={styles.sectionY}>
+          <div className={`${styles.paddingX} max-w-6xl mx-auto space-y-8`}>
             <div className="text-center max-w-3xl mx-auto">
               <p className="text-secondary uppercase tracking-wider text-[13px] mb-2">
                 {work.kind}
@@ -191,7 +191,7 @@ function Alumni() {
         </section>
       ))}
 
-      <section className="bg-white py-16">
+      <section className={`bg-ground ${styles.sectionY}`}>
         <div className={`${styles.paddingX} max-w-6xl mx-auto`}>
           <h3 className={`${styles.subHeadText} text-center mb-10`}>
             What This Experience Taught Me

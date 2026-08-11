@@ -138,7 +138,7 @@ const TimelinePhase = ({ phase, title, date, children, highlight = false }) => {
       <div className="flex flex-col items-center flex-shrink-0">
         <div
           className={`w-16 h-16 rounded-full flex items-center justify-center text-2xl font-bold text-white ${
-            highlight ? "bg-orange-500" : "bg-blue-500"
+            highlight ? "bg-primary" : "bg-secondary"
           }`}
         >
           {phase}
@@ -156,8 +156,10 @@ const TimelinePhase = ({ phase, title, date, children, highlight = false }) => {
 
         {/* Children Content */}
         <div
-          className={`p-6 rounded-lg shadow-lg ${
-            highlight ? "bg-blue-50 border-2 border-blue-200" : "bg-white"
+          className={`p-6 rounded-2xl shadow-md ${
+            highlight
+              ? "bg-primary/5 border-2 border-primary/30"
+              : "bg-white border border-gray-100"
           }`}
         >
           {children}
@@ -457,12 +459,12 @@ const Chetz = () => {
                       control.
                     </p>
                   </div>
-                  <div className="bg-blue-50 p-6 rounded-lg">
+                  <div className="bg-primary/5 p-6 rounded-2xl border border-primary/20">
                     <p className="text-gray-700 mb-3">
                       Most student-led organizations die when the founder
                       leaves.
                     </p>
-                    <p className="text-xl font-bold text-blue-500">
+                    <p className="text-xl font-bold text-primary">
                       chetz is still running 5 years later.
                     </p>
                   </div>

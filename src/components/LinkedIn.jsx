@@ -80,7 +80,7 @@ const LinkedIn = () => {
             target="_blank"
             rel="noreferrer"
           >
-            <div className="bg-primary text-black px-6 py-2 font-medium rounded-md">
+            <div className="bg-primary text-white px-6 py-2 font-medium rounded-md">
               Let's Connect on LinkedIn!
             </div>
           </a>

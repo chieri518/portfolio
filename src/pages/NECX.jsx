@@ -53,7 +53,7 @@ function NECX() {
   return (
     <>
       <section
-        className={`relative w-full min-h-screen mx-auto bg-white ${styles.paddingY}`}
+        className={`relative w-full min-h-screen mx-auto bg-ground ${styles.paddingY}`}
       >
         <div
           className={`${styles.paddingX} max-w-6xl mx-auto flex flex-col gap-10`}
@@ -131,7 +131,7 @@ function NECX() {
         </div>
       </section>
 
-      <section id="social-media-marketing" className="py-16">
+      <section id="social-media-marketing" className={styles.sectionY}>
         <div className={`${styles.paddingX} max-w-6xl mx-auto space-y-10`}>
           <div className="text-center max-w-6xl mx-auto">
             <h2 className={`${styles.subHeadText} mb-4`}>
@@ -234,7 +234,7 @@ function NECX() {
         </div>
       </section>
 
-      <section id="event-management" className="py-16">
+      <section id="event-management" className={styles.sectionY}>
         <div className={`${styles.paddingX} max-w-6xl mx-auto space-y-10`}>
           <div className="text-center max-w-3xl mx-auto">
             <h3 className={`${styles.subHeadText} mb-4`}>
@@ -333,7 +333,7 @@ function NECX() {
         </div>
       </section>
 
-      <section id="program-coordination" className="py-16">
+      <section id="program-coordination" className={styles.sectionY}>
         <div className={`${styles.paddingX} max-w-6xl mx-auto space-y-10`}>
           <div className="text-center max-w-3xl mx-auto">
             <h3 className={`${styles.subHeadText} mb-4`}>
@@ -455,7 +455,7 @@ function NECX() {
         </div>
       </section>
 
-      <section className="bg-white py-16">
+      <section className={`bg-ground ${styles.sectionY}`}>
         <div className={`${styles.paddingX} max-w-6xl mx-auto`}>
           <h3 className={`${styles.subHeadText} text-center mb-10`}>
             What This Experience Taught Me

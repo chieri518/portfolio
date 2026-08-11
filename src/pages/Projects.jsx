@@ -11,7 +11,7 @@ const PostCard = ({ index, name, description, image, link }) => {
       className="group"
     >
       <a href={link} target="_blank" rel="noopener noreferrer">
-        <div className="relative bg-tertiary p-4 md:p-5 rounded-2xl flex flex-col md:flex-row w-full my-5 shadow-md hover:shadow-lg transition-shadow duration-300">
+        <div className="relative bg-white p-4 md:p-5 rounded-2xl border border-gray-100 flex flex-col md:flex-row w-full my-5 shadow-md hover:shadow-lg transition-shadow duration-300">
           <div className="w-full md:w-1/3 h-auto relative">
             <img
               src={image}

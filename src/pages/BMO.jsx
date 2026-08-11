@@ -155,7 +155,7 @@ function PhaseSection({ phase, index }) {
   );
 
   return (
-    <section id={phase.id} className="py-12 md:py-16">
+    <section id={phase.id} className={styles.sectionY}>
       <div className={`${styles.paddingX} max-w-6xl mx-auto space-y-8`}>
         <div className="text-center max-w-3xl mx-auto">
           <p className={styles.sectionSubText}>
@@ -393,7 +393,7 @@ function BMO() {
         </div>
       </section>
 
-      <section className="bg-gray-50 py-14 md:py-16">
+      <section className={`bg-gray-50 ${styles.sectionY}`}>
         <div className={`${styles.paddingX} max-w-6xl mx-auto space-y-8`}>
           <div className="text-center max-w-2xl mx-auto">
             <h2 className={styles.subHeadText}>
@@ -420,7 +420,7 @@ function BMO() {
         </div>
       </section>
 
-      <section className="py-14 md:py-16">
+      <section className={styles.sectionY}>
         <div className={`${styles.paddingX} max-w-6xl mx-auto space-y-8`}>
           <div className="text-center max-w-2xl mx-auto">
             <h2 className={styles.subHeadText}>
@@ -451,7 +451,7 @@ function BMO() {
         <PhaseSection key={phase.id} phase={phase} index={index} />
       ))}
 
-      <section className="py-12 md:py-16 bg-gray-50">
+      <section className={`${styles.sectionY} bg-gray-50`}>
         <div className={`${styles.paddingX} max-w-4xl mx-auto`}>
           <details className="group bg-white rounded-2xl shadow-md border border-gray-100 p-6 md:p-8">
             <summary className="cursor-pointer list-none flex items-center justify-between">
@@ -499,7 +499,7 @@ function BMO() {
         </div>
       </section>
 
-      <section className="py-14 md:py-16 bg-gray-50">
+      <section className={`${styles.sectionY} bg-gray-50`}>
         <div className={`${styles.paddingX} max-w-6xl mx-auto`}>
           <h2 className={`${styles.subHeadText} text-center mb-10`}>
             What this taught me
@@ -522,7 +522,7 @@ function BMO() {
         </div>
       </section>
 
-      <section className="py-14 md:py-16">
+      <section className={styles.sectionY}>
         <div className={`${styles.paddingX} max-w-4xl mx-auto space-y-8`}>
           <div className="text-center">
             <h2 className={styles.subHeadText}>

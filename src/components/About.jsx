@@ -66,7 +66,7 @@ const About = () => {
           hands-on technical execution. Curious how I got here?{" "}
           <Link
             to="/story"
-            className="animate-text bg-gradient-to-r from-blue-500 to-pink-500 bg-clip-text text-transparent font-black"
+            className="animate-text bg-gradient-to-r from-accent to-accent-deep bg-clip-text text-transparent font-black"
           >
             Read my story
           </Link>
@@ -75,7 +75,7 @@ const About = () => {
           Feel free to explore my projects and get in touch at{" "}
           <a
             href="mailto:chieriabe518@gmail.com"
-            className="animate-text bg-gradient-to-r from-blue-500 to-pink-500 bg-clip-text text-transparent font-black"
+            className="animate-text bg-gradient-to-r from-accent to-accent-deep bg-clip-text text-transparent font-black"
           >
             chieriabe518@gmail.com
           </a>
@@ -129,7 +129,7 @@ const About = () => {
         </div>
         <a href={resume} target="_blank" rel="noreferrer" className="w-fit">
           <div className="btn w-fit bg-tertiary text-primary px-7 py-2 rounded-md overflow-hidden relative cursor-pointer">
-            <div className="original bg-primary text-black px-7 py-2">
+            <div className="original bg-primary text-white px-7 py-2">
               Resume
             </div>
             <div className="letters">

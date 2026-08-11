@@ -26,8 +26,13 @@ const TimelineCard = ({
   footer,
 }) => (
   <VerticalTimelineElement
-    contentStyle={{ background: "#eafbff", color: "#000000" }}
-    contentArrowStyle={{ borderRight: "7px solid #77ddf9" }}
+    contentStyle={{
+      background: "#ffffff",
+      color: "#2a2326",
+      border: "1px solid #f1ebe8",
+      boxShadow: "0 4px 6px -1px rgba(42,35,38,0.08)",
+    }}
+    contentArrowStyle={{ borderRight: "7px solid #f1ebe8" }}
     date={date}
     iconStyle={{ background: "#E6DEDD" }}
     icon={
@@ -112,7 +117,7 @@ const EducationCard = ({ education }) => (
 const AwardCard = ({ index, name, description, image }) => {
   return (
     <motion.div variants={fadeIn("up", "spring", index * 0.5, 0.75)}>
-      <div className="bg-tertiary p-5 rounded-2xl sm:w-[360px] w-full transform transition-transform hover:scale-105">
+      <div className="bg-white p-5 rounded-2xl border border-gray-100 shadow-md sm:w-[360px] w-full transform transition-transform hover:scale-105">
         <div className="relative h-full">
           <img
             src={image}

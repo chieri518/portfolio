@@ -7,7 +7,7 @@ const linkButton =
 const Variant = ({ name, note, image, link }) => {
   const hasLink = link && link.url;
   return (
-    <div className="rounded-2xl border border-gray-100 shadow-sm overflow-hidden flex flex-col">
+    <div className="bg-white rounded-2xl border border-gray-100 shadow-md overflow-hidden flex flex-col">
       {image ? (
         <img src={image} alt={name} className="w-full h-44 object-cover" />
       ) : (
@@ -39,7 +39,7 @@ const Variant = ({ name, note, image, link }) => {
 const Print = ({ title, status, blurb, tags, image, link, variants }) => {
   const hasLink = link && link.url;
   return (
-    <article className="rounded-2xl border border-gray-100 shadow-sm p-5 md:p-6">
+    <article className="bg-white rounded-2xl border border-gray-100 shadow-md p-5 md:p-6">
       <div className="flex items-center gap-3 flex-wrap">
         <h3 className={styles.cardTitle}>{title}</h3>
         {status && (

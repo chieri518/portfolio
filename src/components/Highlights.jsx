@@ -8,7 +8,7 @@ import { fadeIn, textVariant } from "../utils/motion";
 const ProjectCard = ({ index, name, description, image, redirect_link }) => {
   return (
     <motion.div variants={fadeIn("up", "spring", index * 0.5, 0.75)}>
-      <div className="bg-tertiary p-5 rounded-2xl sm:w-[360px] w-full transform transition-transform hover:scale-105">
+      <div className="bg-white p-5 rounded-2xl border border-gray-100 shadow-md sm:w-[360px] w-full transform transition-transform hover:scale-105">
         <a href={redirect_link} target="_blank" rel="noopener noreferrer">
           <img src={image} alt={name} />
           <div className="h-fit"></div>
@@ -23,7 +23,7 @@ const ProjectCard = ({ index, name, description, image, redirect_link }) => {
             href={redirect_link}
             target="_blank"
             rel="noopener noreferrer"
-            className="group inline-flex items-center gap-1 text-sm font-medium text-blue-600 transition duration-200 hover:text-blue-800"
+            className="group inline-flex items-center gap-1 text-sm font-medium text-primary transition duration-200 hover:text-secondary"
           >
             Learn More
             <svg
