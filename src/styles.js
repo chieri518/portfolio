@@ -25,9 +25,6 @@ const styles = {
   bodyText:
     "text-secondary text-[16px] md:text-[17px] leading-[28px] md:leading-[30px]",
 
-  // Dense / card copy (one step down from bodyText)
-  smallText: "text-secondary text-[15px] leading-[24px]",
-
   // Vertical rhythm for in-page content sections
   sectionY: "py-12 md:py-16",
 };

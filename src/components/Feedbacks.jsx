@@ -36,7 +36,7 @@ const FeedbackCard = ({
       <div className="mt-7 flex justify-between items-center gap-1">
         <div className="flex-1 flex flex-col">
           <p className="text-black font-medium text-[16px]">
-            <span className="blue-text-gradient">@</span> {name}
+            <span className="pink-text-gradient">@</span> {name}
           </p>
           <p className="mt-1 text-secondary text-[12px]">
             {designation} of {company}
@@ -87,10 +87,8 @@ const Feedbacks = () => {
     ],
   };
   return (
-    <div className="mt-12 bg-white rounded-[20px]">
-      <div
-        className={`${styles.padding} bg-tertiary rounded-2xl min-h-[300px]`}
-      >
+    <div className="mt-12">
+      <div className={`${styles.padding} min-h-[300px]`}>
         <motion.div variants={textVariant()}>
           <p className={styles.sectionSubText}>What others say...</p>
           <h2 className={styles.sectionHeadText}>References</h2>
