@@ -9,6 +9,7 @@ import MyStory from "./MyStory";
 import JobHunt from "./JobHunt";
 import CAD from "./CAD";
 import Alumni from "./Alumni";
+import DailyPrint from "./DailyPrint";
 import NotFound from "./NotFound";
 
 export {
@@ -23,5 +24,6 @@ export {
   JobHunt,
   CAD,
   Alumni,
+  DailyPrint,
   NotFound,
 };

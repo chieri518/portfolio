@@ -1,7 +1,16 @@
 import { group1, uif1, necx_group, youtubevid, jobhunt } from "../assets";
 import { bmoCover } from "./bmo";
+import { dailyPrintCover } from "./dailyprint";
 
 const works = [
+  {
+    name: "Daily Print",
+    description:
+      "An AI editor that puts together a personal newspaper and prints it at home every morning. Readers design their own paper — sections, page layouts, typeface, tone and location — and the editor researches the news, writes each story to fit its spot, and adds the weather, puzzles and a comic drawn for them. The finished edition is a print-ready PDF that a Raspberry Pi printer box prints before breakfast.",
+
+    image: dailyPrintCover,
+    link: "/dailyprint",
+  },
   {
     name: "BMO Robot",
     description:
