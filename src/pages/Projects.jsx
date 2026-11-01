@@ -22,19 +22,15 @@ const PostCard = ({ index, name, description, image, link }) => {
 
           <div className="w-full md:w-2/3 mt-4 md:mt-0 md:ml-5 flex flex-col justify-between relative">
             <div>
-              <h3 className={styles.cardTitle}>
-                {name}
-              </h3>
+              <h3 className={styles.cardTitle}>{name}</h3>
               <p className="mt-2 text-secondary text-[15px]">{description}</p>
             </div>
-            <button
-              onClick={() => window.open(link, "_blank")}
-              className="mt-2 mb-2 bg-primary text-white text-sm md:text-base py-2 rounded-full hover:bg-secondary transition-colors max-w-[200px]"
-            >
+            {/* The whole card is the link; this just looks like a button. */}
+            <span className="mt-2 mb-2 bg-primary text-white text-center text-sm md:text-base py-2 rounded-full hover:bg-secondary transition-colors max-w-[200px]">
               Learn More →
-            </button>
+            </span>
           </div>
-        </div>{" "}
+        </div>
       </a>
     </motion.div>
   );

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import {
   VerticalTimeline,
@@ -74,8 +74,8 @@ const ExperienceCard = ({ experience }) => {
     experience.company_name === "NEC X"
       ? "/necx"
       : experience.company_name === "chetz"
-        ? "/chetz"
-        : null;
+      ? "/chetz"
+      : null;
 
   return (
     <TimelineCard

@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import { styles } from "../styles";
 import { SectionWrapper } from "../hoc";
+import { Learnings } from "../components/CaseStudy";
 import { menlo } from "../assets";
 import {
   alumniIntro,
@@ -20,7 +21,7 @@ function NewsletterFrame({ src, title }) {
       const doc = ref.current?.contentDocument;
       const measured = Math.max(
         doc?.documentElement?.scrollHeight || 0,
-        doc?.body?.scrollHeight || 0
+        doc?.body?.scrollHeight || 0,
       );
       if (measured) setHeight(measured);
     } catch {
@@ -56,7 +57,7 @@ function Alumni() {
             <div className="flex-1 space-y-4">
               <h1 className={styles.sectionHeadText}>{alumniIntro.title}</h1>
 
-              <section className="overview">
+              <section>
                 <div className="max-w-6xl mx-auto bg-gray-50 px-6 py-6 md:px-10 md:py-8">
                   <div className="flex flex-col lg:flex-row items-center lg:items-start gap-8">
                     <div className="flex-1 text-left">
@@ -175,9 +176,7 @@ function Alumni() {
                 </div>
               )}
 
-              <p className="text-secondary text-[16px] leading-[28px] md:text-[17px] md:leading-[30px]">
-                {work.description}
-              </p>
+              <p className={styles.bodyText}>{work.description}</p>
 
               {work.link && (
                 <a href={work.link} target="_blank" rel="noopener noreferrer">
@@ -191,29 +190,11 @@ function Alumni() {
         </section>
       ))}
 
-      <section className={`bg-ground ${styles.sectionY}`}>
-        <div className={`${styles.paddingX} max-w-6xl mx-auto`}>
-          <h3 className={`${styles.subHeadText} text-center mb-10`}>
-            What This Experience Taught Me
-          </h3>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {alumniLearnings.map((learning) => (
-              <div
-                key={learning.title}
-                className="learning-item bg-gray-50 rounded-2xl shadow-md border border-gray-100 p-6"
-              >
-                <h4 className="text-xl font-semibold text-gray-900 mb-3">
-                  {learning.title}
-                </h4>
-                <p className="text-secondary text-[15px] leading-[24px]">
-                  {learning.body}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <Learnings
+        title="What This Experience Taught Me"
+        items={alumniLearnings}
+        look="experience"
+      />
     </>
   );
 }

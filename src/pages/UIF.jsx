@@ -30,7 +30,7 @@ const MarqueeImages = memo(function MarqueeImages({ images }) {
               "h-auto relative rounded-2xl overflow-hidden before:-skew-x-12 group-hover:before:animate-[shimmer_1s_forwards] before:bg-gradient-to-r before:from-transparent before:via-white/10 before:to-transparent transition-all ease-in-out duration-300",
               i % 2 === 0
                 ? "rotate-2 group-hover:rotate-[-1deg] group-hover:scale-110 group-hover:shadow-lg lg:group-hover:shadow-2xl"
-                : "group-hover:rotate-1 group-hover:scale-110 group-hover:shadow-lg lg:group-hover:shadow-2xl rotate-[-2deg]"
+                : "group-hover:rotate-1 group-hover:scale-110 group-hover:shadow-lg lg:group-hover:shadow-2xl rotate-[-2deg]",
             )}
           >
             <img
@@ -58,7 +58,7 @@ function MarqueeGallery({ images }) {
       {
         root: null,
         rootMargin: `${window.innerHeight}px 0px`,
-      }
+      },
     );
     observer.observe(ref.current);
     return () => observer.disconnect();
@@ -192,9 +192,7 @@ const UIF = () => {
           {/* The Opportunity + Mindmap side by side */}
           <div className="flex flex-col lg:flex-row gap-8 items-start">
             <div className="flex-1">
-              <h3 className={`${styles.cardTitle} mb-2`}>
-                The Challenge
-              </h3>
+              <h3 className={`${styles.cardTitle} mb-2`}>The Challenge</h3>
               <p className={styles.bodyText}>
                 The Innovation Center (a space designed by 2017 UIF cohort)
                 existed as a classroom with movable furniture and a Mac monitor,
@@ -202,15 +200,15 @@ const UIF = () => {
                 student engagement.
               </p>
               <br />
-              <h3 className={`${styles.cardTitle} mb-2`}>
-                The Opportunity
-              </h3>
+              <h3 className={`${styles.cardTitle} mb-2`}>The Opportunity</h3>
               <p className={`${styles.bodyText} mb-2`}>
                 Our cohort identified that students lacked hands-on skill
                 development opportunities. We chose to focus on the Innovation
                 Center specifically because:
               </p>
-              <ul className={`list-disc list-inside space-y-2 ${styles.bodyText}`}>
+              <ul
+                className={`list-disc list-inside space-y-2 ${styles.bodyText}`}
+              >
                 <li>The infrastructure already existed.</li>
 
                 <li>
@@ -235,10 +233,10 @@ const UIF = () => {
             </div>
           </div>
           <div>
-            <h3 className={`${styles.cardTitle} mb-3`}>
-              Key Design Decisions
-            </h3>
-            <ul className={`list-disc list-inside space-y-2 ${styles.bodyText}`}>
+            <h3 className={`${styles.cardTitle} mb-3`}>Key Design Decisions</h3>
+            <ul
+              className={`list-disc list-inside space-y-2 ${styles.bodyText}`}
+            >
               <li>
                 <strong>Sustainability over novelty:</strong> Focused on
                 long-term infrastructure rather than one-off events.
@@ -342,9 +340,7 @@ const UIF = () => {
       <div className={`${styles.padding} py-12`}>
         <div className={`max-w-6xl mx-auto space-y-10 ${styles.bodyText}`}>
           <div>
-            <h2 className={`${styles.subHeadText} mb-4`}>
-              Outcomes
-            </h2>
+            <h2 className={`${styles.subHeadText} mb-4`}>Outcomes</h2>
 
             <ul className="list-disc list-inside space-y-2">
               <li>
@@ -393,9 +389,7 @@ const UIF = () => {
         </div>
         <div className={`max-w-6xl mx-auto space-y-10 ${styles.bodyText}`}>
           <div>
-            <h2 className={`${styles.subHeadText} mb-4`}>
-              What I Learned
-            </h2>
+            <h2 className={`${styles.subHeadText} mb-4`}>What I Learned</h2>
             <ol className="list-decimal list-inside space-y-3">
               <li>
                 <span className="font-semibold">
@@ -431,9 +425,7 @@ const UIF = () => {
           </div>
 
           <div className="max-w-6xl mx-auto space-y-6">
-            <h2 className={styles.subHeadText}>
-              UIF Silicon Valley Meetup
-            </h2>
+            <h2 className={styles.subHeadText}>UIF Silicon Valley Meetup</h2>
             <MarqueeGallery images={meetup} />
           </div>
         </div>

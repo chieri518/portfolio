@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import { email as emailIcon, linkedin as linkedinIcon } from "../assets";
 

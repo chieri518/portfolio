@@ -10,19 +10,6 @@ import github from "./icons/github.png";
 import linkedin from "./icons/linkedin.png";
 import profile from "./icons/profile.png";
 
-// ── tech/ (skill icons) ──
-import css from "./tech/css.png";
-import docker from "./tech/docker.png";
-import figma from "./tech/figma.png";
-import html from "./tech/html.png";
-import javascript from "./tech/javascript.png";
-import nodejs from "./tech/nodejs.png";
-import reactjs from "./tech/reactjs.png";
-import php from "./tech/php.png";
-import typescript from "./tech/typescript.png";
-import photoshop from "./tech/photoshop.png";
-import premiere from "./tech/premiere.png";
-
 // ── company/ (experience logos) ──
 import google from "./company/google.png";
 import necx from "./company/necx.jpeg";
@@ -140,18 +127,6 @@ export {
   github,
   linkedin,
   profile,
-  // tech
-  css,
-  docker,
-  figma,
-  html,
-  javascript,
-  nodejs,
-  reactjs,
-  php,
-  typescript,
-  premiere,
-  photoshop,
   // company
   google,
   necx,

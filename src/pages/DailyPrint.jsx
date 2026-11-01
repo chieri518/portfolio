@@ -2,6 +2,12 @@ import { useState } from "react";
 import { styles } from "../styles";
 import { SectionWrapper } from "../hoc";
 import {
+  Pipeline,
+  StackTable,
+  Learnings,
+  NextIdeas,
+} from "../components/CaseStudy";
+import {
   dailyPrintHero,
   dailyPrintTldr,
   dailyPrintSamples,
@@ -12,36 +18,6 @@ import {
   dailyPrintLearnings,
   dailyPrintFutureIdeas,
 } from "../constants/dailyprint";
-
-function Pipeline() {
-  return (
-    <div className="flex flex-col md:flex-row md:flex-wrap items-stretch justify-center gap-3 md:gap-2">
-      {dailyPrintPipeline.map((step, i) => (
-        <div
-          key={step.label}
-          className="flex flex-col md:flex-row items-center"
-        >
-          <div className="w-44 md:w-36 lg:w-40 text-center bg-white rounded-2xl shadow-md border border-gray-100 px-4 py-4">
-            <p className="font-bold text-gray-900 text-[15px] md:text-[16px]">
-              {step.label}
-            </p>
-            <p className="text-secondary text-[12px] md:text-[13px] mt-1">
-              {step.sub}
-            </p>
-          </div>
-          {i < dailyPrintPipeline.length - 1 && (
-            <span
-              aria-hidden="true"
-              className="text-primary text-2xl font-bold px-1 md:px-2 rotate-90 md:rotate-0"
-            >
-              →
-            </span>
-          )}
-        </div>
-      ))}
-    </div>
-  );
-}
 
 // One large front page, with a row of thumbnails to switch between editions.
 function SampleGallery() {
@@ -110,8 +86,8 @@ function DemoVideo() {
     return (
       <div className="max-w-2xl mx-auto text-center bg-gray-50 border border-dashed border-gray-300 rounded-2xl px-6 py-12">
         <p className="text-secondary text-[16px]">
-          A demo video is on the way — from designing a paper to the printer
-          box printing it.
+          A demo video is on the way — from designing a paper to the printer box
+          printing it.
         </p>
       </div>
     );
@@ -211,11 +187,11 @@ function DailyPrint() {
           <div className="text-center max-w-2xl mx-auto">
             <h2 className={styles.subHeadText}>How it works</h2>
             <p className={`${styles.bodyText} mt-2`}>
-              Each edition takes about three minutes, from the reader's
-              settings to a PDF waiting for the printer.
+              Each edition takes about three minutes, from the reader's settings
+              to a PDF waiting for the printer.
             </p>
           </div>
-          <Pipeline />
+          <Pipeline steps={dailyPrintPipeline} arrowClassName="text-primary" />
           <p className="text-sm md:text-[15px] text-secondary text-center max-w-2xl mx-auto leading-[24px]">
             <span className="font-semibold text-primary">Every morning:</span>{" "}
             readers set a print time. Their next paper is scheduled, written 20
@@ -229,8 +205,8 @@ function DailyPrint() {
           <div className="text-center max-w-2xl mx-auto">
             <h2 className={styles.subHeadText}>Decisions that shaped it</h2>
             <p className={`${styles.bodyText} mt-2`}>
-              Most of the work was in the details that make a paper feel
-              edited. Here are the problems I ran into, and how I solved them.
+              Most of the work was in the details that make a paper feel edited.
+              Here are the problems I ran into, and how I solved them.
             </p>
           </div>
 
@@ -268,92 +244,15 @@ function DailyPrint() {
         </div>
       </section>
 
-      <section className={`${styles.sectionY} bg-gray-50`}>
-        <div className={`${styles.paddingX} max-w-4xl mx-auto`}>
-          <details className="group bg-white rounded-2xl shadow-md border border-gray-100 p-6 md:p-8">
-            <summary className="cursor-pointer list-none flex items-center justify-between">
-              <span className="text-xl md:text-2xl font-semibold text-gray-900">
-                Technical stack
-              </span>
-              <span className="text-primary text-2xl group-open:rotate-45 transition-transform">
-                +
-              </span>
-            </summary>
+      <StackTable
+        rows={dailyPrintStack}
+        headings={["Part", "Built with", "Notes"]}
+        toggleClassName="text-primary"
+      />
 
-            <div className="mt-6 overflow-x-auto">
-              <table className="w-full text-left border-collapse">
-                <thead>
-                  <tr className="border-b border-gray-200">
-                    <th className="py-2 pr-4 text-sm font-semibold text-gray-900">
-                      Part
-                    </th>
-                    <th className="py-2 pr-4 text-sm font-semibold text-gray-900">
-                      Built with
-                    </th>
-                    <th className="py-2 text-sm font-semibold text-gray-900">
-                      Notes
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {dailyPrintStack.map((row) => (
-                    <tr key={row.stage} className="border-b border-gray-100">
-                      <td className="py-3 pr-4 text-secondary text-[15px] font-medium">
-                        {row.stage}
-                      </td>
-                      <td className="py-3 pr-4 text-secondary text-[15px]">
-                        {row.engine}
-                      </td>
-                      <td className="py-3 text-secondary text-[15px]">
-                        {row.notes}
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </details>
-        </div>
-      </section>
+      <Learnings title="What this taught me" items={dailyPrintLearnings} />
 
-      <section className={`${styles.sectionY} bg-gray-50`}>
-        <div className={`${styles.paddingX} max-w-6xl mx-auto`}>
-          <h2 className={`${styles.subHeadText} text-center mb-10`}>
-            What this taught me
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {dailyPrintLearnings.map((item) => (
-              <div
-                key={item.title}
-                className="bg-white rounded-2xl shadow-md border border-gray-100 p-6"
-              >
-                <h3 className={`${styles.cardTitle} mb-3`}>{item.title}</h3>
-                <p className="text-secondary text-[15px] leading-[24px]">
-                  {item.body}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className={styles.sectionY}>
-        <div className={`${styles.paddingX} max-w-4xl mx-auto space-y-8`}>
-          <div className="text-center">
-            <h2 className={styles.subHeadText}>What's next</h2>
-          </div>
-          <ul className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {dailyPrintFutureIdeas.map((idea, i) => (
-              <li
-                key={i}
-                className="bg-white rounded-2xl shadow-md border border-gray-100 p-5 text-secondary text-[15px] leading-[24px]"
-              >
-                {idea}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
+      <NextIdeas ideas={dailyPrintFutureIdeas} />
     </>
   );
 }

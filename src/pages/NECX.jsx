@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { styles } from "../styles";
 import { SectionWrapper } from "../hoc";
-import { spinImages, lumaImages } from "../constants/necx";
+import { Learnings } from "../components/CaseStudy";
+import { spinImages, lumaImages, necxLearnings } from "../constants/necx";
 import { necx, elevx } from "../assets";
 
 function LumaGallery() {
@@ -19,7 +20,7 @@ function LumaGallery() {
       {
         root: null,
         rootMargin: `${window.innerHeight}px 0px`,
-      }
+      },
     );
     observer.observe(ref.current);
     return () => observer.disconnect();
@@ -65,7 +66,7 @@ function NECX() {
             <div className="flex-1 space-y-4">
               <h1 className={styles.sectionHeadText}>NEC X</h1>
 
-              <section className="overview">
+              <section>
                 <div className="max-w-6xl mx-auto bg-gray-50 px-6 py-6 md:px-10 md:py-8">
                   <div className="flex flex-col lg:flex-row items-center lg:items-start gap-8">
                     <div className="flex-1">
@@ -137,16 +138,14 @@ function NECX() {
             <h2 className={`${styles.subHeadText} mb-4`}>
               1. Social Media Marketing
             </h2>
-            <p className={styles.bodyText}>
-              Building Program Visibility
-            </p>
+            <p className={styles.bodyText}>Building Program Visibility</p>
           </div>
           <div className="bg-white rounded-2xl shadow-md border border-gray-100 p-6 md:p-8 space-y-8">
             <div>
               <h4 className="text-2xl font-semibold text-gray-900 mb-3">
                 Overview
               </h4>
-              <p className="text-secondary text-[16px] leading-[28px] md:text-[17px] md:leading-[30px]">
+              <p className={styles.bodyText}>
                 NEC X operates at the intersection of Japanese corporate
                 innovation and Silicon Valley startup culture. When I joined,
                 marketing focused solely on English content on LinkedIn, missing
@@ -251,7 +250,7 @@ function NECX() {
                 <h4 className="text-2xl font-semibold text-gray-900 mb-3">
                   Overview
                 </h4>
-                <p className="text-secondary text-[16px] leading-[28px] md:text-[17px] md:leading-[30px]">
+                <p className={styles.bodyText}>
                   Events serve as the primary touchpoint for potential
                   applicants to experience NEC X's ecosystem. Success requires
                   coordinating promotion, registration, outreach, logistics, and
@@ -339,9 +338,7 @@ function NECX() {
             <h3 className={`${styles.subHeadText} mb-4`}>
               3. Program Coordination
             </h3>
-            <p className={styles.bodyText}>
-              Supporting Founder Success
-            </p>
+            <p className={styles.bodyText}>Supporting Founder Success</p>
           </div>
 
           <div className="bg-white rounded-2xl shadow-md border border-gray-100 p-6 md:p-8 space-y-8">
@@ -349,7 +346,7 @@ function NECX() {
               <h4 className="text-2xl font-semibold text-gray-900 mb-3">
                 Overview
               </h4>
-              <p className="text-secondary text-[16px] leading-[28px] md:text-[17px] md:leading-[30px]">
+              <p className={styles.bodyText}>
                 NEC X runs a three-phase program twice yearly, supporting
                 early-stage startups through workshops, mentorship, equity
                 funding, and more. Quality delivery requires coordinating
@@ -455,52 +452,11 @@ function NECX() {
         </div>
       </section>
 
-      <section className={`bg-ground ${styles.sectionY}`}>
-        <div className={`${styles.paddingX} max-w-6xl mx-auto`}>
-          <h3 className={`${styles.subHeadText} text-center mb-10`}>
-            What This Experience Taught Me
-          </h3>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="learning-item bg-gray-50 rounded-2xl shadow-md border border-gray-100 p-6">
-              <h4 className="text-xl font-semibold text-gray-900 mb-3">
-                Operations excellence creates capacity for strategic work
-              </h4>
-              <p className="text-secondary text-[15px] leading-[24px]">
-                By systematizing documentation, scheduling, and communication, I
-                freed up program leadership to focus on high-value activities:
-                founder coaching, mentor relationship development, and corporate
-                partnership strategy. Good operations make good strategy
-                possible.
-              </p>
-            </div>
-
-            <div className="learning-item bg-gray-50 rounded-2xl shadow-md border border-gray-100 p-6">
-              <h4 className="text-xl font-semibold text-gray-900 mb-3">
-                Community building is relationship infrastructure
-              </h4>
-              <p className="text-secondary text-[15px] leading-[24px]">
-                The accelerator's value came from both structured learning and
-                network access. My role was creating the infrastructure—
-                documentation systems, scheduling coordination, and
-                communication channels—that let meaningful relationships form
-                between founders, mentors, and investors.
-              </p>
-            </div>
-            <div className="learning-item bg-gray-50 rounded-2xl shadow-md border border-gray-100 p-6">
-              <h4 className="text-xl font-semibold text-gray-900 mb-3">
-                Marketing requires cultural fluency, not just translation
-              </h4>
-              <p className="text-secondary text-[15px] leading-[24px]">
-                Managing bilingual content showed me that effective marketing
-                understands what resonates in each cultural context. Japanese
-                stakeholders needed different framing than Silicon Valley
-                founders, even when discussing the same program benefits.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <Learnings
+        title="What This Experience Taught Me"
+        items={necxLearnings}
+        look="experience"
+      />
     </>
   );
 }

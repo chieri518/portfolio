@@ -62,7 +62,7 @@ export const dailyPrintSamples = [
     reader: "Brooklyn · Gen Z tone",
     image: dailyVibeCheck,
     caption:
-      "The same news, rewritten in a Gen Z voice: \"The Tea\", \"Tech Drama\" and \"Comic (lowkey iconic)\", with a wide comic strip across the bottom of the page.",
+      'The same news, rewritten in a Gen Z voice: "The Tea", "Tech Drama" and "Comic (lowkey iconic)", with a wide comic strip across the bottom of the page.',
   },
   {
     name: "The Camden Courier",

@@ -11,6 +11,8 @@ module.exports = {
         accent: "#ff8ca0", // light cherry — the spark (name, highlights)
         "accent-deep": "#e35d76", // cherry gradient end
         ground: "#fbf7f5", // warm off-white page background
+        bmo: "#5fc6a8", // BMO page accent (arrows, outlines)
+        "bmo-deep": "#3da789", // BMO page labels
         gray: {
           50: "#f8f5f3",
           100: "#f1ebe8",

@@ -5,7 +5,6 @@ import {
   chetzlogo,
   group1,
   group2,
-  workshop1,
   workshop2,
   workshop3,
   manabity1,
@@ -175,9 +174,7 @@ const Chetz = () => {
       <div
         className={`${styles.paddingX} max-w-6xl mx-auto flex flex-col gap-10`}
       >
-        <p className={styles.sectionSubText}>
-          Language exchange · Community
-        </p>
+        <p className={styles.sectionSubText}>Language exchange · Community</p>
         <div className="flex flex-col md:flex-row text-center items-start gap-8">
           <div className="flex-1 space-y-4">
             <h1 className={styles.sectionHeadText}>chetz</h1>
@@ -210,9 +207,7 @@ const Chetz = () => {
 
       <div className={`${styles.padding} py-12`}>
         <div className="max-w-6xl mx-auto">
-          <h2 className={`${styles.subHeadText} mb-4`}>
-            Our Vision
-          </h2>
+          <h2 className={`${styles.subHeadText} mb-4`}>Our Vision</h2>
 
           <p className={styles.bodyText}>
             To{" "}
@@ -227,9 +222,7 @@ const Chetz = () => {
 
       <div className={`${styles.padding} py-12`}>
         <div className="max-w-6xl mx-auto">
-          <h2 className={`${styles.subHeadText} mb-4`}>
-            Our Story
-          </h2>
+          <h2 className={`${styles.subHeadText} mb-4`}>Our Story</h2>
 
           <p className={styles.bodyText}>
             In 2020, the COVID-19 pandemic forced me to return to Japan from my
@@ -254,9 +247,7 @@ const Chetz = () => {
       </div>
       <div className={`${styles.padding} py-12`}>
         <div className="max-w-6xl mx-auto">
-          <h2 className={`${styles.subHeadText} mb-4`}>
-            Our Impact
-          </h2>
+          <h2 className={`${styles.subHeadText} mb-4`}>Our Impact</h2>
 
           <ul className={`list-disc list-inside space-y-2 ${styles.bodyText}`}>
             <li>
@@ -283,9 +274,7 @@ const Chetz = () => {
 
       <div className={`${styles.padding} py-12`}>
         <div className="max-w-6xl mx-auto">
-          <h2 className={`${styles.subHeadText} mb-8`}>
-            Our Collaborations
-          </h2>
+          <h2 className={`${styles.subHeadText} mb-8`}>Our Collaborations</h2>
 
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
             {organizations.map((org, idx) => (
@@ -502,9 +491,7 @@ const Chetz = () => {
                     />
                   </div>
                   <div className="p-4">
-                    <h3 className={`${styles.cardTitle} mb-2`}>
-                      {item.name}
-                    </h3>
+                    <h3 className={`${styles.cardTitle} mb-2`}>{item.name}</h3>
                     <p className="text-gray-600 text-sm leading-relaxed">
                       {item.description}
                     </p>
