@@ -11,6 +11,8 @@ import reelDay7 from "../assets/bmo/reel-Dalin39y4NQ.jpg";
 import reelDay8 from "../assets/bmo/reel-Da1B1MvS_Cc.jpg";
 import reelDay9 from "../assets/bmo/reel-DbBzdSjylRC.jpg";
 import reelDay10 from "../assets/bmo/reel-DbL-Tz-vdPk.jpg";
+import reelDay11 from "../assets/bmo/reel-Ddwr6_JooD_.jpg";
+import reelDay12 from "../assets/bmo/reel-DfgFrxdIjSE.jpg";
 
 export { default as bmoCover } from "../assets/bmo/cover.jpg";
 
@@ -387,6 +389,16 @@ export const bmoReels = [
     url: "https://www.instagram.com/reel/DbL-Tz-vdPk/",
     poster: reelDay10,
     caption: "Day 10 — connecting the microswitches and improving Finn Runner",
+  },
+  {
+    url: "https://www.instagram.com/reel/Ddwr6_JooD_/",
+    poster: reelDay11,
+    caption: "Day 11 — designing my first custom PCB in KiCad",
+  },
+  {
+    url: "https://www.instagram.com/reel/DfgFrxdIjSE/",
+    poster: reelDay12,
+    caption: "Day 12 — soldering to make my own PCB",
   },
 ];
 
