@@ -1,16 +1,9 @@
 import { group1, uif1, necx_group, youtubevid, jobhunt } from "../assets";
 import { bmoCover } from "./bmo";
 import { dailyPrintCover } from "./dailyprint";
+import { roverCover } from "./rover";
 
 const works = [
-  {
-    name: "Daily Print",
-    description:
-      "An AI editor that puts together a personal newspaper and prints it at home every morning. Readers design their own paper — sections, page layouts, typeface, tone and location — and the editor researches the news, writes each story to fit its spot, and adds the weather, puzzles and a comic drawn for them. The finished edition is a print-ready PDF that a Raspberry Pi printer box prints before breakfast.",
-
-    image: dailyPrintCover,
-    link: "/dailyprint",
-  },
   {
     name: "BMO Robot",
     description:
@@ -18,6 +11,22 @@ const works = [
 
     image: bmoCover,
     link: "/bmo",
+  },
+  {
+    name: "Rover Engineer · NASA Space Apps 2026",
+    description:
+      "A free 3D browser game where you design a rover, buy it a seat on a launch, and drive it on the Moon, Mars and Titan. Every part trades capability against mass and cost, and the terrain, shadows and solar flares come from real NASA data. Built with my teammate Alvin for NASA's Space Mission Design Game challenge: I built the Moon mission end to end, then the Mars and Titan missions.",
+
+    image: roverCover,
+    link: "/rover-engineer",
+  },
+  {
+    name: "Daily Print",
+    description:
+      "An AI editor that puts together a personal newspaper and prints it at home every morning. Readers design their own paper — sections, page layouts, typeface, tone and location — and the editor researches the news, writes each story to fit its spot, and adds the weather, puzzles and a comic drawn for them. The finished edition is a print-ready PDF that a Raspberry Pi printer box prints before breakfast.",
+
+    image: dailyPrintCover,
+    link: "/dailyprint",
   },
   {
     name: "NEC X",

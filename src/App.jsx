@@ -14,6 +14,7 @@ import {
   CAD,
   Alumni,
   DailyPrint,
+  RoverEngineer,
 } from "./pages";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/react";
@@ -47,6 +48,7 @@ const App = () => {
           <Route path="/cad" element={<CAD />} />
           <Route path="/alumni" element={<Alumni />} />
           <Route path="/dailyprint" element={<DailyPrint />} />
+          <Route path="/rover-engineer" element={<RoverEngineer />} />
         </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>

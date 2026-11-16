@@ -1,5 +1,4 @@
 import {
-  group1,
   necx_group,
   email,
   github,
@@ -14,6 +13,7 @@ import {
   sang,
 } from "../assets";
 import { bmoCover } from "./bmo";
+import { roverHighlight } from "./rover";
 
 const heroTexts = [
   "Product Manager",
@@ -50,16 +50,16 @@ const socials = [
 
 const highlights = [
   {
-    name: "Designing a Global Community",
-    description: "Founder @ chetz",
-    image: group1,
-    redirect_link: "/chetz",
-  },
-  {
     name: "Building a robot that thinks, talks & sees",
     description: "Solo project — a voice-controlled BMO on a Raspberry Pi",
     image: bmoCover,
     redirect_link: "/bmo",
+  },
+  {
+    name: "Designing rovers for the Moon, Mars & Titan",
+    description: "NASA Space Apps 2026 — a 3D browser game built on real NASA data",
+    image: roverHighlight,
+    redirect_link: "/rover-engineer",
   },
   {
     name: "Empowering early-stage founders",

@@ -10,6 +10,7 @@ import JobHunt from "./JobHunt";
 import CAD from "./CAD";
 import Alumni from "./Alumni";
 import DailyPrint from "./DailyPrint";
+import RoverEngineer from "./RoverEngineer";
 import NotFound from "./NotFound";
 
 export {
@@ -25,5 +26,6 @@ export {
   CAD,
   Alumni,
   DailyPrint,
+  RoverEngineer,
   NotFound,
 };
