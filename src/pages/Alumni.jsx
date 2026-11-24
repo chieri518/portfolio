@@ -46,12 +46,8 @@ function NewsletterFrame({ src, title }) {
 function Alumni() {
   return (
     <>
-      <section
-        className={`relative w-full min-h-screen mx-auto bg-ground ${styles.paddingY}`}
-      >
-        <div
-          className={`${styles.paddingX} max-w-6xl mx-auto flex flex-col gap-10`}
-        >
+      <section className={`relative w-full bg-ground ${styles.introY}`}>
+        <div className={`${styles.container} flex flex-col gap-10`}>
           <p className={styles.sectionSubText}>{alumniIntro.eyebrow}</p>
           <div className="flex flex-col md:flex-row text-center items-start gap-8">
             <div className="flex-1 space-y-4">
@@ -121,7 +117,7 @@ function Alumni() {
 
       {alumniWork.map((work) => (
         <section key={work.id} id={work.id} className={styles.sectionY}>
-          <div className={`${styles.paddingX} max-w-6xl mx-auto space-y-8`}>
+          <div className={`${styles.container} space-y-8`}>
             <div className="text-center max-w-3xl mx-auto">
               <p className="text-secondary uppercase tracking-wider text-[13px] mb-2">
                 {work.kind}
@@ -200,4 +196,4 @@ function Alumni() {
   );
 }
 
-export default SectionWrapper(Alumni);
+export default SectionWrapper(Alumni, undefined, { fullBleed: true });

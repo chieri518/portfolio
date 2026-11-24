@@ -50,7 +50,6 @@ const ProjectCard = ({ index, name, description, image, redirect_link }) => {
 const Highlights = () => {
   return (
     <>
-      <section id="Highlights" />
       <motion.div variants={textVariant()}>
         <p className={styles.sectionSubText}>What I&apos;m building</p>
         <h2 className={styles.sectionHeadText}>Highlights</h2>
@@ -65,4 +64,4 @@ const Highlights = () => {
   );
 };
 
-export default SectionWrapper(Highlights);
+export default SectionWrapper(Highlights, undefined, { stacked: true });

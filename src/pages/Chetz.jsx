@@ -132,11 +132,11 @@ const PhotoSlideshow = () => {
 
 const TimelinePhase = ({ phase, title, date, children, highlight = false }) => {
   return (
-    <div className={`relative flex gap-8`}>
+    <div className="relative flex gap-4 sm:gap-8">
       {/* Timeline Connector */}
       <div className="flex flex-col items-center flex-shrink-0">
         <div
-          className={`w-16 h-16 rounded-full flex items-center justify-center text-2xl font-bold text-white ${
+          className={`w-10 h-10 sm:w-16 sm:h-16 rounded-full flex items-center justify-center text-lg sm:text-2xl font-bold text-white ${
             highlight ? "bg-primary" : "bg-secondary"
           }`}
         >
@@ -146,10 +146,12 @@ const TimelinePhase = ({ phase, title, date, children, highlight = false }) => {
       </div>
 
       {/* Content */}
-      <div className="flex-1 pb-16">
+      <div className="flex-1 min-w-0 pb-16">
         {/* Title and Date */}
         <div className="mb-4">
-          <h3 className={`${styles.subHeadText} mb-2`}>{title}</h3>
+          <h3 className="text-2xl md:text-4xl font-bold text-gray-900 mb-2 break-words">
+            {title}
+          </h3>
           <p className="text-sm font-medium text-gray-500">{date}</p>
         </div>
 
@@ -171,9 +173,7 @@ const TimelinePhase = ({ phase, title, date, children, highlight = false }) => {
 const Chetz = () => {
   return (
     <>
-      <div
-        className={`${styles.paddingX} max-w-6xl mx-auto flex flex-col gap-10`}
-      >
+      <div className="flex flex-col gap-10">
         <p className={styles.sectionSubText}>Language exchange · Community</p>
         <div className="flex flex-col md:flex-row text-center items-start gap-8">
           <div className="flex-1 space-y-4">
@@ -205,7 +205,7 @@ const Chetz = () => {
         </div>
       </div>
 
-      <div className={`${styles.padding} py-12`}>
+      <div className={styles.sectionY}>
         <div className="max-w-6xl mx-auto">
           <h2 className={`${styles.subHeadText} mb-4`}>Our Vision</h2>
 
@@ -220,7 +220,7 @@ const Chetz = () => {
         </div>
       </div>
 
-      <div className={`${styles.padding} py-12`}>
+      <div className={styles.sectionY}>
         <div className="max-w-6xl mx-auto">
           <h2 className={`${styles.subHeadText} mb-4`}>Our Story</h2>
 
@@ -245,7 +245,7 @@ const Chetz = () => {
           </p>
         </div>
       </div>
-      <div className={`${styles.padding} py-12`}>
+      <div className={styles.sectionY}>
         <div className="max-w-6xl mx-auto">
           <h2 className={`${styles.subHeadText} mb-4`}>Our Impact</h2>
 
@@ -272,7 +272,7 @@ const Chetz = () => {
         </div>
       </div>
 
-      <div className={`${styles.padding} py-12`}>
+      <div className="pt-12 sm:pt-16">
         <div className="max-w-6xl mx-auto">
           <h2 className={`${styles.subHeadText} mb-8`}>Our Collaborations</h2>
 
@@ -303,8 +303,8 @@ const Chetz = () => {
           </div>
         </div>
         {/* THE JOURNEY - TIMELINE */}
-        <section className="journey-section py-20">
-          <div className="max-w-6xl mx-auto px-6 py-6 bg-gray-50">
+        <section className={`journey-section ${styles.sectionY}`}>
+          <div className="bg-gray-50 rounded-2xl px-4 py-8 sm:px-10 sm:py-10">
             <h2 className={`${styles.subHeadText} text-center mb-12`}>
               The Journey
             </h2>
@@ -463,7 +463,7 @@ const Chetz = () => {
           </div>
         </section>
 
-        <div className={`${styles.padding} py-10`}>
+        <div className="pt-12 sm:pt-16">
           <div className="max-w-6xl mx-auto">
             <h2 className={`${styles.subHeadText} mb-4 text-center`}>
               Programs
@@ -500,7 +500,7 @@ const Chetz = () => {
               ))}
             </div>
 
-            <div className="mt-12 py-10 ">
+            <div className="mt-12">
               <h3 className={`${styles.subHeadText} mb-4 text-center`}>
                 Gallery
               </h3>

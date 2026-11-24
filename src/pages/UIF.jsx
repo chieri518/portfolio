@@ -70,7 +70,7 @@ function MarqueeGallery({ images }) {
       className="relative flex overflow-x-hidden overflow-y-visible w-auto"
     >
       <div
-        className="w-full py-12 lg:py-20 whitespace-nowrap flex flex-row animate-marquee lg:animate-large-marquee"
+        className="w-full py-8 lg:py-10 whitespace-nowrap flex flex-row animate-marquee lg:animate-large-marquee"
         style={{
           animationPlayState: shouldPlay ? "running" : "paused",
         }}
@@ -144,20 +144,24 @@ const UIF = () => {
   const resetMindmapZoom = () => setMindmapZoom(1);
 
   return (
-    <div className="relative w-full min-h-screen mx-auto">
-      <h1 className={styles.sectionHeadText}>
-        University Innovation Fellowship
-      </h1>
-      <p className={styles.sectionSubText}>
-        @ Hasso Plattner Institute of Design at Stanford University
-      </p>
-      <div className="max-w-6xl mx-auto">
-        <MarqueeGallery images={uif} />
+    <div className="relative w-full">
+      <div className={`${styles.container} ${styles.introY}`}>
+        <h1 className={styles.sectionHeadText}>
+          University Innovation Fellowship
+        </h1>
+        <p className={styles.sectionSubText}>
+          @ Hasso Plattner Institute of Design at Stanford University
+        </p>
+        <div className="mt-6">
+          <MarqueeGallery images={uif} />
+        </div>
       </div>
 
       {/* About UIF */}
-      <div className={`${styles.padding} bg-gray-50 py-12`}>
-        <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-center lg:items-start gap-8">
+      <div className={`${styles.sectionY} bg-gray-50`}>
+        <div
+          className={`${styles.container} flex flex-col lg:flex-row items-center lg:items-start gap-8`}
+        >
           <div className="flex-1">
             <p className={styles.bodyText}>
               The University Innovation Fellows (UIF) is a global program that
@@ -183,8 +187,8 @@ const UIF = () => {
         </div>
       </div>
 
-      <div className={`${styles.padding} py-12`}>
-        <div className="max-w-6xl mx-auto space-y-6">
+      <div className={styles.sectionY}>
+        <div className={`${styles.container} space-y-6`}>
           <h2 className={styles.subHeadText}>
             "How might we inspire innovation on campus?"
           </h2>
@@ -256,8 +260,8 @@ const UIF = () => {
           </div>
         </div>
       </div>
-      <div className={`${styles.padding} py-12 bg-gray-50`}>
-        <div className="max-w-6xl mx-auto">
+      <div className={`${styles.sectionY} bg-gray-50`}>
+        <div className={styles.container}>
           <h2 className={`${styles.subHeadText} mb-6`}>
             Six-Week Training Overview
           </h2>
@@ -337,8 +341,8 @@ const UIF = () => {
         </div>
       )}
 
-      <div className={`${styles.padding} py-12`}>
-        <div className={`max-w-6xl mx-auto space-y-10 ${styles.bodyText}`}>
+      <div className={styles.sectionY}>
+        <div className={`${styles.container} space-y-10 ${styles.bodyText}`}>
           <div>
             <h2 className={`${styles.subHeadText} mb-4`}>Outcomes</h2>
 
@@ -377,7 +381,7 @@ const UIF = () => {
         </div>
         {/* STEAMhouse Gallery */}
         <div className="py-12">
-          <div className="max-w-6xl mx-auto space-y-6">
+          <div className={`${styles.container} space-y-6`}>
             <img
               loading="lazy"
               src={steamhousewide}
@@ -387,7 +391,7 @@ const UIF = () => {
             <MarqueeGallery images={steamhouse} />
           </div>
         </div>
-        <div className={`max-w-6xl mx-auto space-y-10 ${styles.bodyText}`}>
+        <div className={`${styles.container} space-y-10 ${styles.bodyText}`}>
           <div>
             <h2 className={`${styles.subHeadText} mb-4`}>What I Learned</h2>
             <ol className="list-decimal list-inside space-y-3">
@@ -434,4 +438,4 @@ const UIF = () => {
   );
 };
 
-export default SectionWrapper(UIF);
+export default SectionWrapper(UIF, undefined, { fullBleed: true });

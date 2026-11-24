@@ -108,11 +108,7 @@ function WorldGallery() {
 
       <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 lg:gap-8 items-start">
         <figure className="lg:col-span-3 overflow-hidden rounded-2xl border border-gray-200 bg-gray-900 shadow-md">
-          <img
-            src={world.image}
-            alt={world.alt}
-            className="w-full h-auto"
-          />
+          <img src={world.image} alt={world.alt} className="w-full h-auto" />
         </figure>
 
         <div className="lg:col-span-2 space-y-4">
@@ -158,8 +154,8 @@ function Screenshot({ src, alt, caption }) {
 function RoverEngineer() {
   return (
     <>
-      <section className={`relative w-full ${styles.paddingY}`}>
-        <div className={`${styles.paddingX} max-w-6xl mx-auto`}>
+      <section className={`relative w-full ${styles.introY}`}>
+        <div className={styles.container}>
           <p className={styles.sectionSubText}>{roverHero.eyebrow}</p>
 
           <div className="mt-6 max-w-4xl space-y-5">
@@ -203,7 +199,7 @@ function RoverEngineer() {
       </section>
 
       <section className={`bg-gray-50 ${styles.sectionY}`}>
-        <div className={`${styles.paddingX} max-w-6xl mx-auto space-y-8`}>
+        <div className={`${styles.container} space-y-8`}>
           <div className="text-center max-w-2xl mx-auto">
             <h2 className={styles.subHeadText}>How a mission plays</h2>
             <p className={`${styles.bodyText} mt-2`}>
@@ -240,7 +236,7 @@ function RoverEngineer() {
       </section>
 
       <section className={styles.sectionY}>
-        <div className={`${styles.paddingX} max-w-6xl mx-auto space-y-8`}>
+        <div className={`${styles.container} space-y-8`}>
           <div className="text-center max-w-2xl mx-auto">
             <h2 className={styles.subHeadText}>Three worlds, three lessons</h2>
             <p className={`${styles.bodyText} mt-2`}>
@@ -253,7 +249,7 @@ function RoverEngineer() {
       </section>
 
       <section className={`bg-gray-50 ${styles.sectionY}`}>
-        <div className={`${styles.paddingX} max-w-6xl mx-auto space-y-8`}>
+        <div className={`${styles.container} space-y-8`}>
           <div className="text-center max-w-2xl mx-auto">
             <h2 className={styles.subHeadText}>Built on real NASA data</h2>
             <p className={`${styles.bodyText} mt-2`}>
@@ -281,7 +277,7 @@ function RoverEngineer() {
       </section>
 
       <section className={styles.sectionY}>
-        <div className={`${styles.paddingX} max-w-6xl mx-auto space-y-8`}>
+        <div className={`${styles.container} space-y-8`}>
           <div className="text-center max-w-2xl mx-auto">
             <h2 className={styles.subHeadText}>How we split the work</h2>
             <p className={`${styles.bodyText} mt-2`}>
@@ -327,7 +323,7 @@ function RoverEngineer() {
       </section>
 
       <section className={styles.sectionY}>
-        <div className={`${styles.paddingX} max-w-6xl mx-auto space-y-10`}>
+        <div className={`${styles.container} space-y-10`}>
           <div className="text-center max-w-2xl mx-auto">
             <h2 className={styles.subHeadText}>Decisions that shaped it</h2>
             <p className={`${styles.bodyText} mt-2`}>
@@ -391,4 +387,4 @@ function RoverEngineer() {
   );
 }
 
-export default SectionWrapper(RoverEngineer);
+export default SectionWrapper(RoverEngineer, undefined, { fullBleed: true });

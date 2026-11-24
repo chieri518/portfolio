@@ -128,7 +128,7 @@ function PhaseSection({ phase, index }) {
 
   return (
     <section id={phase.id} className={styles.sectionY}>
-      <div className={`${styles.paddingX} max-w-6xl mx-auto space-y-8`}>
+      <div className={`${styles.container} space-y-8`}>
         <div className="text-center max-w-3xl mx-auto">
           <p className={styles.sectionSubText}>{phase.eyebrow}</p>
           <h3 className={`${styles.subHeadText} mt-2`}>{phase.title}</h3>
@@ -294,8 +294,8 @@ function ReelsCarousel() {
 function BMO() {
   return (
     <>
-      <section className={`relative w-full ${styles.paddingY}`}>
-        <div className={`${styles.paddingX} max-w-6xl mx-auto`}>
+      <section className={`relative w-full ${styles.introY}`}>
+        <div className={styles.container}>
           <p className={styles.sectionSubText}>{bmoHero.eyebrow}</p>
           <div className="mt-6 flex flex-col lg:flex-row items-center gap-10">
             <div className="flex-1 space-y-5">
@@ -358,7 +358,7 @@ function BMO() {
       </section>
 
       <section className={`bg-gray-50 ${styles.sectionY}`}>
-        <div className={`${styles.paddingX} max-w-6xl mx-auto space-y-8`}>
+        <div className={`${styles.container} space-y-8`}>
           <div className="text-center max-w-2xl mx-auto">
             <h2 className={styles.subHeadText}>How it works</h2>
             <p className={`${styles.bodyText} mt-2`}>
@@ -383,7 +383,7 @@ function BMO() {
       </section>
 
       <section className={styles.sectionY}>
-        <div className={`${styles.paddingX} max-w-6xl mx-auto space-y-8`}>
+        <div className={`${styles.container} space-y-8`}>
           <div className="text-center max-w-2xl mx-auto">
             <h2 className={styles.subHeadText}>The build, in motion</h2>
             <p className={`${styles.bodyText} mt-2`}>
@@ -396,7 +396,7 @@ function BMO() {
       </section>
 
       <section className="pt-8">
-        <div className={`${styles.paddingX} max-w-6xl mx-auto text-center`}>
+        <div className={`${styles.container} text-center`}>
           <h2 className={styles.subHeadText}>Building it, piece by piece</h2>
           <p className={`${styles.bodyText} mt-2 max-w-2xl mx-auto`}>
             Each part of BMO came with its own constraint. Here’s how the build
@@ -427,4 +427,4 @@ function BMO() {
   );
 }
 
-export default SectionWrapper(BMO);
+export default SectionWrapper(BMO, undefined, { fullBleed: true });

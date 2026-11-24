@@ -38,10 +38,10 @@ const Navbar = () => {
   const [active, setActive] = useState("");
   const [toggle, setToggle] = useState(false);
   return (
-    <nav
-      className={`${styles.paddingX} w-full flex items-center py-5 sticky top-0 z-20 bg-ground border-b border-gray-200`}
-    >
-      <div className="w-full flex justify-between items-center max-w-7xl mx-auto">
+    <nav className="w-full flex items-center py-5 sticky top-0 z-20 bg-ground border-b border-gray-200">
+      <div
+        className={`${styles.container} w-full flex justify-between items-center`}
+      >
         <Link
           to="/"
           className="flex items-center gap-2"

@@ -168,12 +168,12 @@ const Experience = () => {
     : experiences.slice(0, 3);
 
   return (
-    <section className={`${styles.padding} w-full mx-auto mt-10`}>
+    <section className={`${styles.padding} max-w-7xl mx-auto`}>
       <motion.div variants={textVariant()}>
         <p className={styles.sectionSubText}>What I have done so far...</p>
         <h2 className={styles.sectionHeadText}>Experience</h2>
       </motion.div>
-      <div className="mt-20 flex flex-col">
+      <div className="mt-10 flex flex-col">
         <VerticalTimeline>
           {visibleExperiences.map((experience, index) => (
             <ExperienceCard key={index} experience={experience} />
@@ -193,28 +193,27 @@ const Experience = () => {
           </div>
         )}
       </div>
-      <motion.div variants={textVariant()} className="mt-20">
+      <motion.div variants={textVariant()} className="mt-24 sm:mt-32">
         <h2 className={styles.sectionHeadText}>Education</h2>
       </motion.div>
-      <div className="mt-20 flex flex-col">
+      <div className="mt-10 flex flex-col">
         <VerticalTimeline>
           {educations.map((education, index) => (
             <EducationCard key={index} education={education} />
           ))}
         </VerticalTimeline>
       </div>
-      <motion.div variants={textVariant()} className="mt-20">
+      <motion.div variants={textVariant()} className="mt-24 sm:mt-32">
         <p className={styles.sectionSubText}>My achievements</p>
         <h2 className={styles.sectionHeadText}>Awards</h2>
       </motion.div>
-      <div className="mt-10">
+      <div className="mt-10 pb-8">
         <Slider {...sliderSettings}>
           {awards.map((award, index) => (
             <AwardCard key={`award-${index}`} index={index} {...award} />
           ))}
         </Slider>
       </div>
-      <div className="h-20" />
     </section>
   );
 };

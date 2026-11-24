@@ -38,7 +38,7 @@ export function Pipeline({ steps, arrowClassName }) {
 export function StackTable({ rows, headings, toggleClassName }) {
   return (
     <section className={`${styles.sectionY} bg-gray-50`}>
-      <div className={`${styles.paddingX} max-w-4xl mx-auto`}>
+      <div className={styles.containerNarrow}>
         <details className="group bg-white rounded-2xl shadow-md border border-gray-100 p-6 md:p-8">
           <summary className="cursor-pointer list-none flex items-center justify-between">
             <span className="text-xl md:text-2xl font-semibold text-gray-900">
@@ -112,7 +112,7 @@ export function Learnings({ title, items, look = "build" }) {
   const l = learningsLooks[look];
   return (
     <section className={`${styles.sectionY} ${l.section}`}>
-      <div className={`${styles.paddingX} max-w-6xl mx-auto`}>
+      <div className={styles.container}>
         <h2 className={`${styles.subHeadText} text-center mb-10`}>{title}</h2>
         <div className={`grid grid-cols-1 md:grid-cols-3 ${l.grid}`}>
           {items.map((item) => (
@@ -137,7 +137,7 @@ export function Learnings({ title, items, look = "build" }) {
 export function NextIdeas({ ideas, children }) {
   return (
     <section className={styles.sectionY}>
-      <div className={`${styles.paddingX} max-w-4xl mx-auto space-y-8`}>
+      <div className={`${styles.containerNarrow} space-y-8`}>
         <h2 className={`${styles.subHeadText} text-center`}>What’s next</h2>
         <ul className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {ideas.map((idea) => (

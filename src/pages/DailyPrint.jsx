@@ -123,8 +123,8 @@ function DemoVideo() {
 function DailyPrint() {
   return (
     <>
-      <section className={`relative w-full ${styles.paddingY}`}>
-        <div className={`${styles.paddingX} max-w-6xl mx-auto`}>
+      <section className={`relative w-full ${styles.introY}`}>
+        <div className={styles.container}>
           <p className={styles.sectionSubText}>{dailyPrintHero.eyebrow}</p>
 
           <div className="mt-6 max-w-4xl space-y-5">
@@ -169,7 +169,7 @@ function DailyPrint() {
       </section>
 
       <section className={`bg-gray-50 ${styles.sectionY}`}>
-        <div className={`${styles.paddingX} max-w-4xl mx-auto space-y-8`}>
+        <div className={`${styles.containerNarrow} space-y-8`}>
           <div className="text-center max-w-2xl mx-auto">
             <h2 className={styles.subHeadText}>Same news, five papers</h2>
             <p className={`${styles.bodyText} mt-2`}>
@@ -183,7 +183,7 @@ function DailyPrint() {
       </section>
 
       <section className={`bg-gray-50 ${styles.sectionY}`}>
-        <div className={`${styles.paddingX} max-w-6xl mx-auto space-y-8`}>
+        <div className={`${styles.container} space-y-8`}>
           <div className="text-center max-w-2xl mx-auto">
             <h2 className={styles.subHeadText}>How it works</h2>
             <p className={`${styles.bodyText} mt-2`}>
@@ -201,7 +201,7 @@ function DailyPrint() {
       </section>
 
       <section className={styles.sectionY}>
-        <div className={`${styles.paddingX} max-w-6xl mx-auto space-y-10`}>
+        <div className={`${styles.container} space-y-10`}>
           <div className="text-center max-w-2xl mx-auto">
             <h2 className={styles.subHeadText}>Decisions that shaped it</h2>
             <p className={`${styles.bodyText} mt-2`}>
@@ -257,4 +257,4 @@ function DailyPrint() {
   );
 }
 
-export default SectionWrapper(DailyPrint);
+export default SectionWrapper(DailyPrint, undefined, { fullBleed: true });

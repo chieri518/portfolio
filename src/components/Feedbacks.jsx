@@ -87,15 +87,15 @@ const Feedbacks = () => {
     ],
   };
   return (
-    <div className="mt-12">
-      <div className={`${styles.padding} min-h-[300px]`}>
+    <div>
+      <div>
         <motion.div variants={textVariant()}>
           <p className={styles.sectionSubText}>What others say...</p>
           <h2 className={styles.sectionHeadText}>References</h2>
         </motion.div>
       </div>
 
-      <div className={`${styles.paddingX} -mt-20 pb-14 gap-7`}>
+      <div className={`${styles.paddingX} mt-10 pb-8`}>
         <Slider {...settings}>
           {references.map((reference, index) => (
             <FeedbackCard key={reference.name} index={index} {...reference} />
@@ -122,4 +122,4 @@ const Feedbacks = () => {
   );
 };
 
-export default SectionWrapper(Feedbacks);
+export default SectionWrapper(Feedbacks, undefined, { stacked: true });

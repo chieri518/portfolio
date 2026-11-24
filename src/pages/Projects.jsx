@@ -18,7 +18,7 @@ const PostCard = ({ index, name, description, image, link, tags = [] }) => {
       className="group"
     >
       <a href={link} target="_blank" rel="noopener noreferrer">
-        <div className="relative bg-white p-4 md:p-5 rounded-2xl border border-gray-100 flex flex-col md:flex-row w-full my-5 shadow-md hover:shadow-lg transition-shadow duration-300">
+        <div className="relative bg-white p-4 md:p-5 rounded-2xl border border-gray-100 flex flex-col md:flex-row w-full shadow-md hover:shadow-lg transition-shadow duration-300">
           <div className="w-full md:w-1/3 h-auto relative">
             <img
               src={image}
@@ -102,7 +102,7 @@ const Projects = () => {
 
       <TagFilter active={activeTag} onChange={setActiveTag} />
 
-      <div className="p-3 md:p-5 gap-5 md:gap-7 flex flex-col mt-2">
+      <div className="mt-8 flex flex-col gap-8">
         {visible.map((work, index) => (
           // Keying on the tag too replays the entrance animation on each filter.
           <PostCard key={`${activeTag}-${work.link}`} index={index} {...work} />

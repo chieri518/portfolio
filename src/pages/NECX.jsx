@@ -32,7 +32,7 @@ function LumaGallery() {
       className="relative flex overflow-x-hidden overflow-y-visible w-auto"
     >
       <div
-        className="w-[20%] py-12 lg:py-20 whitespace-nowrap flex flex-row animate-marquee lg:animate-large-marquee"
+        className="w-[20%] py-8 lg:py-10 whitespace-nowrap flex flex-row animate-marquee lg:animate-large-marquee"
         style={{
           animationPlayState: shouldPlay ? "running" : "paused",
         }}
@@ -53,12 +53,8 @@ function LumaGallery() {
 function NECX() {
   return (
     <>
-      <section
-        className={`relative w-full min-h-screen mx-auto bg-ground ${styles.paddingY}`}
-      >
-        <div
-          className={`${styles.paddingX} max-w-6xl mx-auto flex flex-col gap-10`}
-        >
+      <section className={`relative w-full bg-ground ${styles.introY}`}>
+        <div className={`${styles.container} flex flex-col gap-10`}>
           <p className={styles.sectionSubText}>
             Venture Studio · Silicon Valley · Japan
           </p>
@@ -133,7 +129,7 @@ function NECX() {
       </section>
 
       <section id="social-media-marketing" className={styles.sectionY}>
-        <div className={`${styles.paddingX} max-w-6xl mx-auto space-y-10`}>
+        <div className={`${styles.container} space-y-10`}>
           <div className="text-center max-w-6xl mx-auto">
             <h2 className={`${styles.subHeadText} mb-4`}>
               1. Social Media Marketing
@@ -234,7 +230,7 @@ function NECX() {
       </section>
 
       <section id="event-management" className={styles.sectionY}>
-        <div className={`${styles.paddingX} max-w-6xl mx-auto space-y-10`}>
+        <div className={`${styles.container} space-y-10`}>
           <div className="text-center max-w-3xl mx-auto">
             <h3 className={`${styles.subHeadText} mb-4`}>
               2. Event Management
@@ -333,7 +329,7 @@ function NECX() {
       </section>
 
       <section id="program-coordination" className={styles.sectionY}>
-        <div className={`${styles.paddingX} max-w-6xl mx-auto space-y-10`}>
+        <div className={`${styles.container} space-y-10`}>
           <div className="text-center max-w-3xl mx-auto">
             <h3 className={`${styles.subHeadText} mb-4`}>
               3. Program Coordination
@@ -461,4 +457,4 @@ function NECX() {
   );
 }
 
-export default SectionWrapper(NECX);
+export default SectionWrapper(NECX, undefined, { fullBleed: true });

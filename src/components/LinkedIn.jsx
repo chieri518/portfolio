@@ -53,7 +53,7 @@ const LinkedIn = () => {
   };
 
   return (
-    <div className="mt-10 bg-tertiary rounded-[20px]">
+    <div className="bg-tertiary rounded-[20px]">
       <div
         className={`${styles.padding} bg-tertiary rounded-2xl min-h-[300px]`}
       >
@@ -90,4 +90,4 @@ const LinkedIn = () => {
   );
 };
 
-export default SectionWrapper(LinkedIn);
+export default SectionWrapper(LinkedIn, undefined, { stacked: true });
