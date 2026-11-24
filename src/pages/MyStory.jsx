@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useCherryBurst } from "../hooks/useCherryBurst";
 import { styles } from "../styles";
 import { SectionWrapper } from "../hoc";
 import { storyIntro, storyChapters } from "../constants/mystory";
@@ -11,25 +12,46 @@ const navLabel = (chapter) => chapter.age.split(" · ")[0];
 
 function Polaroid({ photo, index, featured = false }) {
   const tilt = featured ? "" : index % 2 === 0 ? "-rotate-2" : "rotate-2";
+  const [burst, cherries] = useCherryBurst();
+  // Tapping counts as a hover on touch screens, so a photo you tap shouldn't
+  // also straighten on hover, or it twists while the cherries pop.
+  const straightenOnHover = photo.cherryBurst ? "" : "hover:rotate-0";
+
+  const image = (
+    <span className="block overflow-hidden rounded-sm bg-gray-50">
+      <img
+        src={photo.src}
+        alt={photo.caption || "Story photo"}
+        className={`w-full object-cover ${
+          featured
+            ? "h-auto object-contain"
+            : photo.wide
+            ? "aspect-[3/2]"
+            : "aspect-square"
+        }`}
+      />
+    </span>
+  );
+
   return (
     <figure
-      className={`bg-white p-3 pb-2 rounded-md shadow-md transition-transform duration-300 hover:rotate-0 ${tilt} ${
+      className={`bg-white p-3 pb-2 rounded-md shadow-md transition-transform duration-300 ${straightenOnHover} ${tilt} ${
         featured ? "max-w-[240px] mx-auto" : ""
       }`}
     >
-      <div className="overflow-hidden rounded-sm bg-gray-50">
-        <img
-          src={photo.src}
-          alt={photo.caption || "Story photo"}
-          className={`w-full object-cover ${
-            featured
-              ? "h-auto object-contain"
-              : photo.wide
-              ? "aspect-[3/2]"
-              : "aspect-square"
-          }`}
-        />
-      </div>
+      {photo.cherryBurst ? (
+        <button
+          type="button"
+          onClick={burst}
+          aria-label={`${photo.caption || "Photo"} (tap to pop cherries)`}
+          className="block w-full cursor-pointer rounded-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+        >
+          {image}
+        </button>
+      ) : (
+        image
+      )}
+      {cherries}
       {photo.caption && (
         <figcaption className="mt-3 text-center text-[13px] md:text-sm text-secondary">
           {photo.caption}

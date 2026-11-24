@@ -1,13 +1,20 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { styles } from "../styles";
 import { SectionWrapper } from "../hoc";
-import { works } from "../constants/projects";
+import { works, projectTags } from "../constants/projects";
 import { fadeIn, textVariant } from "../utils/motion";
 
-const PostCard = ({ index, name, description, image, link }) => {
+const ALL = "All";
+
+const PostCard = ({ index, name, description, image, link, tags = [] }) => {
   return (
+    // Each card animates itself in, so cards that reappear after a filter
+    // change fade in too (the page-level stagger only runs once).
     <motion.div
-      variants={fadeIn("up", "spring", index * 0.5, 0.75)}
+      variants={fadeIn("up", "spring", index * 0.15, 0.75)}
+      initial="hidden"
+      animate="show"
       className="group"
     >
       <a href={link} target="_blank" rel="noopener noreferrer">
@@ -23,7 +30,19 @@ const PostCard = ({ index, name, description, image, link }) => {
           <div className="w-full md:w-2/3 mt-4 md:mt-0 md:ml-5 flex flex-col justify-between relative">
             <div>
               <h3 className={styles.cardTitle}>{name}</h3>
-              <p className="mt-2 text-secondary text-[15px]">{description}</p>
+              {tags.length > 0 && (
+                <div className="mt-2 flex flex-wrap gap-2">
+                  {tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="text-xs font-semibold text-primary bg-primary/10 rounded-full px-3 py-1"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              )}
+              <p className="mt-3 text-secondary text-[15px]">{description}</p>
             </div>
             {/* The whole card is the link; this just looks like a button. */}
             <span className="mt-2 mb-2 bg-primary text-white text-center text-sm md:text-base py-2 rounded-full hover:bg-secondary transition-colors max-w-[200px]">
@@ -36,7 +55,44 @@ const PostCard = ({ index, name, description, image, link }) => {
   );
 };
 
+const TagFilter = ({ active, onChange }) => (
+  <div
+    role="group"
+    aria-label="Filter projects by tag"
+    className="mt-8 flex flex-wrap gap-2"
+  >
+    {[ALL, ...projectTags].map((tag) => {
+      const selected = active === tag;
+      const count =
+        tag === ALL
+          ? works.length
+          : works.filter((w) => w.tags?.includes(tag)).length;
+      return (
+        <button
+          key={tag}
+          type="button"
+          aria-pressed={selected}
+          onClick={() => onChange(tag)}
+          className={`text-sm font-medium rounded-full px-4 py-1.5 border transition-colors ${
+            selected
+              ? "bg-primary text-white border-primary"
+              : "bg-white text-secondary border-gray-200 hover:border-primary hover:text-primary"
+          }`}
+        >
+          {tag} <span className="opacity-70">({count})</span>
+        </button>
+      );
+    })}
+  </div>
+);
+
 const Projects = () => {
+  const [activeTag, setActiveTag] = useState(ALL);
+  const visible =
+    activeTag === ALL
+      ? works
+      : works.filter((w) => w.tags?.includes(activeTag));
+
   return (
     <>
       <motion.div variants={textVariant()}>
@@ -44,9 +100,12 @@ const Projects = () => {
         <h2 className={styles.sectionHeadText}>Projects</h2>
       </motion.div>
 
-      <div className="p-3 md:p-5 gap-5 md:gap-7 flex flex-col mt-6">
-        {works.map((highlight, index) => (
-          <PostCard key={`post-${index}`} index={index} {...highlight} />
+      <TagFilter active={activeTag} onChange={setActiveTag} />
+
+      <div className="p-3 md:p-5 gap-5 md:gap-7 flex flex-col mt-2">
+        {visible.map((work, index) => (
+          // Keying on the tag too replays the entrance animation on each filter.
+          <PostCard key={`${activeTag}-${work.link}`} index={index} {...work} />
         ))}
       </div>
     </>

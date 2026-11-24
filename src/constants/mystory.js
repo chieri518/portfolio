@@ -29,13 +29,13 @@ export const storyChapters = [
     age: "Tokyo · the very beginning",
     title: "Beginning of the story",
     paragraphs: [
-      "I was born in Tokyo — a calm, easygoing baby who, by every account, somehow always knew exactly when to be quiet.",
-      "My name, Chieri, sounded like “cherry” to everyone who heard it, and the association never let go. All these years later it's still the first thing people connect me with — so much so that it eventually became my whole personal brand. 🍒",
+      "I was born in Tokyo. My name, Chieri, sounds like “cherry,” and the association stayed with me. Years later, it became the inspiration for the cherries you’ll see throughout this site. 🍒",
     ],
     photos: [
       {
         src: babyChieri,
         caption: "Baby me!",
+        cherryBurst: true, // click/tap the photo to pop cherries
       },
     ],
   },
@@ -46,8 +46,6 @@ export const storyChapters = [
     title: "Growing up in the countryside",
     paragraphs: [
       "When I was three, my mom and I moved to Nara to live with my grandpa — out in the deep countryside, tucked among the mountains, where every neighbor knew your name.",
-      "My mom worked from early morning until late at night, so a lot of my childhood was spent figuring things out on my own. I think that's exactly where my independent streak was born. One afternoon, with my mom out, I had to order delivery pizza by myself. She'd left a note with everything I was supposed to say on the phone — but I never found it, so I just worked it out as I went. When the pizza actually showed up at the door, my mom couldn't believe what I'd pulled off. I was so proud.",
-      "Once, when I was seven, I took the train to Osaka by myself to meet family. It didn't feel like a big deal at the time — it was just what needed to happen, so I did it.",
       "I was the outgoing one — usually the center of attention and always up for making a new friend. I loved to dance, and from age four I was in hip-hop classes, which I kept up until I was ten. When I wasn't dancing, I was outside biking around the countryside with my friends until the sun went down.",
       "When I was five, my mom came home carrying a big cardboard box full of little holes. I leaned in to peek, a tiny nose popped out — and I was so startled I burst into tears. That was Wanwan, my chihuahua (named after the sound dogs make in Japanese). I was terrified of him for all of about a week before he became my very best friend. And through all of it there was my grandpa: retired, gentle, my quiet companion on the long afternoons when it was just the two of us at home.",
     ],

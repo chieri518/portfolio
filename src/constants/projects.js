@@ -2,15 +2,17 @@ import { group1, uif1, necx_group, youtubevid, jobhunt } from "../assets";
 import { bmoCover } from "./bmo";
 import { dailyPrintCover } from "./dailyprint";
 import { roverCover } from "./rover";
+import asahiCoaster from "../assets/cad/asahi.jpg";
 
-const works = [
+const allWorks = [
   {
     name: "BMO Robot",
     description:
-      'A voice-controlled BMO companion (from Adventure Time) that runs entirely on-device on a Raspberry Pi 5. Say "Hey BMO" and it wakes up, listens, thinks up a reply in BMO\'s cheerful personality, speaks it aloud in a custom voice, and reacts with animated facial expressions — it can even look through a camera to describe what it sees, all locally, with no cloud, accounts, or internet at runtime. A personal build documented step by step.',
+      'A voice-controlled BMO companion (from Adventure Time) that runs entirely on-device on a Raspberry Pi 5. Say "Hey BMO" and it wakes up, listens, thinks up a reply in BMO\'s cheerful personality, speaks it aloud in a custom voice, and reacts with animated facial expressions — it can even look through a camera to describe what it sees, all locally, with no cloud, accounts, or internet at runtime. I took it from parts on a bench to a self-contained device: a 3D-printed case, a camera and active cooler, and my first custom PCB, designed in KiCad and soldered by hand. Documented step by step.',
 
     image: bmoCover,
     link: "/bmo",
+    tags: ["Hardware", "Software"],
   },
   {
     name: "Rover Engineer · NASA Space Apps 2026",
@@ -19,6 +21,7 @@ const works = [
 
     image: roverCover,
     link: "/rover-engineer",
+    tags: ["Software"],
   },
   {
     name: "Daily Print",
@@ -27,14 +30,18 @@ const works = [
 
     image: dailyPrintCover,
     link: "/dailyprint",
+    tags: ["Hardware", "Software"],
   },
   {
-    name: "NEC X",
+    name: "Designed & Printed · CAD + 3D printing",
     description:
-      "Managing program operations and events while leading their marketing strategy across social media, paid ads, and community outreach.",
+      "Things I design in Fusion 360 and bring to life on my Bambu Lab A1 at home, starting with an original set of coasters I modeled from scratch and shared on MakerWorld. Design → slice → print, all in-house — it's also how BMO got its case.",
 
-    image: necx_group,
-    link: "/necx",
+    image: asahiCoaster,
+    link: "/cad",
+    // Hidden from the Projects list until it's ready; /cad still works by URL.
+    hidden: true,
+    tags: ["Hardware"],
   },
   {
     name: "Founder of chetz",
@@ -43,6 +50,16 @@ const works = [
 
     image: group1,
     link: "/chetz",
+    tags: ["Entrepreneurship", "Community"],
+  },
+  {
+    name: "NEC X",
+    description:
+      "Managing program operations and events while leading their marketing strategy across social media, paid ads, and community outreach.",
+
+    image: necx_group,
+    link: "/necx",
+    tags: ["Entrepreneurship", "Marketing", "Community"],
   },
   {
     name: "University Innovation Fellows",
@@ -51,6 +68,7 @@ const works = [
 
     image: uif1,
     link: "/uif",
+    tags: ["Entrepreneurship", "Community"],
   },
   {
     name: "Navigating the Tech Job Market in 2025",
@@ -59,6 +77,7 @@ const works = [
 
     image: jobhunt,
     link: "/jobhunt",
+    tags: ["Community"],
   },
   {
     name: "Menlo College · Alumni Office",
@@ -67,7 +86,20 @@ const works = [
 
     image: youtubevid,
     link: "/alumni",
+    tags: ["Marketing", "Community"],
   },
 ];
 
-export { works };
+// Filter chips on the Projects page, in display order. Every tag used above
+// should appear here, or it can't be filtered on.
+const projectTags = [
+  "Hardware",
+  "Software",
+  "Entrepreneurship",
+  "Marketing",
+  "Community",
+];
+
+const works = allWorks.filter((work) => !work.hidden);
+
+export { works, projectTags };

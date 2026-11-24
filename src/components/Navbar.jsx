@@ -4,11 +4,12 @@ import { Link } from "react-router-dom";
 import { styles } from "../styles";
 import { navLinks } from "../constants";
 import { logo, menu, close } from "../assets";
+import SocialLinks from "./SocialLinks";
 
 const NavList = ({ variant, active, onSelect }) => {
   const isDesktop = variant === "desktop";
   const listClass = isDesktop
-    ? "list-none hidden sm:flex flex-row gap-10"
+    ? "list-none flex flex-row gap-6 lg:gap-10 whitespace-nowrap"
     : "list-none flex justify-end items-start flex-col gap-4";
   const itemBase = isDesktop
     ? "hover:text-primary text-[18px] font-medium cursor-pointer transition-colors"
@@ -50,16 +51,23 @@ const Navbar = () => {
           }}
         >
           <img src={logo} alt="logo" className="w-9 h-9 object-contain" />
-          <p className="text-primary text-[18px] font-bold cursor-pointer flex">
+          <p className="text-primary text-[18px] font-bold cursor-pointer flex whitespace-nowrap">
             Chieri Abe &nbsp;
-            <span className="sm:block hidden text-secondary font-semibold">
+            <span className="lg:block hidden text-secondary font-semibold">
               | Portfolio
             </span>
           </p>
         </Link>
-        <NavList variant="desktop" active={active} onSelect={setActive} />
+        <div className="hidden md:flex items-center gap-6 lg:gap-10">
+          <NavList variant="desktop" active={active} onSelect={setActive} />
+          <SocialLinks
+            size="w-6 h-6"
+            className="pl-6 lg:pl-8 border-l border-gray-200"
+          />
+        </div>
 
-        <div className="sm:hidden flex flex-1 justify-end items-center">
+        <div className="md:hidden flex flex-1 justify-end items-center gap-5">
+          <SocialLinks size="w-6 h-6" />
           <img
             src={toggle ? close : menu}
             alt="menu"

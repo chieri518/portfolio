@@ -52,7 +52,7 @@ const Highlights = () => {
     <>
       <section id="Highlights" />
       <motion.div variants={textVariant()}>
-        <p className={styles.sectionSubText}>My work</p>
+        <p className={styles.sectionSubText}>What I&apos;m building</p>
         <h2 className={styles.sectionHeadText}>Highlights</h2>
       </motion.div>
 

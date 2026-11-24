@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { email as emailIcon, linkedin as linkedinIcon } from "../assets";
+import SocialLinks from "./SocialLinks";
 
 const Footer = () => {
   return (
@@ -13,33 +13,7 @@ const Footer = () => {
           © {new Date().getFullYear()} Chieri Abe
         </Link>
 
-        <div className="flex flex-col sm:flex-row items-center gap-4">
-          <a
-            href="mailto:chieriabe518@gmail.com"
-            className="flex items-center gap-2 hover:text-secondary transition-colors"
-          >
-            <img
-              src={emailIcon}
-              alt="Email"
-              className="w-4 h-4 object-contain"
-            />
-            <span className="truncate">chieriabe518@gmail.com</span>
-          </a>
-
-          <a
-            href="https://www.linkedin.com/in/chieriabe/"
-            target="_blank"
-            rel="noreferrer"
-            className="flex items-center gap-2 hover:text-secondary transition-colors"
-          >
-            <img
-              src={linkedinIcon}
-              alt="LinkedIn"
-              className="w-4 h-4 object-contain"
-            />
-            <span>LinkedIn</span>
-          </a>
-        </div>
+        <SocialLinks size="w-6 h-6" />
       </div>
     </footer>
   );

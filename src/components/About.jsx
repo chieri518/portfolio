@@ -2,7 +2,7 @@ import Tilt from "react-parallax-tilt";
 import { motion } from "framer-motion";
 
 import { styles } from "../styles";
-import { socials, heroTexts } from "../constants/home";
+import { heroTexts, companyLogos } from "../constants/home";
 import { fadeIn, textVariant } from "../utils/motion";
 import { SectionWrapper } from "../hoc";
 import { profile, resume } from "../assets";
@@ -35,66 +35,69 @@ const Name = ({ loading }) => {
   );
 };
 
+const linkClass =
+  "animate-text bg-gradient-to-r from-accent to-accent-deep bg-clip-text text-transparent font-black";
+
 const About = () => {
   return (
     <>
       <Name />
       <div className="flex items-center min-[1000px]:flex-row flex-col-reverse">
-        <motion.p
+        <motion.div
           variants={fadeIn("", "", 0.1, 1)}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.25 }}
           className="mt-4 text-secondary text-[17px] max-w-3xl leading-[30px]"
         >
-          My work lives at the intersection of product, community, and
-          entrepreneurship, guided by a question that has shaped my life: <br />
-          <span style={{ fontStyle: "italic", fontWeight: "bold" }}>
-            How might we build systems that expand possibility instead of
-            limiting it?
-          </span>
-          <br />
-          That question has carried me from founding a global nonprofit during
-          COVID to rebuilding the KPIs and dashboard a startup relied on to make
-          its decisions. I'm a product manager who has lived in four countries
-          and spent 4+ years across startups and organizations like Google and
-          Hilton — a range that trained me to see every problem through multiple
-          lenses and keep asking why the system works the way it does.
-          <br />
-          Now I'm pairing that strategic, cross-cultural background with
-          hands-on technical execution. Curious how I got here?{" "}
-          <Link
-            to="/story"
-            className="animate-text bg-gradient-to-r from-accent to-accent-deep bg-clip-text text-transparent font-black"
-          >
-            Read my story
-          </Link>
-          . 🌍
-          <br />
-          Feel free to explore my projects and get in touch at{" "}
-          <a
-            href="mailto:chieriabe518@gmail.com"
-            className="animate-text bg-gradient-to-r from-accent to-accent-deep bg-clip-text text-transparent font-black"
-          >
-            chieriabe518@gmail.com
-          </a>
-          . <br />
-          I'm always open to new opportunities and collaborations! <br />
-          <br />
-        </motion.p>
+          <ul className="list-disc pl-5 space-y-3 marker:text-accent">
+            <li>
+              I&apos;ve called four countries home and gotten to know Silicon
+              Valley through working at startups, an incubator, and big tech.
+            </li>
+            <li>
+              I thrive on connecting dots (people, ideas, and resources) to make
+              things happen. At Google, I loved being a bridge between the Japan
+              and US teams.
+            </li>
+            <li>
+              On weekends, I&apos;m busy bringing my childhood imagination to
+              life, like{" "}
+              <Link to="/bmo" className={linkClass}>
+                BMO
+              </Link>
+              , the talking robot I wanted as a kid.
+            </li>
+          </ul>
+          <p className="mt-6">
+            Read{" "}
+            <Link to="/story" className={linkClass}>
+              my story
+            </Link>
+            , explore{" "}
+            <Link to="/projects" className={linkClass}>
+              my projects
+            </Link>
+            , or{" "}
+            <a href="mailto:chieriabe518@gmail.com" className={linkClass}>
+              say hello
+            </a>
+            . 🌍
+          </p>
+        </motion.div>
         <Tilt
           tiltMaxAngleX={45}
           tiltMaxAngleY={45}
           scale={1}
           transitionSpeed={450}
-          className="xs:w-[350px] xs:h-[350px] w-full h-full m-auto max-[1000px]:my-14"
+          className="w-[260px] h-[260px] m-auto max-[1000px]:my-10"
         >
           <motion.div
             variants={fadeIn("", "", 0.5, 1)}
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, amount: 0.25 }}
-            className="xs:w-[350px] w-full green-pink-gradient p-[1px] rounded-[20px]"
+            className="w-[260px] green-pink-gradient p-[1px] rounded-[20px]"
           >
             <div className="bg-tertiary rounded-[20px] min-h-[250px] flex justify-evenly items-center flex-col overflow-hidden">
               <img
@@ -107,25 +110,48 @@ const About = () => {
         </Tilt>
       </div>
       <motion.div
+        variants={fadeIn("", "", 0.2, 1)}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.25 }}
+        className="mt-8 mb-6"
+      >
+        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-secondary">
+          Where I&apos;ve worked
+        </p>
+        <Link
+          to="/experience"
+          aria-label="Where I've worked: see my experience"
+          className="group mt-4 flex flex-wrap items-center gap-x-8 gap-y-5"
+        >
+          {companyLogos.map((company) => (
+            <img
+              key={company.name}
+              src={company.logo}
+              alt={company.name}
+              title={company.name}
+              loading="lazy"
+              style={
+                company.scale
+                  ? {
+                      transform: `scale(${company.scale})`,
+                      // A transform doesn't take up space; pad it to match.
+                      marginInline: (company.scale - 1) * 20,
+                    }
+                  : undefined
+              }
+              className="h-10 w-auto max-w-[110px] object-contain grayscale opacity-60 transition duration-300 hover:grayscale-0 hover:opacity-100"
+            />
+          ))}
+        </Link>
+      </motion.div>
+      <motion.div
         variants={fadeIn("", "", 0.1, 1)}
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, amount: 0.25 }}
         className="mt-4 dark:text-ctnSecondaryDark text-black text-[17px] w-full leading-[30px] flex flex-col justify-between gap-6"
       >
-        <div className="flex gap-5 items-center">
-          {socials.map((social) => (
-            <a
-              href={social.link}
-              target="_blank"
-              rel="noreferrer"
-              key={social.id}
-              className="w-8 h-8 hover:-translate-y-2 ease-in transition-all duration-100 cursor-pointer"
-            >
-              <img src={social.icon} alt={social.id} />
-            </a>
-          ))}
-        </div>
         <a href={resume} target="_blank" rel="noreferrer" className="w-fit">
           <div className="btn w-fit bg-tertiary text-primary px-7 py-2 rounded-md overflow-hidden relative cursor-pointer">
             <div className="original bg-primary text-white px-7 py-2">

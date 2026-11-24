@@ -1,8 +1,13 @@
 import {
-  necx_group,
-  email,
-  github,
-  linkedin,
+  google,
+  hilton,
+  necx,
+  ellipsis,
+  owned,
+  capy,
+  metapyxl,
+  wsl,
+  menlo,
   noriko,
   dariush,
   austin,
@@ -14,59 +19,61 @@ import {
 } from "../assets";
 import { bmoCover } from "./bmo";
 import { roverHighlight } from "./rover";
+import { dailyPrintCover } from "./dailyprint";
 
 const heroTexts = [
+  "Hardware Tinkerer",
+  500,
   "Product Manager",
+  500,
+  "Maker & 3D Printer",
   500,
   "Solutions Consultant",
   500,
-  "Global Citizen",
-  500,
   "Website Developer",
   500,
-  "Digital Marketer",
+  "Global Citizen",
   500,
   "Founder",
   500,
 ];
 
-const socials = [
-  {
-    id: "email",
-    icon: email,
-    link: "mailto:chieriabe518@gmail.com",
-  },
-  {
-    id: "github",
-    icon: github,
-    link: "https://github.com/chieri518",
-  },
-  {
-    id: "linkedin",
-    icon: linkedin,
-    link: "https://www.linkedin.com/in/chieriabe/",
-  },
-];
-
 const highlights = [
   {
     name: "Building a robot that thinks, talks & sees",
-    description: "Solo project — a voice-controlled BMO on a Raspberry Pi",
+    description:
+      "Solo build — Raspberry Pi 5, 3D-printed case, my own soldered PCB, and fully on-device AI",
     image: bmoCover,
     redirect_link: "/bmo",
   },
   {
+    name: "A newspaper that prints itself every morning",
+    description:
+      "An AI editor in the cloud + a Raspberry Pi Zero printer box at home",
+    image: dailyPrintCover,
+    redirect_link: "/dailyprint",
+  },
+  {
     name: "Designing rovers for the Moon, Mars & Titan",
-    description: "NASA Space Apps 2026 — a 3D browser game built on real NASA data",
+    description:
+      "NASA Space Apps 2026 — a 3D browser game built on real NASA data",
     image: roverHighlight,
     redirect_link: "/rover-engineer",
   },
-  {
-    name: "Empowering early-stage founders",
-    description: "Marketing and Community Engagement Specialist @ NEC X",
-    image: necx_group,
-    redirect_link: "/necx",
-  },
+];
+
+// Logo strip under the intro ("Where I've worked"), in display order.
+const companyLogos = [
+  { name: "Google", logo: google },
+  { name: "Hilton", logo: hilton },
+  { name: "NEC X", logo: necx },
+  { name: "Ellipsis Health", logo: ellipsis },
+  { name: "Owned", logo: owned },
+  // Capy's image is mostly padding, so it is drawn larger to match the rest.
+  { name: "Capy", logo: capy, scale: 1.9 },
+  { name: "Metapyxl", logo: metapyxl },
+  { name: "Women's Startup Lab", logo: wsl },
+  { name: "Menlo College", logo: menlo },
 ];
 
 const references = [
@@ -154,4 +161,4 @@ const linkedinhighlight = [
   },
 ];
 
-export { heroTexts, socials, highlights, references, linkedinhighlight };
+export { heroTexts, highlights, companyLogos, references, linkedinhighlight };
