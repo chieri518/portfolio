@@ -140,7 +140,9 @@ const About = () => {
                     }
                   : undefined
               }
-              className="h-10 w-auto max-w-[110px] object-contain grayscale opacity-60 transition duration-300 hover:grayscale-0 hover:opacity-100"
+              className={`${
+                company.height || "h-10"
+              } w-auto max-w-[110px] object-contain grayscale opacity-60 transition duration-300 hover:grayscale-0 hover:opacity-100`}
             />
           ))}
         </Link>

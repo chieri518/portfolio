@@ -1,5 +1,6 @@
 import {
-  google,
+  googleWordmark,
+  fenrir,
   hilton,
   necx,
   ellipsis,
@@ -64,8 +65,10 @@ const highlights = [
 
 // Logo strip under the intro ("Where I've worked"), in display order.
 const companyLogos = [
-  { name: "Google", logo: google },
+  // A wide wordmark, so it is a little shorter than the others to match.
+  { name: "Google", logo: googleWordmark, height: "h-8" },
   { name: "Hilton", logo: hilton },
+  { name: "Fenrir", logo: fenrir },
   { name: "NEC X", logo: necx },
   { name: "Ellipsis Health", logo: ellipsis },
   { name: "Owned", logo: owned },

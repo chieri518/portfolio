@@ -21,6 +21,8 @@ import ellipsis from "./company/ellipsis.png";
 import cmu from "./company/cmu.png";
 import menlo from "./company/menlo.png";
 import wsl from "./company/wsl.png";
+import googleWordmark from "./company/google_wordmark.svg";
+import fenrir from "./company/fenrir.svg";
 
 // ── awards/ ──
 import governormedal from "./awards/governormedal.png";
@@ -138,6 +140,8 @@ export {
   cmu,
   menlo,
   wsl,
+  googleWordmark,
+  fenrir,
   // awards
   governormedal,
   honor,
