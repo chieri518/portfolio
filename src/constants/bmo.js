@@ -41,7 +41,7 @@ export const bmoStats = [
       "faster vision replies (~66s → ~46s) after a metrics-driven speed pass",
   },
   {
-    value: "$1",
+    value: "$0.33",
     label: "to train BMO’s custom voice from ~200 generated samples",
   },
   {
@@ -134,7 +134,7 @@ export const bmoPhases = [
         topic: "BMO’s voice",
         considered: "A generic robot voice vs. training a custom one",
         chose: "Trained my own — despite no ML experience",
-        why: "A stock voice wouldn’t feel like BMO. I generated ~200 samples via Fish Audio ($1) and trained the model overnight on my gaming PC’s GPU.",
+        why: "A stock voice wouldn’t feel like BMO. I generated ~200 samples via Fish Audio ($0.33) and trained the model overnight on my gaming PC’s GPU.",
       },
       {
         topic: "Cloud vs. on-device",

@@ -7,18 +7,26 @@ import { fadeIn, textVariant } from "../utils/motion";
 
 const ProjectCard = ({ index, name, description, image, redirect_link }) => {
   return (
-    <motion.div variants={fadeIn("up", "spring", index * 0.5, 0.75)}>
-      <div className="bg-white p-5 rounded-2xl border border-gray-100 shadow-md sm:w-[360px] w-full transform transition-transform hover:scale-105">
+    // Cards in a row stretch to the tallest one, and every image is cropped
+    // to the same 4:3 shape, so the row lines up.
+    <motion.div
+      variants={fadeIn("up", "spring", index * 0.5, 0.75)}
+      className="flex sm:w-[360px] w-full"
+    >
+      <div className="bg-white p-5 rounded-2xl border border-gray-100 shadow-md w-full flex flex-col transform transition-transform hover:scale-105">
         <a href={redirect_link} target="_blank" rel="noopener noreferrer">
-          <img src={image} alt={name} />
-          <div className="h-fit"></div>
+          <img
+            src={image}
+            alt={name}
+            className="w-full aspect-[4/3] object-cover"
+          />
 
           <div className="mt-5">
             <h3 className="text-black font-bold text-[24px]">{name}</h3>
             <p className="mt-2 text-secondary text-[14px]">{description}</p>
           </div>
         </a>
-        <div>
+        <div className="mt-auto pt-3">
           <a
             href={redirect_link}
             target="_blank"

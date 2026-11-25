@@ -15,40 +15,42 @@ const PostCard = ({ index, name, description, image, link, tags = [] }) => {
       variants={fadeIn("up", "spring", index * 0.15, 0.75)}
       initial="hidden"
       animate="show"
-      className="group"
+      className="group h-full"
     >
-      <a href={link} target="_blank" rel="noopener noreferrer">
-        <div className="relative bg-white p-4 md:p-5 rounded-2xl border border-gray-100 flex flex-col md:flex-row w-full shadow-md hover:shadow-lg transition-shadow duration-300">
-          <div className="w-full md:w-1/3 h-auto relative">
-            <img
-              src={image}
-              alt={name}
-              className="w-full h-48 md:h-full object-cover rounded-2xl"
-            />
-          </div>
+      {/* Image on top, text below; cards in a row stretch to the same height
+          and the button sits at the bottom. */}
+      <a
+        href={link}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block h-full"
+      >
+        <div className="h-full bg-white p-4 md:p-5 rounded-2xl border border-gray-100 flex flex-col shadow-md hover:shadow-lg transition-shadow duration-300">
+          <img
+            src={image}
+            alt={name}
+            className="w-full aspect-[16/10] object-cover rounded-xl"
+          />
 
-          <div className="w-full md:w-2/3 mt-4 md:mt-0 md:ml-5 flex flex-col justify-between relative">
-            <div>
-              <h3 className={styles.cardTitle}>{name}</h3>
-              {tags.length > 0 && (
-                <div className="mt-2 flex flex-wrap gap-2">
-                  {tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="text-xs font-semibold text-primary bg-primary/10 rounded-full px-3 py-1"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              )}
-              <p className="mt-3 text-secondary text-[15px]">{description}</p>
+          <h3 className={`${styles.cardTitle} mt-4`}>{name}</h3>
+          {tags.length > 0 && (
+            <div className="mt-2 flex flex-wrap gap-2">
+              {tags.map((tag) => (
+                <span
+                  key={tag}
+                  className="text-xs font-semibold text-primary bg-primary/10 rounded-full px-3 py-1"
+                >
+                  {tag}
+                </span>
+              ))}
             </div>
-            {/* The whole card is the link; this just looks like a button. */}
-            <span className="mt-2 mb-2 bg-primary text-white text-center text-sm md:text-base py-2 rounded-full hover:bg-secondary transition-colors max-w-[200px]">
-              Learn More →
-            </span>
-          </div>
+          )}
+          <p className="mt-3 mb-5 text-secondary text-[15px]">{description}</p>
+
+          {/* The whole card is the link; this just looks like a button. */}
+          <span className="mt-auto w-full max-w-[200px] bg-primary text-white text-center text-sm md:text-base py-2 rounded-full hover:bg-secondary transition-colors">
+            Learn More →
+          </span>
         </div>
       </a>
     </motion.div>
@@ -102,7 +104,7 @@ const Projects = () => {
 
       <TagFilter active={activeTag} onChange={setActiveTag} />
 
-      <div className="mt-8 flex flex-col gap-8">
+      <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
         {visible.map((work, index) => (
           // Keying on the tag too replays the entrance animation on each filter.
           <PostCard key={`${activeTag}-${work.link}`} index={index} {...work} />
