@@ -1,20 +1,20 @@
-import bmoFaceFigma from "../assets/bmo/bmoface_figma.png";
-import bmoSetup from "../assets/bmo/setup.jpg";
-import bmoSetup2 from "../assets/bmo/setup2.jpg";
-import reelDay1 from "../assets/bmo/reel-DZD6Qiuvxx7.jpg";
-import reelDay2 from "../assets/bmo/reel-DZJj6KtI95-.jpg";
-import reelDay3 from "../assets/bmo/reel-DZaxoA7y41K.jpg";
-import reelDay4 from "../assets/bmo/reel-DZdfR2jS2uS.jpg";
-import reelDay5 from "../assets/bmo/reel-DZtTaWmI9Xn.jpg";
-import reelDay6 from "../assets/bmo/reel-DaN4cD4IvwQ.jpg";
-import reelDay7 from "../assets/bmo/reel-Dalin39y4NQ.jpg";
-import reelDay8 from "../assets/bmo/reel-Da1B1MvS_Cc.jpg";
-import reelDay9 from "../assets/bmo/reel-DbBzdSjylRC.jpg";
-import reelDay10 from "../assets/bmo/reel-DbL-Tz-vdPk.jpg";
-import reelDay11 from "../assets/bmo/reel-Ddwr6_JooD_.jpg";
-import reelDay12 from "../assets/bmo/reel-DfgFrxdIjSE.jpg";
+import bmoFaceFigma from "../assets/bmo/bmoface_figma.webp";
+import bmoSetup from "../assets/bmo/setup.webp";
+import bmoSetup2 from "../assets/bmo/setup2.webp";
+import reelDay1 from "../assets/bmo/reel-DZD6Qiuvxx7.webp";
+import reelDay2 from "../assets/bmo/reel-DZJj6KtI95-.webp";
+import reelDay3 from "../assets/bmo/reel-DZaxoA7y41K.webp";
+import reelDay4 from "../assets/bmo/reel-DZdfR2jS2uS.webp";
+import reelDay5 from "../assets/bmo/reel-DZtTaWmI9Xn.webp";
+import reelDay6 from "../assets/bmo/reel-DaN4cD4IvwQ.webp";
+import reelDay7 from "../assets/bmo/reel-Dalin39y4NQ.webp";
+import reelDay8 from "../assets/bmo/reel-Da1B1MvS_Cc.webp";
+import reelDay9 from "../assets/bmo/reel-DbBzdSjylRC.webp";
+import reelDay10 from "../assets/bmo/reel-DbL-Tz-vdPk.webp";
+import reelDay11 from "../assets/bmo/reel-Ddwr6_JooD_.webp";
+import reelDay12 from "../assets/bmo/reel-DfgFrxdIjSE.webp";
 
-export { default as bmoCover } from "../assets/bmo/cover.jpg";
+export { default as bmoCover } from "../assets/bmo/cover.webp";
 
 export const bmoHero = {
   eyebrow: "Personal Build · Raspberry Pi · On-device AI",
@@ -24,21 +24,30 @@ export const bmoHero = {
     "A voice-controlled BMO companion that thinks, talks, sees, and emotes — entirely on-device.",
   why: "I wanted to find out whether a genuinely useful voice assistant could run entirely on-device — and whether I could build one end to end, including training a custom voice, with no prior machine-learning experience.",
   blurb:
-    'Say "Hey BMO" and it wakes up, listens to your command, thinks up a reply in BMO’s cheerful personality, speaks it aloud in a custom BMO voice, and reacts with animated facial expressions on its screen. It can even see — ask "what do you see?" and it looks through a camera to describe what’s in front of it — and it plays games on its touch screen, an endless runner and a logic puzzle, whenever you ask. Everything runs locally on a Raspberry Pi 5 — no cloud APIs, no accounts, no internet required at runtime.',
+    'Say "Hey BMO" and it wakes up, replies in BMO’s cheerful personality with a custom voice, and reacts with animated faces on its screen. Ask "what do you see?" and it describes what’s in front of its camera; say "let’s play" and it opens a touch-screen game. Everything runs on a Raspberry Pi 5, with no cloud, accounts, or internet.',
+  status: "Working end to end · June 2026 – present",
 };
 
-export const bmoTldr = [
+// Headline numbers shown under the hero. Each comes from a phase below.
+export const bmoStats = [
   {
-    label: "What",
-    text: 'A voice companion that wakes to "Hey BMO," replies in character, looks through a camera to describe what it sees, emotes on a little screen, and plays touch-screen games on request.',
+    value: "0",
+    label:
+      "cloud calls at runtime: speech, language, vision and voice all run on the Pi",
   },
   {
-    label: "How",
-    text: "Wake word → speech-to-text → local LLM (or a vision model when you ask it to look) → custom text-to-speech → animated face, all on a Raspberry Pi 5.",
+    value: "~30%",
+    label:
+      "faster vision replies (~66s → ~46s) after a metrics-driven speed pass",
   },
   {
-    label: "Status",
-    text: "Working end to end and fully offline. A metrics-driven speed pass cut a typical vision reply by ~30% — down to the model's honest hardware floor.",
+    value: "$1",
+    label: "to train BMO’s custom voice from ~200 generated samples",
+  },
+  {
+    value: "100%",
+    label:
+      "of Jake-doku boards solvable by logic alone, up from ~28% of easy ones",
   },
 ];
 
@@ -55,6 +64,8 @@ export const bmoPipeline = [
 export const bmoPhases = [
   {
     id: "hardware",
+    // Build videos (bmoReels days) that show this phase.
+    videos: [1, 7, 11, 12],
     eyebrow: "Phase 1",
     title: "Hardware",
     subtitle: "Making it a real, self-contained device",
@@ -93,6 +104,8 @@ export const bmoPhases = [
   },
   {
     id: "voice",
+    // Build videos (bmoReels days) that show this phase.
+    videos: [2, 3, 4],
     eyebrow: "Phase 2",
     title: "Voice",
     subtitle: "Hearing the wake word, understanding, and speaking back",
@@ -133,6 +146,8 @@ export const bmoPhases = [
   },
   {
     id: "personality",
+    // Build videos (bmoReels days) that show this phase.
+    videos: [5],
     eyebrow: "Phase 3",
     title: "Personality",
     subtitle: "Thinking and replying in character",
@@ -185,6 +200,8 @@ export const bmoPhases = [
   },
   {
     id: "sight",
+    // Build videos (bmoReels days) that show this phase.
+    videos: [6],
     eyebrow: "Phase 5",
     title: "Sight",
     subtitle: "Letting BMO see and describe the world",
@@ -213,6 +230,8 @@ export const bmoPhases = [
   },
   {
     id: "speed",
+    // Build videos (bmoReels days) that show this phase.
+    videos: [8],
     eyebrow: "Phase 6",
     title: "Speed",
     subtitle: "Making it fast enough to feel like a real conversation",
@@ -255,6 +274,8 @@ export const bmoPhases = [
   },
   {
     id: "play",
+    // Build videos (bmoReels days) that show this phase.
+    videos: [9, 10],
     eyebrow: "Phase 7",
     title: "Play",
     subtitle: "Turning BMO into something you play with, not just talk to",
@@ -290,6 +311,8 @@ export const bmoPhases = [
   },
 ];
 
+// "What this taught me" is hidden for now. To show it again, render
+// <Learnings title="What this taught me" items={bmoLearnings} /> in BMO.jsx.
 export const bmoLearnings = [
   {
     title: "Constraints are a design tool, not a limitation",
@@ -340,62 +363,74 @@ export const bmoStack = [
 
 export const bmoReels = [
   {
+    day: 1,
     url: "https://www.instagram.com/p/DZD6Qiuvxx7/",
     poster: reelDay1,
     caption: "Day 1 — unboxing the Pi and first boot",
   },
   {
+    day: 2,
     url: "https://www.instagram.com/p/DZJj6KtI95-/",
     poster: reelDay2,
     caption: "Day 2 — getting wake-word detection working",
   },
   {
+    day: 3,
     url: "https://www.instagram.com/p/DZaxoA7y41K/",
     poster: reelDay3,
     caption: "Day 3 — teaching BMO to listen: speech-to-text on the Pi",
   },
   {
+    day: 4,
     url: "https://www.instagram.com/p/DZdfR2jS2uS/",
     poster: reelDay4,
     caption: "Day 4 — training a custom BMO voice that runs fully on-device",
   },
   {
+    day: 5,
     url: "https://www.instagram.com/p/DZtTaWmI9Xn/",
     poster: reelDay5,
     caption: "Day 5 — wiring it all together for BMO's first conversation",
   },
   {
+    day: 6,
     url: "https://www.instagram.com/p/DaN4cD4IvwQ/",
     poster: reelDay6,
     caption: "Day 6 — giving BMO a camera and a vision model so it can see",
   },
   {
+    day: 7,
     url: "https://www.instagram.com/p/Dalin39y4NQ/",
     poster: reelDay7,
     caption: "Day 7 — 3D printing a custom case for the Pi and display",
   },
   {
+    day: 8,
     url: "https://www.instagram.com/reel/Da1B1MvS_Cc/",
     poster: reelDay8,
     caption:
       "Day 8 — adding an active cooler, then using real metrics to cut BMO's response time",
   },
   {
+    day: 9,
     url: "https://www.instagram.com/reel/DbBzdSjylRC/",
     poster: reelDay9,
     caption: "Day 9 — developing games: Finn Runner and Jake Doku",
   },
   {
+    day: 10,
     url: "https://www.instagram.com/reel/DbL-Tz-vdPk/",
     poster: reelDay10,
     caption: "Day 10 — connecting the microswitches and improving Finn Runner",
   },
   {
+    day: 11,
     url: "https://www.instagram.com/reel/Ddwr6_JooD_/",
     poster: reelDay11,
     caption: "Day 11 — designing my first custom PCB in KiCad",
   },
   {
+    day: 12,
     url: "https://www.instagram.com/reel/DfgFrxdIjSE/",
     poster: reelDay12,
     caption: "Day 12 — soldering to make my own PCB",

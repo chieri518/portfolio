@@ -1,24 +1,209 @@
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { styles } from "../styles";
 import { SectionWrapper } from "../hoc";
-import {
-  Pipeline,
-  StackTable,
-  Learnings,
-  NextIdeas,
-} from "../components/CaseStudy";
+import { Link } from "react-router-dom";
+import { dailyPrintCover } from "../constants/dailyprint";
+import { Pipeline, StackTable, NextIdeas } from "../components/CaseStudy";
 import {
   bmoHero,
   bmoCover,
-  bmoTldr,
+  bmoStats,
   bmoPipeline,
   bmoPhases,
   bmoStack,
   bmoReels,
-  bmoLearnings,
   bmoFutureIdeas,
   bmoRepoUrl,
 } from "../constants/bmo";
+
+// Day number → build video, so each phase can link to the videos it covers.
+const reelsByDay = Object.fromEntries(bmoReels.map((r) => [r.day, r]));
+
+// "Day 1 — unboxing the Pi…" → "Unboxing the Pi…"
+const reelTopic = (caption) => {
+  const topic = caption.replace(/^Day \d+\s*—\s*/, "");
+  return topic.charAt(0).toUpperCase() + topic.slice(1);
+};
+
+function PhaseVideos({ days }) {
+  const reels = days.map((d) => reelsByDay[d]).filter(Boolean);
+  if (reels.length === 0) return null;
+  return (
+    <div>
+      <h4 className="text-sm font-semibold uppercase tracking-wide text-bmo-deep mb-3">
+        Watch the build
+      </h4>
+      <ul className="grid sm:grid-cols-2 gap-3">
+        {reels.map((reel) => (
+          <li key={reel.day}>
+            <a
+              href={reel.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group h-full flex items-center gap-3 rounded-xl border border-gray-100 bg-gray-50 p-2 pr-3 hover:border-bmo hover:bg-white transition-colors"
+            >
+              <span className="relative shrink-0 w-12 h-12 rounded-lg overflow-hidden bg-gray-200">
+                <img
+                  src={reel.poster}
+                  alt=""
+                  loading="lazy"
+                  className="w-full h-full object-cover"
+                />
+                <span
+                  aria-hidden="true"
+                  className="absolute inset-0 flex items-center justify-center bg-black/25 text-white text-xs"
+                >
+                  ▶
+                </span>
+              </span>
+              <span className="min-w-0">
+                <span className="block text-xs font-semibold uppercase tracking-wide text-bmo-deep">
+                  Day {reel.day}
+                </span>
+                <span className="block text-[14px] leading-[20px] text-gray-900 group-hover:text-bmo-deep">
+                  {reelTopic(reel.caption)}
+                </span>
+              </span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+// End of the page: the code, and the next hardware build to look at.
+function KeepExploring() {
+  return (
+    <div className="pt-4 grid grid-cols-1 md:grid-cols-2 gap-4 items-stretch">
+      <a
+        href={bmoRepoUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="group flex flex-col justify-center rounded-2xl border border-gray-100 bg-white shadow-md p-6 hover:border-bmo transition-colors"
+      >
+        <span className="text-xs font-semibold uppercase tracking-wide text-bmo-deep">
+          The code
+        </span>
+        <span className="mt-1 text-xl font-bold text-gray-900">
+          BMO on GitHub
+          <span className="inline-block ml-1 transition-transform group-hover:translate-x-1">
+            →
+          </span>
+        </span>
+        <span className="mt-1 text-[14px] text-secondary">
+          Source for the voice loop, faces and games.
+        </span>
+      </a>
+      <Link
+        to="/dailyprint"
+        className="group flex items-center gap-4 rounded-2xl border border-gray-100 bg-white shadow-md p-4 hover:border-bmo transition-colors"
+      >
+        <img
+          src={dailyPrintCover}
+          alt=""
+          loading="lazy"
+          decoding="async"
+          className="w-24 h-24 rounded-xl object-cover shrink-0"
+        />
+        <span className="min-w-0">
+          <span className="block text-xs font-semibold uppercase tracking-wide text-bmo-deep">
+            Next project
+          </span>
+          <span className="block mt-1 text-xl font-bold text-gray-900">
+            Daily Print
+            <span className="inline-block ml-1 transition-transform group-hover:translate-x-1">
+              →
+            </span>
+          </span>
+          <span className="block mt-1 text-[14px] text-secondary">
+            A newspaper that a Raspberry Pi printer box prints at home every
+            morning.
+          </span>
+        </span>
+      </Link>
+    </div>
+  );
+}
+
+// Sticky menu of the build phases; highlights the one on screen.
+function PhaseNav() {
+  const [active, setActive] = useState(bmoPhases[0].id);
+  const stripRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) setActive(e.target.id);
+        });
+      },
+      { rootMargin: "-35% 0px -60% 0px" },
+    );
+    bmoPhases.forEach((phase) => {
+      const el = document.getElementById(phase.id);
+      if (el) observer.observe(el);
+    });
+    return () => observer.disconnect();
+  }, []);
+
+  // On phones the strip scrolls sideways: keep the current phase in view.
+  useEffect(() => {
+    const strip = stripRef.current;
+    const pill = strip?.querySelector(`[data-phase="${active}"]`);
+    if (strip && pill && strip.scrollWidth > strip.clientWidth) {
+      strip.scrollTo({
+        left: pill.offsetLeft - (strip.clientWidth - pill.offsetWidth) / 2,
+        behavior: "smooth",
+      });
+    }
+  }, [active]);
+
+  const jump = (e, id) => {
+    e.preventDefault();
+    document
+      .getElementById(id)
+      ?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
+  return (
+    <nav
+      aria-label="Build phases"
+      className="sticky top-[77px] z-10 bg-ground/95 backdrop-blur border-y border-gray-200"
+    >
+      <div className={styles.container}>
+        <ul
+          ref={stripRef}
+          className="flex gap-2 overflow-x-auto scrollbar-hide py-3 lg:justify-center"
+        >
+          {bmoPhases.map((phase, i) => {
+            const current = phase.id === active;
+            return (
+              <li key={phase.id} className="shrink-0">
+                <a
+                  href={`#${phase.id}`}
+                  data-phase={phase.id}
+                  onClick={(e) => jump(e, phase.id)}
+                  aria-current={current ? "true" : undefined}
+                  className={`block rounded-full px-3 py-1.5 text-sm whitespace-nowrap transition-colors ${
+                    current
+                      ? "bg-bmo-deep text-white"
+                      : "text-secondary hover:bg-gray-100"
+                  }`}
+                >
+                  <span className="tabular-nums opacity-60 mr-1.5">
+                    {i + 1}
+                  </span>
+                  {phase.title}
+                </a>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+    </nav>
+  );
+}
 
 function PhaseSection({ phase, index }) {
   const hasVersions = phase.versions?.length > 0;
@@ -39,6 +224,8 @@ function PhaseSection({ phase, index }) {
             <img
               src={v.photo}
               alt={v.caption || `${phase.title} ${v.label}`}
+              loading="lazy"
+              decoding="async"
               className="w-full h-auto object-contain"
             />
           </div>
@@ -58,6 +245,8 @@ function PhaseSection({ phase, index }) {
             <img
               src={phase.photo}
               alt={phase.photoCaption || `${phase.title} build photo`}
+              loading="lazy"
+              decoding="async"
               className="w-full h-auto object-contain"
             />
           </div>
@@ -97,11 +286,22 @@ function PhaseSection({ phase, index }) {
       </div>
 
       {phase.decisions?.length > 0 && (
-        <div>
-          <h4 className="text-sm font-semibold uppercase tracking-wide text-bmo-deep mb-3">
-            Key decisions
-          </h4>
-          <div className="space-y-3">
+        <details className="group/decisions">
+          <summary className="cursor-pointer list-none flex items-baseline gap-2 flex-wrap [&::-webkit-details-marker]:hidden">
+            <h4 className="text-sm font-semibold uppercase tracking-wide text-bmo-deep">
+              Key decisions
+            </h4>
+            <span className="text-[13px] text-secondary">
+              {phase.decisions.map((d) => d.topic).join(" · ")}
+            </span>
+            <span
+              aria-hidden="true"
+              className="ml-auto text-bmo-deep text-lg leading-none transition-transform group-open/decisions:rotate-45"
+            >
+              +
+            </span>
+          </summary>
+          <div className="space-y-3 mt-3">
             {phase.decisions.map((d, i) => (
               <div
                 key={i}
@@ -121,13 +321,15 @@ function PhaseSection({ phase, index }) {
               </div>
             ))}
           </div>
-        </div>
+        </details>
       )}
+
+      {phase.videos?.length > 0 && <PhaseVideos days={phase.videos} />}
     </div>
   );
 
   return (
-    <section id={phase.id} className={styles.sectionY}>
+    <section id={phase.id} className={`${styles.sectionY} scroll-mt-[135px]`}>
       <div className={`${styles.container} space-y-8`}>
         <div className="text-center max-w-3xl mx-auto">
           <p className={styles.sectionSubText}>{phase.eyebrow}</p>
@@ -173,6 +375,8 @@ function ReelCard({ reel, featured = false }) {
         <img
           src={reel.poster}
           alt={reel.caption || "BMO build reel"}
+          loading="lazy"
+          decoding="async"
           className="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-[1.03] transition duration-300"
         />
         <span className="absolute inset-0 flex flex-col items-center justify-center gap-2">
@@ -296,13 +500,24 @@ function BMO() {
     <>
       <section className={`relative w-full ${styles.introY}`}>
         <div className={styles.container}>
-          <p className={styles.sectionSubText}>{bmoHero.eyebrow}</p>
+          <p className={`${styles.sectionSubText} text-balance`}>
+            {bmoHero.eyebrow}
+          </p>
           <div className="mt-6 flex flex-col lg:flex-row items-center gap-10">
             <div className="flex-1 space-y-5">
               <h1 className={styles.sectionHeadText}>{bmoHero.title}</h1>
               {bmoHero.role && (
                 <p className="text-sm font-medium text-bmo-deep">
                   {bmoHero.role}
+                </p>
+              )}
+              {bmoHero.status && (
+                <p className="flex items-center gap-2 text-sm text-secondary">
+                  <span
+                    aria-hidden="true"
+                    className="w-2 h-2 rounded-full bg-bmo"
+                  />
+                  {bmoHero.status}
                 </p>
               )}
               <p className="text-2xl md:text-3xl font-semibold text-gray-900 leading-snug">
@@ -339,21 +554,21 @@ function BMO() {
             </div>
           </div>
 
-          <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-4">
-            {bmoTldr.map((item) => (
-              <div
-                key={item.label}
+          <ul className="mt-12 grid grid-cols-2 lg:grid-cols-4 gap-4">
+            {bmoStats.map((stat) => (
+              <li
+                key={stat.value}
                 className="bg-gray-50 rounded-2xl border border-gray-100 p-5"
               >
-                <p className="text-xs font-bold uppercase tracking-[0.15em] text-bmo-deep mb-2">
-                  {item.label}
+                <p className="text-3xl md:text-4xl font-bold text-bmo-deep">
+                  {stat.value}
                 </p>
-                <p className="text-secondary text-[15px] leading-[23px]">
-                  {item.text}
+                <p className="mt-2 text-secondary text-[14px] md:text-[15px] leading-[22px]">
+                  {stat.label}
                 </p>
-              </div>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </section>
 
@@ -395,19 +610,24 @@ function BMO() {
         </div>
       </section>
 
-      <section className="pt-8">
-        <div className={`${styles.container} text-center`}>
-          <h2 className={styles.subHeadText}>Building it, piece by piece</h2>
-          <p className={`${styles.bodyText} mt-2 max-w-2xl mx-auto`}>
-            Each part of BMO came with its own constraint. Here’s how the build
-            came together.
-          </p>
-        </div>
-      </section>
+      {/* The phase menu stays stuck while any phase is on screen. */}
+      <div>
+        <section className="pt-8 pb-6">
+          <div className={`${styles.container} text-center`}>
+            <h2 className={styles.subHeadText}>Building it, piece by piece</h2>
+            <p className={`${styles.bodyText} mt-2 max-w-2xl mx-auto`}>
+              Each part of BMO came with its own constraint. Here’s how the
+              build came together.
+            </p>
+          </div>
+        </section>
 
-      {bmoPhases.map((phase, index) => (
-        <PhaseSection key={phase.id} phase={phase} index={index} />
-      ))}
+        <PhaseNav />
+
+        {bmoPhases.map((phase, index) => (
+          <PhaseSection key={phase.id} phase={phase} index={index} />
+        ))}
+      </div>
 
       <StackTable
         rows={bmoStack}
@@ -415,9 +635,8 @@ function BMO() {
         toggleClassName="text-bmo"
       />
 
-      <Learnings title="What this taught me" items={bmoLearnings} />
-
       <NextIdeas ideas={bmoFutureIdeas}>
+        <KeepExploring />
         <p className="text-xs md:text-sm text-secondary text-center max-w-2xl mx-auto pt-4">
           BMO is a character from <em>Adventure Time</em> (Cartoon Network).
           This is a non-commercial fan project for personal and educational use.

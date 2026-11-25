@@ -1,34 +1,48 @@
+import { Fragment } from "react";
 import { styles } from "../styles";
 
 // Building blocks shared by the project case-study pages (BMO, Daily Print,
 // NECX, Alumni). Each page passes its own data and accent color.
 
-// A row of steps joined by arrows; the arrows turn downward on mobile.
+// A row of steps joined by arrows. From `lg` up the steps share one row (they
+// shrink to fit, so it never wraps); below that they stack with down arrows.
+// Each arrow is drawn to touch both boxes, so the flow reads as one chain.
+function Connector({ className }) {
+  return (
+    <span aria-hidden="true" className={`flex shrink-0 ${className}`}>
+      {/* down arrow (stacked) */}
+      <span className="flex lg:hidden flex-col items-center h-8">
+        <span className="w-0.5 flex-1 bg-current" />
+        <svg width="10" height="8" viewBox="0 0 10 8" className="fill-current">
+          <path d="M0 0h10L5 8z" />
+        </svg>
+      </span>
+      {/* right arrow (one row) */}
+      <span className="hidden lg:flex items-center w-8">
+        <span className="h-0.5 flex-1 bg-current" />
+        <svg width="8" height="10" viewBox="0 0 8 10" className="fill-current">
+          <path d="M0 0l8 5-8 5z" />
+        </svg>
+      </span>
+    </span>
+  );
+}
+
 export function Pipeline({ steps, arrowClassName }) {
   return (
-    <div className="flex flex-col md:flex-row md:flex-wrap items-stretch justify-center gap-3 md:gap-2">
+    <div className="flex flex-col lg:flex-row items-center lg:items-stretch justify-center">
       {steps.map((step, i) => (
-        <div
-          key={step.label}
-          className="flex flex-col md:flex-row items-center"
-        >
-          <div className="w-44 md:w-36 lg:w-40 text-center bg-white rounded-2xl shadow-md border border-gray-100 px-4 py-4">
-            <p className="font-bold text-gray-900 text-[15px] md:text-[16px]">
+        <Fragment key={step.label}>
+          {i > 0 && <Connector className={arrowClassName} />}
+          <div className="w-56 lg:w-auto lg:flex-1 lg:min-w-0 flex flex-col justify-center text-center bg-white rounded-2xl shadow-md border border-gray-100 px-4 lg:px-3 xl:px-4 py-4">
+            <p className="font-bold text-gray-900 text-[15px] xl:text-[16px] leading-snug">
               {step.label}
             </p>
-            <p className="text-secondary text-[12px] md:text-[13px] mt-1">
+            <p className="text-secondary text-[12px] xl:text-[13px] mt-1">
               {step.sub}
             </p>
           </div>
-          {i < steps.length - 1 && (
-            <span
-              aria-hidden="true"
-              className={`${arrowClassName} text-2xl font-bold px-1 md:px-2 rotate-90 md:rotate-0`}
-            >
-              →
-            </span>
-          )}
-        </div>
+        </Fragment>
       ))}
     </div>
   );
