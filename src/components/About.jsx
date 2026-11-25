@@ -57,8 +57,8 @@ const About = () => {
             </li>
             <li>
               I thrive on connecting dots (people, ideas, and resources) to make
-              things happen. At Google, I loved being a bridge between the Japan
-              and US teams.
+              things happen. At Google, I enjoyed being a bridge between the
+              Japan and US teams.
             </li>
             <li>
               On weekends, I&apos;m busy bringing my childhood imagination to
