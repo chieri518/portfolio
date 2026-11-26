@@ -3,11 +3,14 @@ import { styles } from "../styles";
 import { SectionWrapper } from "../hoc";
 import { Link } from "react-router-dom";
 import { dailyPrintCover } from "../constants/dailyprint";
-import { Pipeline, StackTable, NextIdeas } from "../components/CaseStudy";
+import {
+  ProjectHero,
+  Pipeline,
+  StackTable,
+  NextIdeas,
+} from "../components/CaseStudy";
 import {
   bmoHero,
-  bmoCover,
-  bmoStats,
   bmoPipeline,
   bmoPhases,
   bmoStack,
@@ -498,79 +501,20 @@ function ReelsCarousel() {
 function BMO() {
   return (
     <>
-      <section className={`relative w-full ${styles.introY}`}>
-        <div className={styles.container}>
-          <p className={`${styles.sectionSubText} text-balance`}>
-            {bmoHero.eyebrow}
-          </p>
-          <div className="mt-6 flex flex-col lg:flex-row items-center gap-10">
-            <div className="flex-1 space-y-5">
-              <h1 className={styles.sectionHeadText}>{bmoHero.title}</h1>
-              {bmoHero.role && (
-                <p className="text-sm font-medium text-bmo-deep">
-                  {bmoHero.role}
-                </p>
-              )}
-              {bmoHero.status && (
-                <p className="flex items-center gap-2 text-sm text-secondary">
-                  <span
-                    aria-hidden="true"
-                    className="w-2 h-2 rounded-full bg-bmo"
-                  />
-                  {bmoHero.status}
-                </p>
-              )}
-              <p className="text-2xl md:text-3xl font-semibold text-gray-900 leading-snug">
-                {bmoHero.tagline}
-              </p>
-              <p className={styles.bodyText}>{bmoHero.blurb}</p>
-              {bmoHero.why && (
-                <div className="border-l-[3px] border-bmo pl-4">
-                  <p className="text-xs font-semibold uppercase tracking-wide text-gray-500 mb-1">
-                    Why I built it
-                  </p>
-                  <p className="text-secondary text-[16px] leading-[26px] italic">
-                    {bmoHero.why}
-                  </p>
-                </div>
-              )}
-              {bmoRepoUrl && (
-                <a
-                  href={bmoRepoUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block bg-primary text-white text-sm md:text-base px-6 py-2 rounded-full hover:bg-secondary transition-colors"
-                >
-                  View on GitHub →
-                </a>
-              )}
-            </div>
-            <div className="flex-1 w-full max-w-md">
-              <img
-                src={bmoCover}
-                alt="BMO robot"
-                className="w-full h-auto object-contain drop-shadow-md"
-              />
-            </div>
-          </div>
-
-          <ul className="mt-12 grid grid-cols-2 lg:grid-cols-4 gap-4">
-            {bmoStats.map((stat) => (
-              <li
-                key={stat.value}
-                className="bg-gray-50 rounded-2xl border border-gray-100 p-5"
-              >
-                <p className="text-3xl md:text-4xl font-bold text-bmo-deep">
-                  {stat.value}
-                </p>
-                <p className="mt-2 text-secondary text-[14px] md:text-[15px] leading-[22px]">
-                  {stat.label}
-                </p>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
+      <ProjectHero link="/bmo" eyebrow={bmoHero.eyebrow}>
+        <p className={styles.bodyText}>{bmoHero.about}</p>
+        <p className={styles.bodyText}>{bmoHero.blurb}</p>
+        {bmoRepoUrl && (
+          <a
+            href={bmoRepoUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block bg-primary text-white text-sm md:text-base px-6 py-2 rounded-full hover:bg-secondary transition-colors"
+          >
+            View on GitHub →
+          </a>
+        )}
+      </ProjectHero>
 
       <section className={`bg-gray-50 ${styles.sectionY}`}>
         <div className={`${styles.container} space-y-8`}>

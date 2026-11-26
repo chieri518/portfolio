@@ -13,10 +13,7 @@ export { designDesk as roverDesignDesk, dashboard as roverDashboard };
 
 export const roverHero = {
   eyebrow: "NASA Space Apps 2026 · 3D Browser Game · Hackathon",
-  title: "Rover Engineer",
   role: "Co-designer and developer · Team ChocoCherry, with my teammate Alvin",
-  tagline:
-    "A free 3D browser game where you design a rover, buy it a seat on a launch, and drive it on the Moon, Mars and Titan.",
   blurb:
     "You are the newest engineer at REL, the Rover Exploration Laboratory, a fictional agency. On each mission you pick every part of a rover within a budget, buy it a launch ticket, and drive it in real time once it lands, on terrain built from real NASA data. Every part trades capability against mass and cost, and the mission has to earn back what the rover and its launch cost before you can move on to the next world.",
   challenge:
@@ -24,8 +21,15 @@ export const roverHero = {
 };
 
 export const roverLinks = [
-  { label: "Play the game", href: "https://rover-engineer.vercel.app/", primary: true },
-  { label: "View on GitHub", href: "https://github.com/chieri518/rover-engineer" },
+  {
+    label: "Play the game",
+    href: "https://rover-engineer.vercel.app/",
+    primary: true,
+  },
+  {
+    label: "View on GitHub",
+    href: "https://github.com/chieri518/rover-engineer",
+  },
   {
     label: "Space Apps project page",
     href: "https://www.spaceappschallenge.org/2026/find-a-team/chococherry/?tab=project",
@@ -197,12 +201,14 @@ export const roverStack = [
   {
     stage: "Game",
     engine: "TypeScript + Vite",
-    notes: "Game numbers and text live in JSON; the rules have no rendering code",
+    notes:
+      "Game numbers and text live in JSON; the rules have no rendering code",
   },
   {
     stage: "3D rendering",
     engine: "Three.js",
-    notes: "Terrain chunks load as the rover drives; the rover is modeled in code",
+    notes:
+      "Terrain chunks load as the rover drives; the rover is modeled in code",
   },
   {
     stage: "Physics",

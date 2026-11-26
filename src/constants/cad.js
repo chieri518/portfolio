@@ -4,9 +4,6 @@ import sapporo from "../assets/cad/sapporo.JPG";
 
 export const cadHero = {
   eyebrow: "Making · CAD · 3D printing",
-  title: "Designed & Printed",
-  tagline:
-    "Things I've designed in CAD and brought to life on my 3D printer — with links to the models I've shared.",
 };
 
 export const cadPrints = [

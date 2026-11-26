@@ -2,6 +2,8 @@ import { useState } from "react";
 import { styles } from "../styles";
 import { SectionWrapper } from "../hoc";
 import {
+  ProjectHero,
+  Tldr,
   Pipeline,
   StackTable,
   Learnings,
@@ -123,50 +125,31 @@ function DemoVideo() {
 function DailyPrint() {
   return (
     <>
-      <section className={`relative w-full ${styles.introY}`}>
-        <div className={styles.container}>
-          <p className={styles.sectionSubText}>{dailyPrintHero.eyebrow}</p>
-
-          <div className="mt-6 max-w-4xl space-y-5">
-            <h1 className={styles.sectionHeadText}>{dailyPrintHero.title}</h1>
-            <p className="text-sm font-medium text-primary">
-              {dailyPrintHero.role}
-            </p>
-            <p className="text-2xl md:text-3xl font-semibold text-gray-900 leading-snug">
-              {dailyPrintHero.tagline}
-            </p>
-            <p className={styles.bodyText}>{dailyPrintHero.blurb}</p>
-            <div className="border-l-[3px] border-primary pl-4">
-              <p className="text-xs font-semibold uppercase tracking-wide text-gray-500 mb-1">
-                Why I built it
-              </p>
-              <p className="text-secondary text-[16px] leading-[26px] italic">
-                {dailyPrintHero.why}
-              </p>
+      <ProjectHero
+        link="/dailyprint"
+        eyebrow={dailyPrintHero.eyebrow}
+        below={
+          <>
+            <div className="mt-12">
+              <DemoVideo />
             </div>
-          </div>
-
-          <div className="mt-12">
-            <DemoVideo />
-          </div>
-
-          <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-4">
-            {dailyPrintTldr.map((item) => (
-              <div
-                key={item.label}
-                className="bg-gray-50 rounded-2xl border border-gray-100 p-5"
-              >
-                <p className="text-xs font-bold uppercase tracking-[0.15em] text-primary mb-2">
-                  {item.label}
-                </p>
-                <p className="text-secondary text-[15px] leading-[23px]">
-                  {item.text}
-                </p>
-              </div>
-            ))}
-          </div>
+            <Tldr items={dailyPrintTldr} />
+          </>
+        }
+      >
+        <p className="text-sm font-medium text-primary">
+          {dailyPrintHero.role}
+        </p>
+        <p className={styles.bodyText}>{dailyPrintHero.blurb}</p>
+        <div className="border-l-[3px] border-primary pl-4">
+          <p className="text-xs font-semibold uppercase tracking-wide text-gray-500 mb-1">
+            Why I built it
+          </p>
+          <p className="text-secondary text-[16px] leading-[26px] italic">
+            {dailyPrintHero.why}
+          </p>
         </div>
-      </section>
+      </ProjectHero>
 
       <section className={`bg-gray-50 ${styles.sectionY}`}>
         <div className={`${styles.containerNarrow} space-y-8`}>

@@ -10,10 +10,7 @@ export { default as dailyPrintCover } from "../assets/dailyprint/cover.jpg";
 
 export const dailyPrintHero = {
   eyebrow: "Personal Build · AI Agent · Web App",
-  title: "Daily Print",
   role: "Product, design and engineering",
-  tagline:
-    "An AI editor that puts together your own newspaper and prints it at home every morning.",
   blurb:
     "Daily Print is a personal newspaper, not a news feed. You design your paper — its name, sections, page layouts, typeface, tone and location — and an AI editor fills it each morning: it researches the news on the web, decides what makes the front page, writes every story to fit its spot, and adds the weather, puzzles, a word of the day and a comic strip drawn for you. The finished edition is a print-ready PDF, and a small printer box at home prints it before you wake up.",
   why: "News apps never end. A newspaper does: it has a fixed number of pages, a layout, and an editor who decides what matters and what gets cut. I wanted that experience back, made just for one reader, and on real paper.",

@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import { styles } from "../styles";
 import { SectionWrapper } from "../hoc";
-import { Learnings } from "../components/CaseStudy";
+import { ProjectHero, Learnings } from "../components/CaseStudy";
 import { menlo } from "../assets";
 import {
   alumniIntro,
@@ -46,74 +46,63 @@ function NewsletterFrame({ src, title }) {
 function Alumni() {
   return (
     <>
-      <section className={`relative w-full bg-ground ${styles.introY}`}>
-        <div className={`${styles.container} flex flex-col gap-10`}>
-          <p className={styles.sectionSubText}>{alumniIntro.eyebrow}</p>
-          <div className="flex flex-col md:flex-row text-center items-start gap-8">
-            <div className="flex-1 space-y-4">
-              <h1 className={styles.sectionHeadText}>{alumniIntro.title}</h1>
-
-              <section>
-                <div className="max-w-6xl mx-auto bg-gray-50 px-6 py-6 md:px-10 md:py-8">
-                  <div className="flex flex-col lg:flex-row items-center lg:items-start gap-8">
-                    <div className="flex-1 text-left">
-                      <p className={styles.bodyText}>{alumniIntro.overview}</p>
-                    </div>
-
-                    <a
-                      href="https://www.menlo.edu/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <img
-                        src={menlo}
-                        alt="Menlo College logo"
-                        className="w-[50%] mx-auto h-auto object-contain drop-shadow-md"
-                      />
-                    </a>
-                  </div>
+      <ProjectHero
+        link="/alumni"
+        eyebrow={alumniIntro.eyebrow}
+        below={
+          <>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-12">
+              {alumniStats.map((stat) => (
+                <div
+                  key={stat.label}
+                  className="bg-white rounded-2xl shadow-md border border-gray-100 p-6 text-center"
+                >
+                  <p className="text-3xl md:text-4xl font-black text-gray-900">
+                    {stat.value}
+                  </p>
+                  <p className="text-secondary text-[14px] leading-[20px] mt-2">
+                    {stat.label}
+                  </p>
                 </div>
-              </section>
+              ))}
+            </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-6">
-                {alumniStats.map((stat) => (
-                  <div
-                    key={stat.label}
-                    className="bg-white rounded-2xl shadow-md border border-gray-100 p-6 text-center"
-                  >
-                    <p className="text-3xl md:text-4xl font-black text-gray-900">
-                      {stat.value}
-                    </p>
-                    <p className="text-secondary text-[14px] leading-[20px] mt-2">
-                      {stat.label}
-                    </p>
-                  </div>
-                ))}
-              </div>
-
-              <div className="pt-10 space-y-4">
-                <h2 className={`${styles.cardTitle} text-center`}>
-                  Featured Work
-                </h2>
-                <div className="max-w-3xl mx-auto border-l-[3px] border-gray-300 pl-8">
-                  <ul className="space-y-3 text-[18px] leading-[24px] list-none text-left text-secondary">
-                    {alumniWork.map((work, index) => (
-                      <li key={work.id} className="flex items-start gap-3">
-                        <a
-                          href={`#${work.id}`}
-                          className="hover:text-gray-900 hover:underline transition-colors"
-                        >
-                          {index + 1}. {work.title} — {work.kind}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+            <div className="pt-10 space-y-4">
+              <h2 className={`${styles.cardTitle} text-center`}>
+                Featured Work
+              </h2>
+              <div className="max-w-3xl mx-auto border-l-[3px] border-gray-300 pl-8">
+                <ul className="space-y-3 text-[18px] leading-[24px] list-none text-left text-secondary">
+                  {alumniWork.map((work, index) => (
+                    <li key={work.id} className="flex items-start gap-3">
+                      <a
+                        href={`#${work.id}`}
+                        className="hover:text-gray-900 hover:underline transition-colors"
+                      >
+                        {index + 1}. {work.title} — {work.kind}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
+          </>
+        }
+      >
+        <p className={styles.bodyText}>{alumniIntro.overview}</p>
+        <a
+          href="https://www.menlo.edu/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-block"
+        >
+          <img
+            src={menlo}
+            alt="Menlo College logo"
+            className="h-14 w-auto object-contain"
+          />
+        </a>
+      </ProjectHero>
 
       {alumniWork.map((work) => (
         <section key={work.id} id={work.id} className={styles.sectionY}>

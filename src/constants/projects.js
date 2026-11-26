@@ -8,16 +8,16 @@ const allWorks = [
   {
     name: "BMO Robot",
     description:
-      "A voice-controlled BMO companion that runs fully on-device on a Raspberry Pi 5. It listens, replies in a custom voice, sees through a camera and makes faces, with no cloud. I took it from bare parts to a 3D-printed case and my first hand-soldered PCB.",
+      "Fully local, multimodal agentic robot (with Raspberry Pi) that mimics BMO from Adventure Time.",
 
     image: bmoCover,
     link: "/bmo",
     tags: ["Hardware", "Software"],
   },
   {
-    name: "Rover Engineer · NASA Space Apps 2026",
+    name: "Rover Engineer",
     description:
-      "A free 3D browser game where you design a rover and drive it on the Moon, Mars and Titan, over terrain built from real NASA data. Built with my teammate Alvin for NASA Space Apps 2026.",
+      "3D rover-engineering game built on NASA datasets to teach players mission design trade-offs.",
 
     image: roverCover,
     link: "/rover-engineer",
@@ -26,7 +26,7 @@ const allWorks = [
   {
     name: "Daily Print",
     description:
-      "An AI editor that writes a personal newspaper, with your own sections, layout and tone, and a Raspberry Pi printer box that prints it at home every morning.",
+      "Personal newspaper generator that curates daily editions tailored to interests, location, and reading history.",
 
     image: dailyPrintCover,
     link: "/dailyprint",
@@ -44,45 +44,46 @@ const allWorks = [
     tags: ["Hardware"],
   },
   {
-    name: "Founder of chetz",
-    description:
-      "Founded an online volunteer organization connecting Japan and the world through free educational and cultural exchange. Grew the team to 20+ members across 6 countries, running 10+ events a month.",
-
-    image: group1,
-    link: "/chetz",
-    tags: ["Entrepreneurship", "Community"],
-  },
-  {
     name: "NEC X",
     description:
-      "Running program operations and events while leading marketing across social media, paid ads and community outreach.",
+      "Program and event operations while leading marketing across social media, paid ads and community outreach.",
 
     image: necx_group,
     link: "/necx",
     tags: ["Entrepreneurship", "Marketing", "Community"],
   },
   {
-    name: "University Innovation Fellows",
+    name: "Stanford d.school's Innovation Fellow",
     description:
-      "Selected by Stanford's d.school as a University Innovation Fellow. Trained in design thinking, then worked with students and faculty to improve the student experience on campus.",
+      "Trained in design thinking, then worked with students and faculty to improve the student experience on campus.",
 
     image: uif1,
     link: "/uif",
     tags: ["Entrepreneurship", "Community"],
   },
+
+  {
+    name: "Founder of chetz",
+    description:
+      "Student-led non-profit organization connecting Japan and the world through language/cultural exchange.",
+
+    image: group1,
+    link: "/chetz",
+    tags: ["Entrepreneurship", "Community"],
+  },
   {
     name: "Navigating the Tech Job Market in 2025",
     description:
-      "A two-part LinkedIn series co-written with my mentor Frances Mann-Craik (Menlo College '76): her five-decade career alongside my view as a new graduate, with practical advice for a tight market.",
+      "A two-part series co-written with my mentor Frances Mann-Craik: her five-decade career alongside my view as a new graduate.",
 
     image: jobhunt,
     link: "/jobhunt",
     tags: ["Community"],
   },
   {
-    name: "Menlo College · Alumni Office",
+    name: "Alumni Engagement @ Menlo College",
     description:
-      "Videos and social content for Menlo College's alumni office, from student stories to a 360° graduation day. Instagram impressions rose 57.5% and LinkedIn engagement 79%.",
+      "Videos and social content for Menlo College's alumni office, from student stories to a 360° graduation day.",
 
     image: youtubevid,
     link: "/alumni",
@@ -102,4 +103,8 @@ const projectTags = [
 
 const works = allWorks.filter((work) => !work.hidden);
 
-export { works, projectTags };
+// A project page opens with the same title, one-line summary and cover photo
+// as its card above, looked up by the page's link (hidden projects included).
+const getProject = (link) => allWorks.find((work) => work.link === link);
+
+export { works, projectTags, getProject };

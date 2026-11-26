@@ -1,8 +1,69 @@
 import { Fragment } from "react";
 import { styles } from "../styles";
+import { getProject } from "../constants/projects";
 
 // Building blocks shared by the project case-study pages (BMO, Daily Print,
 // NECX, Alumni). Each page passes its own data and accent color.
+
+// The opening band of every project page. The title, one-line summary and
+// cover photo come from the project's card in constants/projects.js, so the
+// card and the page always match. The page's own intro goes in `children`
+// (under the summary); `below` is for anything that follows in the same band,
+// like a demo video or a list of sections.
+export function ProjectHero({ link, eyebrow, children, below }) {
+  const project = getProject(link);
+  return (
+    <section className={`relative w-full ${styles.introY}`}>
+      <div className={styles.container}>
+        {eyebrow && (
+          <p className={`${styles.sectionSubText} text-balance mb-6`}>
+            {eyebrow}
+          </p>
+        )}
+        <div className="flex flex-col lg:flex-row items-center gap-10">
+          <div className="flex-1 min-w-0 space-y-5">
+            <h1 className={`${styles.sectionHeadText} leading-tight`}>
+              {project.name}
+            </h1>
+            <p className="text-2xl md:text-3xl font-semibold text-gray-900 leading-snug">
+              {project.description}
+            </p>
+            {children}
+          </div>
+          <div className="flex-1 w-full max-w-md">
+            <img
+              src={project.image}
+              alt={project.name}
+              className="w-full h-auto rounded-2xl shadow-md"
+            />
+          </div>
+        </div>
+        {below}
+      </div>
+    </section>
+  );
+}
+
+// Three short "at a glance" boxes under a hero. Items are { label, text }.
+export function Tldr({ items }) {
+  return (
+    <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-4">
+      {items.map((item) => (
+        <div
+          key={item.label}
+          className="bg-gray-50 rounded-2xl border border-gray-100 p-5"
+        >
+          <p className="text-xs font-bold uppercase tracking-[0.15em] text-primary mb-2">
+            {item.label}
+          </p>
+          <p className="text-secondary text-[15px] leading-[23px]">
+            {item.text}
+          </p>
+        </div>
+      ))}
+    </div>
+  );
+}
 
 // A row of steps joined by arrows. From `lg` up the steps share one row (they
 // shrink to fit, so it never wraps); below that they stack with down arrows.

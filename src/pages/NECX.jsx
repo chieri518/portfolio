@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { styles } from "../styles";
 import { SectionWrapper } from "../hoc";
-import { Learnings } from "../components/CaseStudy";
+import { ProjectHero, Learnings } from "../components/CaseStudy";
 import { spinImages, lumaImages, necxLearnings } from "../constants/necx";
 import { necx, elevx } from "../assets";
 
@@ -53,80 +53,64 @@ function LumaGallery() {
 function NECX() {
   return (
     <>
-      <section className={`relative w-full bg-ground ${styles.introY}`}>
-        <div className={`${styles.container} flex flex-col gap-10`}>
-          <p className={styles.sectionSubText}>
-            Venture Studio · Silicon Valley · Japan
-          </p>
-          <div className="flex flex-col md:flex-row text-center items-start gap-8">
-            <div className="flex-1 space-y-4">
-              <h1 className={styles.sectionHeadText}>NEC X</h1>
-
-              <section>
-                <div className="max-w-6xl mx-auto bg-gray-50 px-6 py-6 md:px-10 md:py-8">
-                  <div className="flex flex-col lg:flex-row items-center lg:items-start gap-8">
-                    <div className="flex-1">
-                      <p className={styles.bodyText}>
-                        NEC X is a Silicon Valley-based venture studio backed by
-                        NEC Corporation, running a multi-phase accelerator
-                        program connecting early-stage startups with corporate
-                        resources, mentorship, and investment opportunities.
-                      </p>
-                    </div>
-
-                    <a
-                      href="https://www.nec-x.com/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <img
-                        src={necx}
-                        alt="NEC X logo"
-                        className="w-[50%] h-auto object-contain drop-shadow-md"
-                      />
-                    </a>
-                  </div>
-                </div>
-              </section>
-
-              <div className="pt-10 space-y-4">
-                <h2 className={`${styles.cardTitle} text-center`}>
-                  Key Contributions
-                </h2>
-                <div className="max-w-3xl mx-auto border-l-[3px] border-gray-300 pl-8">
-                  <ul className="space-y-3 text-[18px] leading-[24px] list-none text-left text-secondary">
-                    <li className="flex items-start gap-3">
-                      <a
-                        href="#social-media-marketing"
-                        className="hover:text-gray-900 hover:underline transition-colors"
-                      >
-                        1. Social Media Marketing - building program visibility
-                      </a>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <a
-                        href="#event-management"
-                        className="hover:text-gray-900 hover:underline transition-colors"
-                      >
-                        2. Event Management - converting interest into
-                        applications
-                      </a>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <a
-                        href="#program-coordination"
-                        className="hover:text-gray-900 hover:underline transition-colors"
-                      >
-                        3. Program Coordination - supporting founder success
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
+      <ProjectHero
+        link="/necx"
+        eyebrow="Venture Studio · Silicon Valley · Japan"
+        below={
+          <div className="pt-12 space-y-4">
+            <h2 className={`${styles.cardTitle} text-center`}>
+              Key Contributions
+            </h2>
+            <div className="max-w-3xl mx-auto border-l-[3px] border-gray-300 pl-8">
+              <ul className="space-y-3 text-[18px] leading-[24px] list-none text-left text-secondary">
+                <li className="flex items-start gap-3">
+                  <a
+                    href="#social-media-marketing"
+                    className="hover:text-gray-900 hover:underline transition-colors"
+                  >
+                    1. Social Media Marketing - building program visibility
+                  </a>
+                </li>
+                <li className="flex items-start gap-3">
+                  <a
+                    href="#event-management"
+                    className="hover:text-gray-900 hover:underline transition-colors"
+                  >
+                    2. Event Management - converting interest into applications
+                  </a>
+                </li>
+                <li className="flex items-start gap-3">
+                  <a
+                    href="#program-coordination"
+                    className="hover:text-gray-900 hover:underline transition-colors"
+                  >
+                    3. Program Coordination - supporting founder success
+                  </a>
+                </li>
+              </ul>
             </div>
           </div>
-        </div>
-      </section>
+        }
+      >
+        <p className={styles.bodyText}>
+          NEC X is a Silicon Valley-based venture studio backed by NEC
+          Corporation, running a multi-phase accelerator program connecting
+          early-stage startups with corporate resources, mentorship, and
+          investment opportunities.
+        </p>
+        <a
+          href="https://www.nec-x.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-block"
+        >
+          <img
+            src={necx}
+            alt="NEC X logo"
+            className="h-14 w-auto object-contain"
+          />
+        </a>
+      </ProjectHero>
 
       <section id="social-media-marketing" className={styles.sectionY}>
         <div className={`${styles.container} space-y-10`}>

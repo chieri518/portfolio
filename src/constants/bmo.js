@@ -18,17 +18,16 @@ export { default as bmoCover } from "../assets/bmo/cover.webp";
 
 export const bmoHero = {
   eyebrow: "Personal Build · Raspberry Pi · On-device AI",
-  title: "BMO",
-  role: "Solo project — product, hardware, ML, and design",
-  tagline:
-    "A voice-controlled BMO companion that thinks, talks, sees, and emotes — entirely on-device.",
-  why: "I wanted to find out whether a genuinely useful voice assistant could run entirely on-device — and whether I could build one end to end, including training a custom voice, with no prior machine-learning experience.",
+  // Who BMO is, for readers who haven't seen the show.
+  about:
+    "BMO (Beemo) is a lovable, sentient video game console and small robot from the cartoon Adventure Time. BMO lives with Finn and Jake, serving as their friend, gaming system, camera, music player, and much more.",
   blurb:
-    'Say "Hey BMO" and it wakes up, replies in BMO’s cheerful personality with a custom voice, and reacts with animated faces on its screen. Ask "what do you see?" and it describes what’s in front of its camera; say "let’s play" and it opens a touch-screen game. Everything runs on a Raspberry Pi 5, with no cloud, accounts, or internet.',
-  status: "Working end to end · June 2026 – present",
+    'Say "Hey BMO" and it wakes up, replies in BMO’s cheerful personality with a custom voice, and reacts with animated faces on its screen. Ask "what do you see?" and it describes what’s in front of its camera; say "let’s play" and it opens a touch-screen game. Everything runs on a Raspberry Pi 5, entirely on-device.',
 };
 
 // Headline numbers shown under the hero. Each comes from a phase below.
+// Not shown on the page right now. To bring the number cards back, render
+// these in the BMO hero (src/pages/BMO.jsx).
 export const bmoStats = [
   {
     value: "0",

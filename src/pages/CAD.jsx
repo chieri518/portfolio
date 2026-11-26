@@ -1,4 +1,5 @@
 import { styles } from "../styles";
+import { ProjectHero } from "../components/CaseStudy";
 import { cadHero, cadPrints, cadWorkflow, cadProfile } from "../constants/cad";
 
 const linkButton =
@@ -104,60 +105,57 @@ const CAD = () => {
   const hasProfile = cadProfile && cadProfile.url;
 
   return (
-    <section className="relative w-full mx-auto">
-      <div className={`${styles.padding} max-w-4xl mx-auto`}>
-        <p className={styles.sectionSubText}>{cadHero.eyebrow}</p>
-        <h1 className={styles.sectionHeadText}>{cadHero.title}</h1>
-        <p className="mt-3 text-secondary text-[15px] md:text-[16px] italic">
-          {cadHero.tagline}
-        </p>
+    <>
+      <ProjectHero link="/cad" eyebrow={cadHero.eyebrow}>
+        {cadHero.intro && <p className={styles.bodyText}>{cadHero.intro}</p>}
+      </ProjectHero>
 
-        {cadHero.intro && (
-          <p className={`${styles.bodyText} mt-6`}>{cadHero.intro}</p>
-        )}
+      <div className={`${styles.container} pb-10 sm:pb-16`}>
+        <div className="max-w-4xl">
+          <h2 className={`${styles.subHeadText} mb-4`}>
+            What I&rsquo;ve printed
+          </h2>
+          <div className="flex flex-col gap-6">
+            {cadPrints.map((print) => (
+              <Print key={print.id} {...print} />
+            ))}
+          </div>
 
-        <h2 className={`${styles.subHeadText} mt-10 mb-4`}>
-          What I&rsquo;ve printed
-        </h2>
-        <div className="flex flex-col gap-6">
-          {cadPrints.map((print) => (
-            <Print key={print.id} {...print} />
-          ))}
-        </div>
-
-        {cadWorkflow && (
-          <div className="mt-10 rounded-2xl bg-gray-50 border border-gray-100 p-5">
-            <p className="text-xs font-semibold uppercase tracking-wider text-secondary">
-              Tools &amp; workflow
-            </p>
-            <p className="mt-2 text-gray-900 text-[15px] md:text-[16px]">
-              Modeled in{" "}
-              <span className="font-semibold">{cadWorkflow.cad}</span> · Printed
-              on a <span className="font-semibold">{cadWorkflow.printer}</span>
-            </p>
-            {cadWorkflow.note && (
-              <p className="mt-1 text-secondary text-[14px]">
-                {cadWorkflow.note}
+          {cadWorkflow && (
+            <div className="mt-10 rounded-2xl bg-gray-50 border border-gray-100 p-5">
+              <p className="text-xs font-semibold uppercase tracking-wider text-secondary">
+                Tools &amp; workflow
               </p>
-            )}
-          </div>
-        )}
+              <p className="mt-2 text-gray-900 text-[15px] md:text-[16px]">
+                Modeled in{" "}
+                <span className="font-semibold">{cadWorkflow.cad}</span> ·
+                Printed on a{" "}
+                <span className="font-semibold">{cadWorkflow.printer}</span>
+              </p>
+              {cadWorkflow.note && (
+                <p className="mt-1 text-secondary text-[14px]">
+                  {cadWorkflow.note}
+                </p>
+              )}
+            </div>
+          )}
 
-        {hasProfile && (
-          <div className="mt-10">
-            <a
-              href={cadProfile.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={linkButton}
-            >
-              {cadProfile.label ||
-                `See more on ${cadProfile.platform || "my profile"} →`}
-            </a>
-          </div>
-        )}
+          {hasProfile && (
+            <div className="mt-10">
+              <a
+                href={cadProfile.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={linkButton}
+              >
+                {cadProfile.label ||
+                  `See more on ${cadProfile.platform || "my profile"} →`}
+              </a>
+            </div>
+          )}
+        </div>
       </div>
-    </section>
+    </>
   );
 };
 

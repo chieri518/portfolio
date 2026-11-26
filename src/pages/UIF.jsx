@@ -2,6 +2,7 @@ import { memo, useState, useEffect, useRef } from "react";
 import cn from "classnames";
 import { styles } from "../styles";
 import { SectionWrapper } from "../hoc";
+import { ProjectHero } from "../components/CaseStudy";
 import { uif, steamhouse, uiftimeline, meetup } from "../constants/uif";
 import {
   uiflogo,
@@ -145,47 +146,36 @@ const UIF = () => {
 
   return (
     <div className="relative w-full">
-      <div className={`${styles.container} ${styles.introY}`}>
-        <h1 className={styles.sectionHeadText}>
-          University Innovation Fellowship
-        </h1>
-        <p className={styles.sectionSubText}>
-          @ Hasso Plattner Institute of Design at Stanford University
-        </p>
-        <div className="mt-6">
-          <MarqueeGallery images={uif} />
-        </div>
-      </div>
-
-      {/* About UIF */}
-      <div className={`${styles.sectionY} bg-gray-50`}>
-        <div
-          className={`${styles.container} flex flex-col lg:flex-row items-center lg:items-start gap-8`}
-        >
-          <div className="flex-1">
-            <p className={styles.bodyText}>
-              The University Innovation Fellows (UIF) is a global program that
-              empowers university students to become change agents at their
-              schools by fostering innovation, entrepreneurship, creativity, and
-              design thinking. Supported by Stanford University&apos;s d.school,
-              Fellows collaborate with faculty, peers, and campus leaders to
-              improve learning experiences and drive institutional change.
-            </p>
+      <ProjectHero
+        link="/uif"
+        eyebrow="Hasso Plattner Institute of Design at Stanford University"
+        below={
+          <div className="mt-12">
+            <MarqueeGallery images={uif} />
           </div>
-          <a
-            href="https://universityinnovationfellows.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="lg:w-56 w-full flex justify-center"
-          >
-            <img
-              src={uiflogo}
-              alt="University Innovation Fellows logo"
-              className="w-full h-auto object-contain hover:scale-105 transition-transform duration-300"
-            />
-          </a>
-        </div>
-      </div>
+        }
+      >
+        <p className={styles.bodyText}>
+          The University Innovation Fellows (UIF) is a global program that
+          empowers university students to become change agents at their schools
+          by fostering innovation, entrepreneurship, creativity, and design
+          thinking. Supported by Stanford University&apos;s d.school, Fellows
+          collaborate with faculty, peers, and campus leaders to improve
+          learning experiences and drive institutional change.
+        </p>
+        <a
+          href="https://universityinnovationfellows.org/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-block"
+        >
+          <img
+            src={uiflogo}
+            alt="University Innovation Fellows logo"
+            className="h-14 w-auto object-contain"
+          />
+        </a>
+      </ProjectHero>
 
       <div className={styles.sectionY}>
         <div className={`${styles.container} space-y-6`}>
